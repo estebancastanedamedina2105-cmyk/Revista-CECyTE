@@ -17,7 +17,123 @@
         <img src="../Imagenes/cecyte.jpg" class="logo_circulo" title="Logo CCEyTE"/>
       </div>
     </header>
-<div class="diseño_principal">
+
+    <div class="sidebar close">
+        <div class="logo-details">
+          <i class='bx bxl-kickstarter bx-tada' style='color: #080808'></i>
+          <span class="logo_name"style='color:#080808'>Sistemas</span>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="#">
+              <i class='bx bx-grid-alt' ></i>
+              <span class="link_name">Panel</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Panel</a></li>
+            </ul>
+          </li>
+          <li>
+            <div class="iocn-link">
+              <a href="#">
+                <i class='bx bx-collection' ></i>
+                <span class="link_name">Categoria</span>
+              </a>
+              <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+              <li><a class="link_name" href="#">Categoria</a></li>
+              <li><a href="#">Sub Menú 1</a></li>
+            </ul>
+          </li>
+          <li>
+            <div class="iocn-link">
+              <a href="#">
+                <i class='bx bx-book-alt' ></i>
+                <span class="link_name">Productos</span>
+              </a>
+              <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+              <li><a class="link_name" href="#">Productos</a></li>
+              <li><a href="#">Sub Menú 1</a></li>
+              <li><a href="#">Sub Menú 2</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-pie-chart-alt-2' ></i>
+              <span class="link_name">Reportes</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Reportes</a></li>
+            </ul>
+          </li>
+          <li>
+            <div class="iocn-link">
+              <a href="#">
+                <i class='bx bxs-user-voice'></i>
+                <span class="link_name">Clientes</span>
+              </a>
+              <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+              <li><a class="link_name" href="#">Clientes</a></li>
+              <li><a href="#">Sub Menú 1</a></li>
+              <li><a href="#">Sub Menú 2</a></li>
+              <li><a href="#">Sub Menú 3</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bxs-contact' ></i>
+              <span class="link_name">Contactos</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Contactos</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bxs-edit-location'></i>
+              <span class="link_name">Sedes</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Sedes</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-cog' ></i>
+              <span class="link_name">Configuración</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Configuración</a></li>
+            </ul>
+          </li>
+          <li>
+            <div class="profile-details">
+              <div class="profile-content">
+                <img src="../Imagenes/coyote cecyte.jpg" alt="profileImg">
+              </div>
+              <div class="name-job">
+                <div class="profile_name">Administrador</div>
+                <div class="job">Web Desginer</div>
+              </div>
+              <i class='bx bx-log-out' ></i>
+            </div>
+          </li>
+        </ul>
+          </div>
+          <section class="home-section">
+            <div class="home-content">
+              <i class='bx bx-menu' ></i>
+              <span class="text">Barra lateral desplegable</span>
+            </div>
+          </section>
+
+          
+    <div class="diseño_principal">
       <input type="checkbox" id="check-menu" style="display: none;">
       <aside class="barra_lateral">
         <div class="grupo_menu">
@@ -95,36 +211,13 @@
         </div>
       </main>
     </div>
-    <script src="../ClaseJs/Sscrip.js"></script>
-    <!-- Aqui es lo de Chatbot --------------------->
-     <div id="chatbot-container">
+    <div id="chatbot-container">
       <div id="chatbot-header">ChatBot</div>
       <div id="chatbot-body" style="display: none"></div>
-      </div>
-      <div id="chat-messages"></div>
-      <input chat-input id="chat-input" placeholder="Escribe tu Mensaje" />
-      
-      <script>
-        function toggleChatbot() {
-          var chatBody = document.getElementById("chatbot-body");
-          chatBod.style.display = chatBody.style.display === "none" ;
-        }
-
-        function sednMensaje() {
-          var input = document.getElementById("chat-input");
-          var mensaje = input.value;
-          input.value = "";
-
-          fetch("/Chatbot")
-        }
-
-
-
-
-
-
-      </script>
-
+    </div>
+    <div id="chat-messages"></div>
+    <input chat-input id="chat-input" placeholder="Escribe tu Mensaje" />
+    <script src="../ClaseJs/Sscrip.js"></script>
   </body>
 </html>
 
