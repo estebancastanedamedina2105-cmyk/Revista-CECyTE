@@ -9,7 +9,7 @@
     background-color: var(--crema-pastel);
     color: #333;
 }
-.hader-superior{
+.hader_superior{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,35 +17,35 @@
     background: var(--blanco);
     border-bottom: 1px solid #ddd;
 }
-.titulo-h1{
+.titulo_h1{
     font-size: 40px;
     font-weight: bold;
     color: #555;
 }
-.seccion-derecha{
+.seccion_derecha{
     display: flex;
     align-items: center;
     gap: 15px;
 }
-.botones-auth{
+.botones_auth{
     background: #333;
     color: white;
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 12px;
 }
-.logo-circulo{
+.logo_circulo{
     width: 50px;
     height: 50px;
     border-radius: 50%;
     border: 2px solid #8d6e63;
 }
-.diseño-principal{
+.diseño_principal{
     display: flex;
     padding: 20px;
     gap: 20px;
 }
-.contenido-menu{
+.contenido_menu{
     display: flex;
     width: 100%;
     min-height: 100vh;
@@ -53,7 +53,7 @@
 #check-menu:checked ~ .barra-lateral{
     left: 20px;
 }
-.barra-lateral{
+.barra_lateral{
     width: 220px;
     height: 100vh;
     position: fixed;
@@ -68,30 +68,30 @@
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0, 05);
 }
 
-.barra-lateral ul{
+.barra_lateral ul{
     padding: 0;
     list-style: none;
 }
-.barra-lateral li{
+.barra_lateral li{
     padding: 8px 0;
     font-size: 14px;
     columns: #666;
     cursor: pointer;
     transition: 0.3s;
 }
-.barra-lateral li:hover{
+.barra_lateral li:hover{
     color: var(--azul-cecyte);
     padding-left: 5px;
 }
-.feed-anuncios{
+.feed_anuncios{
     flex: 1;
 }
-.barra-busqueda-contenedor{
+.barra_busqueda_contenedor{
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
 }
-.input-busqueda{
+.input_busqueda{
     width: 60%;
     padding: 10px 20px;
     border-radius: 25px;
@@ -112,24 +112,24 @@
     border: 1px solid #eee;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0, 02);
 }
-.acciones-tarjeta{
+.acciones_tarjeta{
     margin-top: 15px;
     font-size: 20px;
     display: flex;
     gap: 20px;
     color: #888;
 }
-.remitente-anuncio{
+.remitente_anuncio{
     color: var(--azul-cecyte);
     font-size: 14px;
     margin-bottom: 5px;
 }
-.cuerpo-anuncio{
+.cuerpo_anuncio{
     font-size: 16px;
     line-height: 1.5;
     margin-top: 10px;
 }
-.lienea-divisora{
+.lienea_divisora{
     border: 0;
     border-top: 1px solid #eee;
     margin: 10px 0;
