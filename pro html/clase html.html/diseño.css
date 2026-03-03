@@ -50,7 +50,7 @@
     width: 100%;
     min-height: 100vh;
 }
-#check-menu:checked ~ .barra-lateral{
+#check_menu:checked ~ .barralateral{
     left: 20px;
 }
 .barra_lateral{
@@ -89,17 +89,17 @@
 .barra_busqueda_contenedor{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 300px;
 }
 .input_busqueda{
     width: 60%;
-    padding: 10px 20px;
+    padding: 10px 300px;
     border-radius: 25px;
     border: 1px solid #ddd;
 }
 .feed_anuncios{
     flex: 1;
-    margin-left: 0;
+    margin-left: 10;
     padding: 20px;
     max-width: 800px;
     margin: 0 auto;
