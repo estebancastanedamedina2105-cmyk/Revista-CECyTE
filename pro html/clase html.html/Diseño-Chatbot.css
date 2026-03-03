@@ -8,3 +8,16 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     width: 300px;
     z-index: 1000;
+    }
+#chatbot-header {
+    background-color: #2fb133;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    }
+#chatbot-body {
+    padding: 10px;
+    
