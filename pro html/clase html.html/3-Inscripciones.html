@@ -8,6 +8,24 @@
     <header class="hader-superior">
       <div class="seccion-menuiz">
         <h2 class="texmenu">Menu</h2>
+        <button id="modoOscuro">🌙 Modo oscuro</button>
+        <script>
+const boton = document.getElementById("modoOscuro");
+
+boton.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  if(document.body.classList.contains("dark")) {
+    localStorage.setItem("modo", "oscuro");
+  } else {
+    localStorage.setItem("modo", "claro");
+  }
+});
+
+if(localStorage.getItem("modo") === "oscuro") {
+  document.body.classList.add("dark");
+}
+</script>
         <div class="flecha">→</div>
       </div>
       <h1 class="titulo-h1">CECyTE</h1>
@@ -60,13 +78,22 @@
           <input type="text" class="input-busqueda" placeholder="Busca la publicacion o perfil">
           </div>
         </div>
-        <h2 class="subtitulos-seccion">Profesores</h2>
+
+        <div class="caja-inscripciones">
+        <h2 class="subtitulos-seccion">Fechas de CECyTE Emiliano Zapata</h2>
+        <h3 class ="subtitulos-seccion">Calendario</h3>
         <div class="tarjeta">
           <div class="encabezado-tarjeta">
+
+            <div class="caja-mes">
+              <label for="mes">Selecciona un mes:</label>
+              <input type="month" id="mes">
+
             <p><strong>Foto del profesor</strong></p>
-            <hr class="lienea divisora"><p class="cuerpo-anuncio">
+            <hr class="linea divisora"><p class="cuerpo-anuncio">
               <strong>Nombre: </strong><br>
                 <strong>Materia: </strong><br>
+
             </p>
           </div>
           </div>

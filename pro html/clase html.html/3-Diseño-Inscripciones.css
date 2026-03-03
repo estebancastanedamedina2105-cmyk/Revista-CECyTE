@@ -1,3 +1,5 @@
+
+
 :root{
     --azul-cecyte:#1a4d8c;
     --crema-pastel:#fdfaf5;
@@ -7,8 +9,17 @@
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
     background-color: var(--crema-pastel);
-    color: #333;
+    color: black;
+    margin: 0;
+    transition: 0.3s;
+
 }
+
+.dark {
+    background-color: #121212;
+    color: white;
+}
+
 .hader-superior{
     display: flex;
     justify-content: space-between;
@@ -129,11 +140,20 @@
     line-height: 1.5;
     margin-top: 10px;
 }
-.lienea-divisora{
+.linea-divisora{
     border: 0;
     border-top: 1px solid #eee;
     margin: 10px 0;
     display: block;
+}
+
+.caja-inscripciones{
+    background: var(--blanco);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0, 02);
 }
 .caja-profesor{
     background: var(--blanco);
