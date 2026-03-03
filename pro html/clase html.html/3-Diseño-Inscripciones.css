@@ -152,15 +152,24 @@
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 20px;
-    border: 1px solid #eee;
+    border: 1px solid #000000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0, 02);
 }
-.caja-profesor{
+.caja-mes{
     background: var(--blanco);
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 20px;
-    border: 1px solid #eee;
+    border: 1px solid #000000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0, 02);
+    display: inline-block;
+}
+.caja-informacion{
+    background: var(--blanco);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #000000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0, 02);
     display: inline-block;
 }
