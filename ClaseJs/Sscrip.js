@@ -1,8 +1,8 @@
 function btn_ingresa(){
     location.href="pag2.htm";
 }
-function btn(){
-
+function btn_diseño(){
+    location.href="pag2.htm";
 }
 function btn(){
     
