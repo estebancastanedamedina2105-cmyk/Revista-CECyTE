@@ -1,14 +1,17 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <title>Menú del CECyTE</title>
-    <link rel="stylesheet" href="4-Diseño-Cafeteria.css" />
+    <meta charset="UFT-8">
+    <title>Revista CECyTE</title>
+    <link rel="stylesheet" href="diseño.css" />
+    <link rel="stylesheet" href="Diseño-Chatbot.css" />
   </head>
   <body class="fondo_crema">
     <header class="hader-superior">
       <div class="seccion-menuiz">
         <h2 class="texmenu">CECyTE</h2>
         <button id="modoOscuro">🌙 Modo oscuro</button>
+        <label for="check-menu" class="btn-menu"> ☰ Menu</label>
         <script>
             <!-- Modo oscuro -->
             const boton = document.getElementById("modoOscuro");
@@ -33,8 +36,8 @@
         <img src="../Imagenes/cecyte.jpg" class="logo-circulo" title="Logo CCEyTE"/>
         </div>
     </header>
-    <div class="diseño-principal">
-        <input type="checkbox" id="check-menu" style="display: none;">
+    <div class="diseño_principal">
+      <input type="checkbox" id="check-menu" style="display: none;">
         <aside class="barra-lateral">
         <div class="grupo-menu">
             <h4>Revista</h4>
@@ -64,54 +67,33 @@
             <div class="Exit-User"></div>
         </div>
     </aside>
-        <main class="contenido-menu">
-        <label for="check-menu" class="btn-menu"> ☰ </label>
-        </main>
-        <main class="feed_anuncios">
-        <div class="barra-busqueda-contenedor">
-            <input type="text" class="input-busqueda" placeholder="Busca la publicacion o perfil">
-            </div>
+      <main class="feed_anuncios">
+        <div class="barra_busqueda_contenedor">
+          <input type="text" class="input_busqueda" placeholder="Busca la publicacion o perfil">
+          </div>
         </div>
-
-        <div class="caja-cafeteria">
-        <h2 class="subtitulos-seccion">Menu de Cafeteria</h2>
-            <div class="encabezado-tarjeta">
-
-            <div class="caja-menu1">
-                <h3>Cafeteria de Abajo</h3>
-                <ol>
-                    <li>Tacos acorazados -$35</li>
-                    <li>Torta de Jamon ----$35</li>
-                    <li>Torta de Milanesa -$40</li>
-                    <li>Chilaquiles ---------$40</li>
-                    <li>Banderillas ---------$25</li>
-                </ol>
-            </div>
-
-            <div class="caja-menu2">
-                <h3>Cafeteria de Arriba</h3>
-                <ol>
-                    <li>Tacos acorazados -$35</li>
-                    <li>Torta de Jamon ----$35</li>
-                    <li>Torta de Milanesa -$40</li>
-                    <li>Chilaquiles ---------$40</li>
-                    <li>Banderillas ---------$25</li>
-                </ol>
-
-            </div>
-
-
-            </div>
-
+        <h2 class="subtitulos_seccion">Anuncios</h2>
+        <div class="tarjeta">
+          <div class="encabezado_tarjeta">
+            <p><strong>Anucio!! De: Esteban</strong></p>
+            <hr class="lienea divisora"><p class="cuerpo_anuncio">
+              <strong>ME QUIERO PEGAR DOS TIROS EN LA CABEZA</strong><br>ooh baby,you touch yourself so much that you cant t feel anything anymore
             </p>
-                </div>
-                </div>
-                </div>
-                </div>
-        </main>
+          </div>
+          <div class="acciones_tarjerta">
+            <button class="btn_opc_tarjeta">⋮</button>
+            <button class="btn_cora_tarjeta">♡</button>
+          </div>
         </div>
-        <script>
-            
-        </script>
-    </body>
+      </main>
+    </div>
+    <div id="chatbot-container">
+      <div id="chatbot-header">ChatBot</div>
+      <div id="chatbot-body" style="display: none"></div>
+    </div>
+    <div id="chat-messages"></div>
+    <input chat-input id="chat-input" placeholder="Escribe tu Mensaje" />
+    <script src="../../Clase Js/Sscrip.js"></script>
+  </body>
 </html>
+
