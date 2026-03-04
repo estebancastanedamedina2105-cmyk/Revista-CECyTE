@@ -1,3 +1,11 @@
+.fondo{
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--crema-pastel);
+    color: black;
+    margin: 0;
+    transition: 0.3s;
+}
 .bg-animate{
     background-color: #FFFDD0;   
 }

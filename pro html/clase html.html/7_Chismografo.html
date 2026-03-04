@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UFT-8">
+    <title>Chismografo CECyTE</title>
+    <link rel="stylesheet" href="1_Diseño_Anuncios.css" />
+    <link rel="stylesheet" href="7_Chismografo.css" />
+    <link rel="stylesheet" href="Diseño-Chatbot.css" />
+  </head>
+  <body class="fondo_crema">
+    <header class="hader-superior">
+      <div class="seccion-menuiz">
+        <label for="check-menu" class="btn-menu"><h3> ☰ Menu</h3></label>
+        <span>——</span>
+        <button id="modoOscuro" class="btn_oscuro botones"> 🌙 | ☀️</button>
+        <script>
+            <!-- Modo oscuro -->
+            const boton = document.getElementById("modoOscuro");
+            boton.addEventListener("click", () => {
+                document.body.classList.toggle("dark");
+                if(document.body.classList.contains("dark")) {
+                    localStorage.setItem("modo", "oscuro");
+                } else {
+                    localStorage.setItem("modo", "claro");
+                }
+            });
+            if(localStorage.getItem("modo") === "oscuro") {
+                document.body.classList.add("dark");
+            }
+        </script>
+        </div>
+        <h2 class="texmenu">CECyTE</h2>
+        <h1 class="titulo-h1">Fake News</h1>
+        <div class="seccion-derecha">
+        <a href="5-Login.html" class="botones-auth botones" title="Ingresar"><button type="button">Ingresar</button></a>
+        <img src="../Imagenes/cecyte.jpg" class="logo-circulo" title="Logo CCEyTE"/>
+        </div>
+    </header>
+    <div class="diseño_principal">
+      <input type="checkbox" id="check-menu" style="display: none;">
+        <aside class="barra-lateral">
+        <div class="grupo-menu">
+            <h2>Revista</h2>
+            <ul>
+            <li><a href="1_Anuncios.html" class="btn_revista">☆  Anuncios</a></li>
+            <li><a href="3-Inscripciones.html" class="btn_inscripciones">☆  Inscripciones</a></li>
+            <li><a href="2-Profesores.html" class="btn_profesores">☆  Profesores</a></li>
+            <li><a href=".html" class="btn_eventos">☆  Eventos</a></li>
+            <li><a href=".html" class="btn_fechas">☆  Fechas</a></li>
+            <li><a href=".html" class="btn_alumnos_desta">☆  Alumnos destacados</a></li>
+            </ul>
+        </div>
+        <div class="grupo-menu">
+            <ul>
+            <hr>
+            <li><a href=".html" class="btn_mapa">☆  Mapa</a></li>
+            <li><a href=".html" class="btn_chatbot">☆  ChatBot</a></li>
+            <li><a href="4-Cafeteria.html" class="btn_menu_cafe">☆  Menu de cafeteria</a></li>
+            <li><a href="7_Chismografo.html" class="btn_chisme">☆  Chismografo</a></li>
+            <li><a href=".html" class="btn_horaio">☆  Horario</a></li>
+            </ul>
+        </div>
+        <div class="menu-usuario">
+            <div>
+              <a href="6-Perfil.html" class="btn_user">User</a>
+            </div>
+            <div class="Exit-User"></div>
+        </div>
+    </aside>
+    <div>
+        <div class="post-container">
+    <div class="post-header">
+        <textarea id="postText" placeholder="¿Qué vas a contar?"></textarea>
+    </div>
+    <div class="post-actions">
+        <button id="postBtn">Publicar</button>
+    </div>
+</div>
+
+<!-- Contenedor donde aparecerán las publicaciones -->
+<div for="feed" id="feed"></div>
+
+    </div>
+    <div>
+    <aside class="barra_anuncio">
+        <div class="post-body">
+            <p>¡Esta es mi primera publicación estilo Facebook!</p>
+        </div>
+        <div class="post-actions">
+            <div class="like-container">
+                <button id="likeBtn">❤️ Like</button>
+                <span id="likeCount">0</span>
+            </div>
+            <button>Comentar</button>
+        </div>
+    </aside>
+    <aside class="barra_anuncio">
+        <div class="post-body">
+            <p>¡Esta es mi primera publicación estilo Facebook!</p>
+        </div>
+        <div class="post-actions">
+            <div class="like-container">
+        <button id="likeBtn">❤️ Like</button>
+        <span id="likeCount">0</span>
+    </div>
+            <button>Comentar</button>
+        </div>
+    </div>
+        </aside>
+    </div>
+    </div>
+</div>
+
+
+
+
+    </div>
+    <div id="chatbot-container">
+      <div id="chatbot-header">ChatBot</div>
+      <div id="chatbot-body" style="display: none"></div>
+    </div>
+    <div id="chat-messages" style="display: none"></div>
+    <input chat-input id="chat-input" placeholder="Escribe tu Mensaje" />
+    <script src="../../Clase Js/Sscrip.js"></script>
+    <script src="../../Clase Js/chismografo.js"></script>
+  </body>
+</html>
+

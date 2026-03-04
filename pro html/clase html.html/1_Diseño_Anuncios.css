@@ -11,6 +11,39 @@
     margin: 0;
     transition: 0.3s;
 }
+.botones-auth:hover{
+    background-color: #43331f;
+}
+#check-menu:checked ~ .barra-lateral{
+    left: 8px;
+}
+.btn-menu{
+    display: inline-block;
+    cursor: pointer;    
+    transition: transform 0.1s ease;
+    font-size: 15px;
+}
+.btn-menu:active{
+    transform: scale(0.9);
+    color: #21ff59;
+}
+.btn_user{
+    display: inline-block;
+    cursor: pointer;    
+    transition: transform 0.1s ease;
+    font-size: 15px;
+}
+.btn_user:active{
+    transform: scale(0.9);
+    color: #47e3ff;
+}
+
+.botones:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.604);
+}
+
+
 .dark {
     background-color: #121212;
     color: white;
@@ -29,7 +62,7 @@
     color: #555;
 }
 .titulo-h1{
-    font-size: 50   px;
+    font-size: 40px;
     font-weight: bold;
     color: #555;
 }
@@ -61,9 +94,6 @@
     width: 100%;
     min-height: 100vh;
 }
-#check-menu:checked ~ .barra-lateral{
-    left: 8px;
-}
 .barra-lateral{
     width: 220px;
     height: 100vh;
@@ -72,7 +102,7 @@
     background: var(--blanco);
     border-radius: 15px;
     padding: 0px;
-    height: calc(96vh - 100px);
+    height: calc(84vh - 100px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -84,7 +114,7 @@
     list-style: none;
 }
 .barra-lateral li{
-    padding: 5px 0;
+    padding: 0px 0;
     font-size: 16px;
     columns: #666;
     cursor: pointer;
