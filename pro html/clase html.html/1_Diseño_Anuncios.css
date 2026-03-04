@@ -19,9 +19,10 @@
 }
 .btn-menu{
     display: inline-block;
-    cursor: pointer;    
+    cursor: pointer;
     transition: transform 0.1s ease;
     font-size: 15px;
+    color: #3a3a3a;
 }
 .btn-menu:active{
     transform: scale(0.9);
