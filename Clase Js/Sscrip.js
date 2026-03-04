@@ -1,5 +1,5 @@
-function btn_oscuro(){
-    window.location.href = "5-Login.html";
+function btn_login(){
+    location.href = "5-Login.html";
 }
 console.log("Hola_Mundo");
 
