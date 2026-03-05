@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Alumnos Destacados CECyTE</title>
+        <link rel="stylesheet" href="9-Diseño-AlumnosDesta.css" />
+        <link rel="stylesheet" href="1_Diseño_Anuncios.css" />  
+    <link rel="icon" href="../Imagenes/LogoCecyte.jpg" type="image/png">
+    <link rel="stylesheet" href="Diseño-Chatbot.css" />
+  </head>
+  <body class="fondo_crema">
+    <header class="hader-superior">
+      <div class="seccion-menuiz">
+        <label for="check-menu" class="btn-menu"><h3> ☰ Menu</h3></label>
+        <span>——</span>
+        <button id="modoOscuro" class="btn_oscuro botones"> 🌙 | ☀️</button>
+        <script>
+            <!-- Modo oscuro -->
+            const boton = document.getElementById("modoOscuro");
+            boton.addEventListener("click", () => {
+                document.body.classList.toggle("dark");
+                if(document.body.classList.contains("dark")) {
+                    localStorage.setItem("modo", "oscuro");
+                } else {
+                    localStorage.setItem("modo", "claro");
+                }
+            });
+            if(localStorage.getItem("modo") === "oscuro") {
+                document.body.classList.add("dark");
+            }
+        </script>
+        </div>
+        <h2 class="texmenu">CECyTE</h2>
+        <h1 class="titulo-h1">Fake News</h1>
+        <div class="seccion-derecha">
+        <a href="5-Login.html" class="botones-auth botones" title="Ingresar"><button type="button">Ingresar</button></a>
+        <img src="../Imagenes/LogoCecyte.jpg" class="logo-circulo" title="Logo CCEyTE"/>
+        </div>
+    </header>
+    <div class="diseño_principal">
+      <input type="checkbox" id="check-menu" style="display: none;">
+        <aside class="barra-lateral">
+        <div class="grupo-menu">
+            <h2>Revista</h2>
+            <ul>
+            <li><a href="1_Anuncios.html" class="btn_revista">☆  Anuncios</a></li>
+            <li><a href="3-Calendario.html" class="btn_inscripciones">☆  Calendario</a></li>
+            <li><a href="2-Profesores.html" class="btn_profesores">☆  Profesores</a></li>
+            <li><a href="8_Eventos.html" class="btn_eventos">☆  Eventos</a></li>
+            <li><a href="9_AlumnosDesta.html" class="btn_alumnos_desta">☆  Alumnos destacados</a></li>
+            <li><a href="10_Convocatoria.html" class="btn_convocatorias">☆  Convocatorias</a></li>
+            </ul>
+        </div>
+        <div class="grupo-menu">
+            <ul>
+            <hr>
+            <li><a href="11_Mapa.html" class="btn_mapa">☆  Mapa</a></li>
+            <li><a href="4-Cafeteria.html" class="btn_menu_cafe">☆  Menu de cafeteria</a></li>
+            <li><a href="7_Chismografo.html" class="btn_chisme">☆  Chismografo</a></li>
+            <li><a href="12_Horario.html" class="btn_horario">☆  Horario</a></li>
+            </ul>
+        </div>
+        <div class="menu-usuario">
+            <div>
+              <a href="6-Perfil.html" class="btn_user">User</a>
+            </div>
+            <div class="Exit-User"></div>
+        </div>
+    </aside>
+    </body>
+</html>

@@ -16,10 +16,6 @@
     align-items: center;
     gap: 10px;
 }
-button {
-    padding: 10px 20px;
-    cursor: pointer;
-}
 #likeCount {
     font-size: 1.2em;
     font-weight: bold;
@@ -61,7 +57,7 @@ textarea {
     padding-top: 10px;
 }
 
-button {
+.button {
     background-color: #1876f200;
     color: white;
     border: none;

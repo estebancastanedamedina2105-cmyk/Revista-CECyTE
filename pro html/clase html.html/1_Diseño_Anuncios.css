@@ -11,6 +11,16 @@
     margin: 0;
     transition: 0.3s;
 }
+.botones:hover{
+    background-color: #43331f;
+}
+.botones{
+    background: #333;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+}
 .botones-auth:hover{
     background-color: #43331f;
 }

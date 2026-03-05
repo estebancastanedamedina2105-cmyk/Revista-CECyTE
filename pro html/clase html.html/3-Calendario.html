@@ -1,79 +1,71 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <title>Calendaario CECyTE</title>
-    <link rel="icon" href="../Imagenes/cecyte.jpg" type="image/png">
+    <title>Calendario CECyTE</title>
     <link rel="stylesheet" href="3-Diseño-Calendario.css" />
+  <link rel="stylesheet" href="1_Diseño_Anuncios.css" />  
+    <link rel="icon" href="../Imagenes/LogoCecyte.jpg" type="image/png">
+    <link rel="stylesheet" href="Diseño-Chatbot.css" />
   </head>
   <body class="fondo_crema">
     <header class="hader-superior">
       <div class="seccion-menuiz">
-        <h2 class="texmenu">Menu</h2>
-        <button id="modoOscuro">🌙 Modo oscuro</button>
+        <label for="check-menu" class="btn-menu"><h3> ☰ Menu</h3></label>
+        <span>——</span>
+        <button id="modoOscuro" class="btn_oscuro botones"> 🌙 | ☀️</button>
         <script>
-        const boton = document.getElementById("modoOscuro");
-
-        boton.addEventListener("click", () => {
-        document.body.classList.toggle("dark");
-
-        if(document.body.classList.contains("dark")) {
-        localStorage.setItem("modo", "oscuro");
-        } else {
-        localStorage.setItem("modo", "claro");
-      }
-    });
-
-    if(localStorage.getItem("modo") === "oscuro") {
-      document.body.classList.add("dark");
-}
-</script>
-        <div class="flecha">→</div>
-      </div>
-      <h1 class="titulo-h1">CECyTE</h1>
-      <div class="seccion-derecha">
-        <span class="luna">🌙</span>
-        <div class="botones-auth">
-          <button class="btn-oscuro">Ingresar</button>
-          <span class="linea">|</span>
-          <button class="btn-oscuro">Registrarse</button>
+            <!-- Modo oscuro -->
+            const boton = document.getElementById("modoOscuro");
+            boton.addEventListener("click", () => {
+                document.body.classList.toggle("dark");
+                if(document.body.classList.contains("dark")) {
+                    localStorage.setItem("modo", "oscuro");
+                } else {
+                    localStorage.setItem("modo", "claro");
+                }
+            });
+            if(localStorage.getItem("modo") === "oscuro") {
+                document.body.classList.add("dark");
+            }
+        </script>
         </div>
-        <img src="../Imagenes/cecyte.jpg" class="logo-circulo" title="Logo CCEyTE"/>
-      </div>
+        <h2 class="texmenu">CECyTE</h2>
+        <h1 class="titulo-h1">Fake News</h1>
+        <div class="seccion-derecha">
+        <a href="5-Login.html" class="botones-auth botones" title="Ingresar"><button type="button">Ingresar</button></a>
+        <img src="../Imagenes/LogoCecyte.jpg" class="logo-circulo" title="Logo CCEyTE"/>
+        </div>
     </header>
-    <div class="diseño-principal">
+    <div class="diseño_principal">
       <input type="checkbox" id="check-menu" style="display: none;">
-      <aside class="barra-lateral">
+        <aside class="barra-lateral">
         <div class="grupo-menu">
-          <h4>Revista</h4>
-          <ul>
-          <li><span>☆</span>Anuncios</li>
-          <li><span>☆</span>Inscripciones</li>
-          <li><span>☆</span>Profesores</li>
-          <li><span>☆</span>Menu de cafeteria</li>
-          <li><span>☆</span>Chismografo</li>
-          <li><span>☆</span>Eventos</li>
-          <li><span>☆</span>Fechas</li>
-          <li><span>☆</span>Alumnos destacados</li>
-          <li><span>☆</span>Horario</li>
-          <li><span>☆</span>Anuncios</li>
-          </ul>
+            <h2>Revista</h2>
+            <ul>
+            <li><a href="1_Anuncios.html" class="btn_revista">☆  Anuncios</a></li>
+            <li><a href="3-Calendario.html" class="btn_inscripciones">☆  Calendario</a></li>
+            <li><a href="2-Profesores.html" class="btn_profesores">☆  Profesores</a></li>
+            <li><a href="8_Eventos.html" class="btn_eventos">☆  Eventos</a></li>
+            <li><a href="9_AlumnosDesta.html" class="btn_alumnos_desta">☆  Alumnos destacados</a></li>
+            <li><a href="10_Convocatoria.html" class="btn_convocatorias">☆  Convocatorias</a></li>
+            </ul>
         </div>
         <div class="grupo-menu">
-          <ul>
+            <ul>
             <hr>
-            <li><span>☆</span>Mpaa</li>
-            <li><span>☆</span>ChatBot</li>
-            <li><span>☆</span>Salon</li>
+            <li><a href="11_Mapa.html" class="btn_mapa">☆  Mapa</a></li>
+            <li><a href="4-Cafeteria.html" class="btn_menu_cafe">☆  Menu de cafeteria</a></li>
+            <li><a href="7_Chismografo.html" class="btn_chisme">☆  Chismografo</a></li>
+            <li><a href="12_Horario.html" class="btn_horario">☆  Horario</a></li>
             </ul>
         </div>
         <div class="menu-usuario">
-          <div class="usuario">User</div>
-          <div class="Exit-User"></div>
+            <div>
+              <a href="6-Perfil.html" class="btn_user">User</a>
+            </div>
+            <div class="Exit-User"></div>
         </div>
-      </aside>
-      <main class="contenido-menu">
-        <label for="check-menu" class="btn-menu">☰</label>
-      </main>
+    </aside>
       <main class="feed_anuncios">
         <div class="barra-busqueda-contenedor">
           <input type="text" class="input-busqueda" placeholder="Busca la publicacion o perfil">
