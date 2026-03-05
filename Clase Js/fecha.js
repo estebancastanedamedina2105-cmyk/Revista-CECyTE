@@ -45,14 +45,15 @@ function imprimirTabla(total, mes, anio) {
         } else if (fechaClave === "25-12") {
             descripcion = "Navidad";
         } else if (esFinDeSemana) {
-            descripcion = "💤 Descanso";
+            descripcion = "Descanso";
         }
 
         const colortxt = "color: #222222;";
+        const colornumeros = i ? 'class="numero"' :'';
         const colorfinde = esFinDeSemana ? 'class="fin-de-semana"' : '';
 
         html += `<tr ${colorfinde}>
-                    <td style="text-align:center ${colortxt}">${i}</td>
+                    <td style="text-align:center; ${colortxt}">${i}</td>
                     <td style="${colortxt}">${nombreDia}</td>
                     <td style="${colortxt}" class="descripcion">${descripcion}</td>
                  </tr>`;
