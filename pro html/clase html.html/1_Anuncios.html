@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="UFT-8">
+    <meta charset="UTF-8">
     <title>Revista CECyTE</title>
     <link rel="stylesheet" href="1_Diseño_Anuncios.css" />
     <link rel="icon" href="../Imagenes/LogoCecyte.jpg" type="image/png">
@@ -14,7 +14,7 @@
         <span>——</span>
         <button id="modoOscuro" class="btn_oscuro botones"> 🌙 | ☀️</button>
         <script>
-            <!-- Modo oscuro -->
+            //Modo oscuro
             const boton = document.getElementById("modoOscuro");
             boton.addEventListener("click", () => {
                 document.body.classList.toggle("dark");
@@ -92,9 +92,26 @@
 
 
     <!-- No tocar Chatbot (Saul no tocar gracias :) -->
-    <script src="../../Clase Js/Chatbot.js"></script>
 
+<div id="chatbot-boton">💬</div>
 
+<div id="chatbot-ventana">
+
+    <div id="chatbot-header">
+        Asistente CECyTE
+        <span onclick="cerrarChat()">✖</span>
+    </div>
+
+    <div id="chatbot-mensajes"></div>
+
+    <div id="chatbot-input">
+        <input type="text" id="mensaje" placeholder="Escribe tu pregunta...">
+        <button onclick="enviarMensaje()">Enviar</button>
+    </div>
+
+</div>
+
+<script src="../../Clase Js/Chatbot.js"></script>
 
 
 
