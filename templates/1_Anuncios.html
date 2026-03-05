@@ -1,12 +1,11 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="UFT-8">
-    <title>Chismografo CECyTE</title>
-    <link rel="stylesheet" href="1_Diseño_Anuncios.css" />
-    <link rel="stylesheet" href="7_Chismografo.css" />
+    <meta charset="UTF-8">
+    <title>Revista CECyTE</title>
+    <link rel="stylesheet" href="_Diseño_Anuncios.css" />
     <link rel="icon" href="../Imagenes/LogoCecyte.jpg" type="image/png">
-    <link rel="stylesheet" href="Diseño-Chatbot.css" />
+    <link rel="stylesheet" href="../all css/Diseño-Chatbot.css" />
   </head>
   <body class="fondo_crema">
     <header class="hader-superior">
@@ -15,7 +14,7 @@
         <span>——</span>
         <button id="modoOscuro" class="btn_oscuro botones"> 🌙 | ☀️</button>
         <script>
-            <!-- Modo oscuro -->
+            //Modo oscuro
             const boton = document.getElementById("modoOscuro");
             boton.addEventListener("click", () => {
                 document.body.classList.toggle("dark");
@@ -54,7 +53,7 @@
         <div class="grupo-menu">
             <ul>
             <hr>
-            <li><a href="11_Mapa.html" class="btn_mapa">☆  Mapa</a></li>
+            <li><a href=".html" class="btn_mapa">☆  Mapa</a></li>
             <li><a href="4-Cafeteria.html" class="btn_menu_cafe">☆  Menu de cafeteria</a></li>
             <li><a href="7_Chismografo.html" class="btn_chisme">☆  Chismografo</a></li>
             <li><a href="12_Horario.html" class="btn_horario">☆  Horario</a></li>
@@ -67,55 +66,56 @@
             <div class="Exit-User"></div>
         </div>
     </aside>
-    <div>
-        <div class="post-container">
-    <div class="post-header">
-        <textarea id="postText" placeholder="¿Qué vas a contar?"></textarea>
-    </div>
-    <div class="post-actions">
-        <button id="postBtn" class="botones">Publicar</button>
-    </div>
-</div>
-
-<!-- Contenedor donde aparecerán las publicaciones -->
-<div for="feed" id="feed"></div>
-
-    </div>
-    <div>
-    <aside class="barra_anuncio">
-        <div class="post-body">
-            <p>¡Saquen a esteban!</p>
+      <main class="feed_anuncios">
+        <div class="barra_busqueda_contenedor">
+          <input type="text" class="input_busqueda" placeholder="Busca la publicacion o perfil">
+          </div>
         </div>
-        <div class="post-actions">
-            <div class="like-container">
-                <button id="likeBtn">❤️ Like</button>
-                <span id="likeCount">0</span>
-            </div>
-            <button>Comentar</button>
+        <h2 class="subtitulos_seccion">Anuncios</h2>
+        <div class="tarjeta">
+          <div class="encabezado_tarjeta">
+            <p><strong>Anucio!! De: Esteban</strong></p>
+            <hr class="lienea divisora"><p class="cuerpo_anuncio">
+              <strong>ME QUIERO PEGAR DOS TIROS EN LA CABEZA</strong><br>ooh baby,you touch yourself so much that you cant t feel anything anymore
+            </p>
+          </div>
+          <div class="acciones_tarjerta">
+            
+            <button class="btn_opc_tarjeta">⋮</button>
+            <button class="btn_cora_tarjeta">♡</button>
+          </div>
         </div>
-    </aside>
-    <aside class="barra_anuncio">
-        <div class="post-body">
-            <p></p>
-        </div>
-        <div class="post-actions">
-            <div class="like-container">
-        <button id="likeBtn">❤️ Like</button>
-        <span id="likeCount">0</span>
-    </div>
-            <button>Comentar</button>
-        </div>
-    </div>
-        </aside>
-    </div>
-    </div>
-</div>
-
-
-
+      </main>
     </div>
     <script src="../../Clase Js/Sscrip.js"></script>
-    <script src="../../Clase Js/chismografo.js"></script>
+
+
+
+    <!-- No tocar Chatbot (Saul no tocar gracias :) -->
+
+<div id="chatbot-boton">💬</div>
+
+<div id="chatbot-ventana">
+
+    <div id="chatbot-header">
+        Asistente CECyTE
+        <span onclick="cerrarChat()">✖</span>
+    </div>
+
+    <div id="chatbot-mensajes"></div>
+
+    <div id="chatbot-input">
+        <input type="text" id="mensaje" placeholder="Escribe tu pregunta...">
+        <button onclick="enviarMensaje()">Enviar</button>
+    </div>
+
+</div>
+
+<script src="../../Clase Js/Chatbot.js"></script>
+
+
+
+
   </body>
 </html>
 

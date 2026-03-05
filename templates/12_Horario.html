@@ -1,15 +1,16 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <title>Calendario CECyTE</title>
-    <link rel="stylesheet" href="3-Diseño-Calendario.css" />
-  <link rel="stylesheet" href="1_Diseño_Anuncios.css" />  
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Horario CECyTE</title>
+        <link rel="stylesheet" href="12_Diseño_Horario.css" />
+        <link rel="stylesheet" href="../../all css/1_Diseño_Anuncios.css" />  
     <link rel="icon" href="../Imagenes/LogoCecyte.jpg" type="image/png">
-    <link rel="stylesheet" href="Diseño-Chatbot.css" />
-  </head>
-  <body class="fondo_crema">
+    <link rel="stylesheet" href="../../all css/Diseño-Chatbot.css" />
+</head>
+<body class="fondo_crema">
     <header class="hader-superior">
-      <div class="seccion-menuiz">
+        <div class="seccion-menuiz">
         <label for="check-menu" class="btn-menu"><h3> ☰ Menu</h3></label>
         <span>——</span>
         <button id="modoOscuro" class="btn_oscuro botones"> 🌙 | ☀️</button>
@@ -37,7 +38,7 @@
         </div>
     </header>
     <div class="diseño_principal">
-      <input type="checkbox" id="check-menu" style="display: none;">
+        <input type="checkbox" id="check-menu" style="display: none;">
         <aside class="barra-lateral">
         <div class="grupo-menu">
             <h2>Revista</h2>
@@ -66,34 +67,5 @@
             <div class="Exit-User"></div>
         </div>
     </aside>
-    </div>
-
-    <p style="text-align: center;" class ="subtitulos-seccion">Calendario</p>
-    <div class="caja-inscripciones">
-      <a class="txt">Fechas de CECyTE Emiliano Zapata</a>
-      
-      <div class="tarjeta">
-        <div class="encabezado-tarjeta">
-        <div class="caja-mes">
-          <label for="mes" class="txt"  >Selecciona un mes:</label>
-          <input type="month" id="mes" onchange="procesarMes()">
-
-          <p><strong class="txt" >Mes seleccionado:</strong> <span class="txt" id="nombreMesText">-</span></p>
-          <p><strong class="txt">Días totales:</strong> <span class="txt" id="totalDias">-</span></p>
-
-        </div>
-          <div class="caja-informacion">
-            <hr class="linea divisora">
-            <div id="contenedor-tabla">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-<script src="../../Clase Js/fecha.js"></script>
-
-      </div>
-  </body>
+    </body>
 </html>

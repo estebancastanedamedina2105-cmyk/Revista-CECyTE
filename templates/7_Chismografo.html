@@ -1,12 +1,12 @@
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Horario CECyTE</title>
-        <link rel="stylesheet" href="12_Diseño_Horario.css" />
-        <link rel="stylesheet" href="1_Diseño_Anuncios.css" />  
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UFT-8">
+    <title>Chismografo CECyTE</title>
+    <link rel="stylesheet" href="../../all css/1_Diseño_Anuncios.css" />
+    <link rel="stylesheet" href="../../all css/7_Chismografo.css" />
     <link rel="icon" href="../Imagenes/LogoCecyte.jpg" type="image/png">
-    <link rel="stylesheet" href="Diseño-Chatbot.css" />
+    <link rel="stylesheet" href="../../all css/Diseño-Chatbot.css" />
   </head>
   <body class="fondo_crema">
     <header class="hader-superior">
@@ -67,5 +67,55 @@
             <div class="Exit-User"></div>
         </div>
     </aside>
-    </body>
+    <div>
+        <div class="post-container">
+    <div class="post-header">
+        <textarea id="postText" placeholder="¿Qué vas a contar?"></textarea>
+    </div>
+    <div class="post-actions">
+        <button id="postBtn" class="botones">Publicar</button>
+    </div>
+</div>
+
+<!-- Contenedor donde aparecerán las publicaciones -->
+<div for="feed" id="feed"></div>
+
+    </div>
+    <div>
+    <aside class="barra_anuncio">
+        <div class="post-body">
+            <p>¡Saquen a esteban!</p>
+        </div>
+        <div class="post-actions">
+            <div class="like-container">
+                <button id="likeBtn">❤️ Like</button>
+                <span id="likeCount">0</span>
+            </div>
+            <button>Comentar</button>
+        </div>
+    </aside>
+    <aside class="barra_anuncio">
+        <div class="post-body">
+            <p></p>
+        </div>
+        <div class="post-actions">
+            <div class="like-container">
+        <button id="likeBtn">❤️ Like</button>
+        <span id="likeCount">0</span>
+    </div>
+            <button>Comentar</button>
+        </div>
+    </div>
+        </aside>
+    </div>
+    </div>
+</div>
+
+
+
+    </div>
+    <script src="../../Clase Js/Sscrip.js"></script>
+    <script src="../../Clase Js/chismografo.js"></script>
+  </body>
 </html>
+

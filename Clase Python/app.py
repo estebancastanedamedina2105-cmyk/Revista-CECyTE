@@ -31,7 +31,7 @@ def responder(mensaje):
 
 @app.route("/")
 def inicio():
-    return render_template("1_Anuncios.html")
+    return render_template("../templates.html")
 
 
 @app.route("/chatbot", methods=["POST"])

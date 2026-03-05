@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8">
-    <title>Revista CECyTE</title>
-    <link rel="stylesheet" href="1_Diseño_Anuncios.css" />
+    <title>Professores CECyTE</title>
+    <link rel="stylesheet" href="../../all css/2-Diseño-profesores.css" />
+    <link rel="stylesheet" href="../../all css/1_Diseño_Anuncios.css" />  
     <link rel="icon" href="../Imagenes/LogoCecyte.jpg" type="image/png">
-    <link rel="stylesheet" href="Diseño-Chatbot.css" />
+    <link rel="stylesheet" href="../../all css/Diseño-Chatbot.css" />
   </head>
   <body class="fondo_crema">
     <header class="hader-superior">
@@ -14,7 +14,7 @@
         <span>——</span>
         <button id="modoOscuro" class="btn_oscuro botones"> 🌙 | ☀️</button>
         <script>
-            //Modo oscuro
+            <!-- Modo oscuro -->
             const boton = document.getElementById("modoOscuro");
             boton.addEventListener("click", () => {
                 document.body.classList.toggle("dark");
@@ -53,7 +53,7 @@
         <div class="grupo-menu">
             <ul>
             <hr>
-            <li><a href=".html" class="btn_mapa">☆  Mapa</a></li>
+            <li><a href="11_Mapa.html" class="btn_mapa">☆  Mapa</a></li>
             <li><a href="4-Cafeteria.html" class="btn_menu_cafe">☆  Menu de cafeteria</a></li>
             <li><a href="7_Chismografo.html" class="btn_chisme">☆  Chismografo</a></li>
             <li><a href="12_Horario.html" class="btn_horario">☆  Horario</a></li>
@@ -66,56 +66,5 @@
             <div class="Exit-User"></div>
         </div>
     </aside>
-      <main class="feed_anuncios">
-        <div class="barra_busqueda_contenedor">
-          <input type="text" class="input_busqueda" placeholder="Busca la publicacion o perfil">
-          </div>
-        </div>
-        <h2 class="subtitulos_seccion">Anuncios</h2>
-        <div class="tarjeta">
-          <div class="encabezado_tarjeta">
-            <p><strong>Anucio!! De: Esteban</strong></p>
-            <hr class="lienea divisora"><p class="cuerpo_anuncio">
-              <strong>ME QUIERO PEGAR DOS TIROS EN LA CABEZA</strong><br>ooh baby,you touch yourself so much that you cant t feel anything anymore
-            </p>
-          </div>
-          <div class="acciones_tarjerta">
-            
-            <button class="btn_opc_tarjeta">⋮</button>
-            <button class="btn_cora_tarjeta">♡</button>
-          </div>
-        </div>
-      </main>
-    </div>
-    <script src="../../Clase Js/Sscrip.js"></script>
-
-
-
-    <!-- No tocar Chatbot (Saul no tocar gracias :) -->
-
-<div id="chatbot-boton">💬</div>
-
-<div id="chatbot-ventana">
-
-    <div id="chatbot-header">
-        Asistente CECyTE
-        <span onclick="cerrarChat()">✖</span>
-    </div>
-
-    <div id="chatbot-mensajes"></div>
-
-    <div id="chatbot-input">
-        <input type="text" id="mensaje" placeholder="Escribe tu pregunta...">
-        <button onclick="enviarMensaje()">Enviar</button>
-    </div>
-
-</div>
-
-<script src="../../Clase Js/Chatbot.js"></script>
-
-
-
-
   </body>
 </html>
-
