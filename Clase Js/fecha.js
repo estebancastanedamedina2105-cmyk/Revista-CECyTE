@@ -44,11 +44,15 @@ function imprimirTabla(total, mes, anio) {
             descripcion = "Cumpleaños de Saul";
         } else if (fechaClave === "25-12") {
             descripcion = "Navidad";
+        } else if (fechaClave === "5-2") {
+            descripcion = "Dia de la constitución";
+        } else if (fechaClave === "18-3") {
+            descripcion = "Natalicio de Benito Juárez";
         } else if (esFinDeSemana) {
             descripcion = "Descanso";
         }
 
-        const colortxt = "color: #222222;";
+        const colortxt = fechaClave ? 'class="fecha"' : '';
         const colornumeros = i ? 'class="numero"' :'';
         const colorfinde = esFinDeSemana ? 'class="fin-de-semana"' : '';
 
