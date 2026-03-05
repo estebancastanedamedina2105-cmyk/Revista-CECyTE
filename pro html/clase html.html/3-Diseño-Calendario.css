@@ -1,175 +1,60 @@
-
-
-:root{
-    --azul-cecyte:#1a4d8c;
-    --crema-pastel:#fdfaf5;
-    --blanco:#ffffff;
-}
-.body{
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--crema-pastel);
-    color: black;
-    margin: 0;
-    transition: 0.3s;
-
-}
-
-.dark {
-    background-color: #121212;
-    color: white;
-}
-
-.hader-superior{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 30px;
-    background: var(--blanco);
-    border-bottom: 1px solid #ddd;
-}
-.titulo-h1{
-    font-size: 40px;
-    font-weight: bold;
-    color: #555;
-}
-.seccion-derecha{
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-.botones-auth{
-    background: #333;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 12px;
-}
-.logo-circulo{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid #8d6e63;
-}
-.diseño-principal{
-    display: flex;
-    padding: 20px;
-    gap: 20px;
-}
-.contenido-menu{
-    display: flex;
-    width: 100%;
-    min-height: 100vh;
-}
-#check-menu:checked ~ .barra-lateral{
-    left: 20px;
-}
-.barra-lateral{
-    width: 220px;
-    height: 100vh;
-    position: fixed;
-    left: -300px;
-    background: var(--blanco);
-    border-radius: 15px;
-    padding: 20px;
-    height: calc(100vh - 120px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0, 05);
-}
-
-.barra-lateral ul{
-    padding: 0;
-    list-style: none;
-}
-.barra-lateral li{
-    padding: 8px 0;
-    font-size: 14px;
-    columns: #666;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.barra-lateral li:hover{
-    color: var(--azul-cecyte);
-    padding-left: 5px;
-}
-.feed-anuncios{
-    flex: 1;
-}
-.barra-busqueda-contenedor{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-.input-busqueda{
-    width: 60%;
-    padding: 10px 20px;
-    border-radius: 25px;
-    border: 1px solid #ddd;
-}
-.feed_anuncios{
-    flex: 1;
-    margin-left: 0;
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-.tarjeta{
-    background: var(--blanco);
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #eee;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0, 02);
-}
-.acciones-tarjeta{
-    margin-top: 15px;
-    font-size: 20px;
-    display: flex;
-    gap: 20px;
-    color: #888;
-}
-.remitente-anuncio{
-    color: var(--azul-cecyte);
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-.cuerpo-anuncio{
-    font-size: 16px;
-    line-height: 1.5;
-    margin-top: 10px;
-}
-.linea-divisora{
-    border: 0;
-    border-top: 1px solid #eee;
-    margin: 10px 0;
-    display: block;
-}
-
 .caja-inscripciones{
     background: var(--blanco);
     border-radius: 15px;
     padding: 20px;
+    width: 85%;
+    display:block;
+    margin: auto;
     margin-bottom: 20px;
     border: 1px solid #000000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0, 02);
-}
-.caja-mes{
-    background: var(--blanco);
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #000000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0, 02);
-    display: inline-block;
 }
 .caja-informacion{
     background: var(--blanco);
     border-radius: 15px;
-    padding: 20px;
+    padding: 30px;
+     width: 95%;
+    display:contents;
+    margin: auto;
     margin-bottom: 20px;
     border: 1px solid #000000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0, 02);
     display: inline-block;
+}
+.subtitulos-seccion{
+    font-size: 30px;
+    color: #626262
+}
+.caja-mes {
+    background: var(--blanco);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    border: 1px solid #000000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: block;
+    max-width: 500px;
+    font-family: Arial, sans-serif;
+}
+.linea.divisora {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+th { 
+    background-color: #333; color: white; padding: 10px;
+}
+td { 
+    border: 1px solid #ddd; padding: 8px; text-align: left;
+}        
+/* Estilo para fines de semana */
+.fin-de-semana {
+    background-color: #fff0f0;
+    color: #c00;
+    font-weight: bold;
 }

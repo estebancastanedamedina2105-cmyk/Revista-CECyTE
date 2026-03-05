@@ -61,43 +61,39 @@
         </div>
         <div class="menu-usuario">
             <div>
-              <a href="6-Perfil.html" class="btn_user">User</a>
+              <a href="6-Perfil.html" class="btn_user">👤 User</a>
             </div>
             <div class="Exit-User"></div>
         </div>
     </aside>
-      <main class="feed_anuncios">
-        <div class="barra-busqueda-contenedor">
-          <input type="text" class="input-busqueda" placeholder="Busca la publicacion o perfil">
-          </div>
-        </div>
-
-        <div class="caja-inscripciones">
-        <h2 class="subtitulos-seccion">Fechas de CECyTE Emiliano Zapata</h2>
-        <h3 class ="subtitulos-seccion">Calendario</h3>
-        <div class="tarjeta">
-          <div class="encabezado-tarjeta">
-
-            <div class="caja-mes">
-              <label for="mes">Selecciona un mes:</label>
-              <input type="month" id="mes">
-
-            <p><strong>Mes seleccionado</strong></p>
-            <hr class="linea divisora"><p class="cuerpo-anuncio">
-              <strong>Dias: </strong><br>
-            </div>
-
-              <div class="caja-informacion">
-                <h3>CECyTE Emiliano Zapata,</h3>
-                <p>El calendario de inscripciones para el ciclo escolar 2024-2025 se llevará a cabo del 1 al 15 de julio. Durante este período, los estudiantes interesados podrán realizar su inscripción en línea a través de nuestro sitio web oficial o acudir directamente a las oficinas administrativas del plantel para recibir asistencia personalizada.</p>
-              </div>
-
-            </p>
-          </div>
-          </div>
-          </div>
-        </div>
-      </main>
     </div>
+
+    <p style="text-align: center;" class ="subtitulos-seccion">Calendario</p>
+    <div class="caja-inscripciones">
+      <a class="txt">Fechas de CECyTE Emiliano Zapata</a>
+      
+      <div class="tarjeta">
+        <div class="encabezado-tarjeta">
+        <div class="caja-mes">
+          <label for="mes" class="txt"  >Selecciona un mes:</label>
+          <input type="month" id="mes" onchange="procesarMes()">
+
+          <p><strong class="txt" >Mes seleccionado:</strong> <span class="txt" id="nombreMesText">-</span></p>
+          <p><strong class="txt">Días totales:</strong> <span class="txt" id="totalDias">-</span></p>
+
+        </div>
+          <div class="caja-informacion">
+            <hr class="linea divisora">
+            <div id="contenedor-tabla">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<script src="../../Clase Js/fecha.js"></script>
+
+      </div>
   </body>
 </html>
