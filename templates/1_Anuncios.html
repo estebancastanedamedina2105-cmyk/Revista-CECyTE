@@ -1,121 +1,167 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Revista CECyTE</title>
-    <link rel="stylesheet" href="../all css/1_Diseño_Anuncios.css" />
-    <link rel="icon" href="../Imagenes/LogoCecyte.jpg" type="image/png">
-    <link rel="stylesheet" href="../all css/Diseño-Chatbot.css" />
+
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}"
+      type="image/png"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='Clase_CSS/1_Diseño_Anuncios.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='Clase_CSS/Diseño_Chatbot.css') }}"
+    />
   </head>
+
   <body class="fondo_crema">
     <header class="hader-superior">
       <div class="seccion-menuiz">
-        <label for="check-menu" class="btn-menu"><h3> ☰ Menu</h3></label>
+        <label for="check-menu" class="btn-menu"><h3>☰ Menu</h3></label>
         <span>——</span>
-        <button id="modoOscuro" class="btn_oscuro botones"> 🌙 | ☀️</button>
+        <button id="modoOscuro" class="btn_oscuro botones">🌙 | ☀️</button>
         <script>
-            //Modo oscuro
-            const boton = document.getElementById("modoOscuro");
-            boton.addEventListener("click", () => {
-                document.body.classList.toggle("dark");
-                if(document.body.classList.contains("dark")) {
-                    localStorage.setItem("modo", "oscuro");
-                } else {
-                    localStorage.setItem("modo", "claro");
-                }
-            });
-            if(localStorage.getItem("modo") === "oscuro") {
-                document.body.classList.add("dark");
+          //Modo oscuro
+          const boton = document.getElementById("modoOscuro");
+          boton.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+            if (document.body.classList.contains("dark")) {
+              localStorage.setItem("modo", "oscuro");
+            } else {
+              localStorage.setItem("modo", "claro");
             }
+          });
+          if (localStorage.getItem("modo") === "oscuro") {
+            document.body.classList.add("dark");
+          }
         </script>
-        </div>
-        <h2 class="texmenu">CECyTE</h2>
-        <h1 class="titulo-h1">Fake News</h1>
-        <div class="seccion-derecha">
-        <a href="5-Login.html" class="botones-auth botones" title="Ingresar"><button type="button">Ingresar</button></a>
-        <img src="../Imagenes/LogoCecyte.jpg" class="logo-circulo" title="Logo CCEyTE"/>
-        </div>
+      </div>
+      <h2 class="texmenu">CECyTE</h2>
+      <h1 class="titulo-h1">Fake News</h1>
+      <div class="seccion-derecha">
+        <a href="5-Login.html" class="botones-auth botones" title="Ingresar"
+          ><button type="button">Ingresar</button></a
+        >
+        <img
+          src="../static/Imagenes/LogoCecyte.jpg"
+          class="logo-circulo"
+          title="Logo CCEyTE"
+        />
+      </div>
     </header>
     <div class="diseño_principal">
-      <input type="checkbox" id="check-menu" style="display: none;">
-        <aside class="barra-lateral">
+      <input type="checkbox" id="check-menu" style="display: none" />
+      <aside class="barra-lateral">
         <div class="grupo-menu">
-            <h2>Revista</h2>
-            <ul>
-            <li><a href="1_Anuncios.html" class="btn_revista">☆  Anuncios</a></li>
-            <li><a href="3-Calendario.html" class="btn_inscripciones">☆  Calendario</a></li>
-            <li><a href="2-Profesores.html" class="btn_profesores">☆  Profesores</a></li>
-            <li><a href="8_Eventos.html" class="btn_eventos">☆  Eventos</a></li>
-            <li><a href="9_AlumnosDesta.html" class="btn_alumnos_desta">☆  Alumnos destacados</a></li>
-            <li><a href="10_Convocatoria.html" class="btn_convocatorias">☆  Convocatorias</a></li>
-            </ul>
+          <h2>Revista</h2>
+          <ul>
+            <li>
+              <a href="1_Anuncios.html" class="btn_revista">☆ Anuncios</a>
+            </li>
+            <li>
+              <a href="3-Calendario.html" class="btn_inscripciones"
+                >☆ Calendario</a
+              >
+            </li>
+            <li>
+              <a href="2-Profesores.html" class="btn_profesores"
+                >☆ Profesores</a
+              >
+            </li>
+            <li><a href="8_Eventos.html" class="btn_eventos">☆ Eventos</a></li>
+            <li>
+              <a href="9_AlumnosDesta.html" class="btn_alumnos_desta"
+                >☆ Alumnos destacados</a
+              >
+            </li>
+            <li>
+              <a href="10_Convocatoria.html" class="btn_convocatorias"
+                >☆ Convocatorias</a
+              >
+            </li>
+          </ul>
         </div>
         <div class="grupo-menu">
-            <ul>
-            <hr>
-            <li><a href=".html" class="btn_mapa">☆  Mapa</a></li>
-            <li><a href="4-Cafeteria.html" class="btn_menu_cafe">☆  Menu de cafeteria</a></li>
-            <li><a href="7_Chismografo.html" class="btn_chisme">☆  Chismografo</a></li>
-            <li><a href="12_Horario.html" class="btn_horario">☆  Horario</a></li>
-            </ul>
+          <ul>
+            <hr />
+            <li><a href=".html" class="btn_mapa">☆ Mapa</a></li>
+            <li>
+              <a href="4-Cafeteria.html" class="btn_menu_cafe"
+                >☆ Menu de cafeteria</a
+              >
+            </li>
+            <li>
+              <a href="7_Chismografo.html" class="btn_chisme">☆ Chismografo</a>
+            </li>
+            <li><a href="12_Horario.html" class="btn_horario">☆ Horario</a></li>
+          </ul>
         </div>
         <div class="menu-usuario">
-            <div>
-              <a href="6-Perfil.html" class="btn_user">👤 User</a>
-            </div>
-            <div class="Exit-User"></div>
+          <div>
+            <a href="6-Perfil.html" class="btn_user">👤 User</a>
+          </div>
+          <div class="Exit-User"></div>
         </div>
-    </aside>
+      </aside>
       <main class="feed_anuncios">
         <div class="barra_busqueda_contenedor">
+<<<<<<< HEAD
           <input type="search" class="input-busqueda" placeholder="Busca la publicacion o perfil" autofocus/>
           </div>
+=======
+          <input
+            type="text"
+            class="input_busqueda"
+            placeholder="Busca la publicacion o perfil"
+          />
+>>>>>>> b7212088cc584e82133c38349ac35084ae5e2973
         </div>
+
         <h2 class="subtitulos_seccion">Anuncios</h2>
         <div class="tarjeta">
           <div class="encabezado_tarjeta">
             <p><strong>Anucio!! De: Esteban</strong></p>
-            <hr class="lienea divisora"><p class="cuerpo_anuncio">
-              <strong>ME QUIERO PEGAR DOS TIROS EN LA CABEZA</strong><br>ooh baby,you touch yourself so much that you cant t feel anything anymore
+            <hr class="lienea divisora" />
+            <p class="cuerpo_anuncio">
+              <strong>ME QUIERO PEGAR DOS TIROS EN LA CABEZA</strong><br />ooh
+              baby,you touch yourself so much that you cant t feel anything
+              anymore
             </p>
           </div>
           <div class="acciones_tarjerta">
-            
             <button class="btn_opc_tarjeta">⋮</button>
             <button class="btn_cora_tarjeta">♡</button>
           </div>
         </div>
       </main>
     </div>
-    <script src="../Clase Js/Sscrip.js"></script>
-
-
 
     <!-- No tocar Chatbot (Saul no tocar gracias :) -->
 
-<div id="chatbot-boton">💬</div>
+    <div id="chatbot-boton">💬</div>
 
-<div id="chatbot-ventana">
-
-    <div id="chatbot-header">
+    <div id="chatbot-ventana">
+      <div id="chatbot-header">
         Asistente CECyTE
         <span onclick="cerrarChat()">✖</span>
-    </div>
+      </div>
 
-    <div id="chatbot-mensajes"></div>
+      <div id="chatbot-mensajes"></div>
 
-    <div id="chatbot-input">
-        <input type="text" id="mensaje" placeholder="Escribe tu pregunta...">
+      <div id="chatbot-input">
+        <input type="text" id="mensaje" placeholder="Escribe tu pregunta..." />
         <button onclick="enviarMensaje()">Enviar</button>
+      </div>
     </div>
 
-</div>
-
-<script src="../Clase Js/chatbot.js"></script>
-
-
-
-
+    <script src="{{ url_for('static', filename='Clase_JS/Sscrip.js') }}"></script>
+    <script src="{{ url_for('static', filename='Clase_JS/chatbot.js') }}"></script>
   </body>
 </html>
-
