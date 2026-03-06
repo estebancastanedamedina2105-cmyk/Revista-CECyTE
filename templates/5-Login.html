@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Ingreso CECytE</title>
-    <link rel="stylesheet" href="../../all css/5-Diseño-login.css" />
+    <link rel="stylesheet" href="../all css/5-Diseño-login.css" />
     <link rel="icon" href="../Imagenes/LogoCecyte.jpg" type="image/png" />
   </head>
   <div>
@@ -20,21 +20,24 @@
         <h2>Iniciar Sesion</h2>
         <form class="login-from">
           <div class="input-group">
-            <input teyp="text" id="username" placeholder="Usuario" />
+            <input type="email" id="email" class="cajaCorreo" placeholder="123456@cecytemorelos.edu.mx"/>
+          </div>
+          <div>
+          <button type="submit" class="login-button codigo generarCodigo">Mandar Codigo</button>
           </div>
           <div class="input-group">
-            <input type="password" id="password" placeholder="Contraseña" />
+            <input type="password" id="code" class="cajaCodigo" placeholder="Ingresa el codigo"/>
+            <button type="submit" class="entrarCode login-button">Verificar</button>
+            <p id="mensaje"></p>
           </div>
-          <button type="submit" class="login-button">Entrar</button>
           <a
             href="javascript:history.back()"
             class="btn-login btn-salir"
-            title="Inicio"
             ><button type="button">Regresar</button></a
           >
         </form>
       </div>
     </div>
-    <script src="../../Clase Js/login.js"></script>
+    <script src="../Clase Js/login.js"></script>
   </body>
 </html>

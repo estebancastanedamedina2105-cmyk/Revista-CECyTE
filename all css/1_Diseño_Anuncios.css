@@ -151,10 +151,10 @@
     margin-bottom: 20px;
 }
 .input-busqueda{
-    width: 60%;
+    width: 80%;
     padding: 10px 20px;
     border-radius: 25px;
-    border: 1px solid #ddd;
+    border: 10px solid #ddd;
 }
 .feed_anuncios{
     flex: 1;
