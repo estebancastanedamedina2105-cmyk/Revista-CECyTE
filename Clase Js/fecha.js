@@ -41,7 +41,7 @@ function imprimirTabla(total, mes, anio) {
         if (fechaClave === "1-1") {
             descripcion = "Año Nuevo";
         } else if (fechaClave === "11-3") {
-            descripcion = "Cumpleaños de Saul";
+            descripcion = "Cumpleaños de Saúl";
         } else if (fechaClave === "25-12") {
             descripcion = "Navidad";
         } else if (fechaClave === "5-2") {
@@ -52,14 +52,13 @@ function imprimirTabla(total, mes, anio) {
             descripcion = "Descanso";
         }
 
-        const colortxt = fechaClave ? 'class="fecha"' : '';
-        const colornumeros = i ? 'class="numero"' :'';
+        const colorGrisFuerte = "color: #444;";
         const colorfinde = esFinDeSemana ? 'class="fin-de-semana"' : '';
 
         html += `<tr ${colorfinde}>
-                    <td style="text-align:center; ${colortxt}">${i}</td>
-                    <td style="${colortxt}">${nombreDia}</td>
-                    <td style="${colortxt}" class="descripcion">${descripcion}</td>
+                    <td style="text-align:center; ${colorGrisFuerte}">${i}</td>
+                    <td style="${colorGrisFuerte}">${nombreDia}</td>
+                    <td style="${colorGrisFuerte}" class="descripcion">${descripcion}</td>
                  </tr>`;
     }
 
