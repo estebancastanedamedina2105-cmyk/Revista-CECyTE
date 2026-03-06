@@ -12,6 +12,8 @@
     transition: 0.3s;
 }
 .botones:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.604);
     background-color: #43331f;
 }
 .botones{
@@ -49,10 +51,6 @@
     color: #47e3ff;
 }
 
-.botones:hover{
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.604);
-}
 .btn_oscuro{
     cursor: pointer;
 }

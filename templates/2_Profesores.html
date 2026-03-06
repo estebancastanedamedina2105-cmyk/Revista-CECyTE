@@ -42,21 +42,21 @@
         <div class="grupo-menu">
             <h2>Revista</h2>
             <ul>
-            <li><a href="1_Anuncios.html" class="btn_revista">☆  Anuncios</a></li>
-            <li><a href="3-Calendario.html" class="btn_inscripciones">☆  Calendario</a></li>
-            <li><a href="2-Profesores.html" class="btn_profesores">☆  Profesores</a></li>
-            <li><a href="8_Eventos.html" class="btn_eventos">☆  Eventos</a></li>
-            <li><a href="9_AlumnosDesta.html" class="btn_alumnos_desta">☆  Alumnos destacados</a></li>
-            <li><a href="10_Convocatoria.html" class="btn_convocatorias">☆  Convocatorias</a></li>
+            <li><a href="{{ url_for('anuncios') }}">☆ Anuncios</a></li>
+            <li><a href="{{ url_for('calendario') }}">☆ Calendario</a></li>
+            <li><a href="{{ url_for('profesores') }}">☆ Profesores</a></li>
+            <li><a href="{{ url_for('eventos') }}">☆ Eventos</a></li>
+            <li><a href="{{ url_for('alumnos_desta') }}">☆ Alumnos destacados</a></li>
+            <li><a href="{{ url_for('convocatorias') }}">☆ Convocatorias</a></li>
             </ul>
         </div>
         <div class="grupo-menu">
             <ul>
             <hr>
-            <li><a href="11_Mapa.html" class="btn_mapa">☆  Mapa</a></li>
-            <li><a href="4-Cafeteria.html" class="btn_menu_cafe">☆  Menu de cafeteria</a></li>
-            <li><a href="7_Chismografo.html" class="btn_chisme">☆  Chismografo</a></li>
-            <li><a href="12_Horario.html" class="btn_horario">☆  Horario</a></li>
+            <li><a href="{{ url_for('mapa') }}">☆ Mapa</a></li>
+            <li><a href="{{ url_for('cafeteria') }}" class="btn_menu_cafe">☆  Menu de cafeteria</a></li>
+            <li><a href="{{ url_for('chismografo') }}" class="btn_chisme">☆  Chismografo</a></li>
+            <li><a href="{{ url_for('horario') }}" class="btn_horario">☆  Horario</a></li>
             </ul>
         </div>
         <div class="menu-usuario">
@@ -66,7 +66,9 @@
             <div class="Exit-User"></div>
         </div>
     </aside>
-
+    <div class="caja">
+      
+    </div>
 
   </body>
 </html>
