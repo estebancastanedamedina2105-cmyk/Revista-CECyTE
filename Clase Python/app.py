@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 
-app = Flask(__name__, template_folder="../templates", static_folder="../static")
+app = Flask(__name__)
 
 
 def responder(mensaje):
@@ -26,12 +26,43 @@ def responder(mensaje):
         return "El horario escolar está en la sección horario."
 
     else:
-        return "No entendí tu pregunta. Intenta preguntar sobre anuncios, eventos o cafetería."
+        return "No entendí tu pregunta."
+
+
+# PAGINAS
 
 
 @app.route("/")
-def inicio():
+def anuncios():
     return render_template("1_Anuncios.html")
+
+
+@app.route("/calendario")
+def calendario():
+    return render_template("3_Calendario.html")
+
+
+@app.route("/profesores")
+def profesores():
+    return render_template("2_Profesores.html")
+
+
+@app.route("/cafeteria")
+def cafeteria():
+    return render_template("4_Cafeteria.html")
+
+
+@app.route("/eventos")
+def eventos():
+    return render_template("8_Eventos.html")
+
+
+@app.route("/horario")
+def horario():
+    return render_template("12_Horario.html")
+
+
+# CHATBOT
 
 
 @app.route("/chatbot", methods=["POST"])
