@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="../templates", static_folder="../static")
 
 
 def responder(mensaje):
@@ -31,7 +31,7 @@ def responder(mensaje):
 
 @app.route("/")
 def inicio():
-    return render_template("../templates.html")
+    return render_template("1_Anuncios.html")
 
 
 @app.route("/chatbot", methods=["POST"])
