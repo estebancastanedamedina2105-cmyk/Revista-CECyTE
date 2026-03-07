@@ -1,80 +1,92 @@
 <!doctype html>
-<html lang="en">
-  <head>
+<html lang="es">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Perfil CECyTE</title>
-    <link rel="stylesheet" href="../../all css/6-Diseño-Perfil.css" />
-    <link rel="stylesheet" href="../../all css/1_Diseño_Anuncios.css" />  
-    <link rel="icon" href="../Imagenes/LogoCecyte.jpg" type="image/png">
-    <link rel="stylesheet" href="../../all css/Diseño-Chatbot.css" />
-  </head>
-  <body class="fondo_crema">
-    <header class="hader-superior">
-      <div class="seccion-menuiz">
-        <label for="check-menu" class="btn-menu"><h3> ☰ Menu</h3></label>
-        <span>——</span>
-        <button id="modoOscuro" class="btn_oscuro botones"> 🌙 | ☀️</button>
+    <link rel="stylesheet" href="../static/Clase_CSS/6_Diseño-Perfil.css" />
+    <link rel="stylesheet" href="../static/Clase_CSS/1_Diseño_Anuncios.css" />  
+    <link rel="stylesheet" href="../static/Clase_CSS/Diseño_Chatbot.css" />
+    <link rel="icon" href="../static/Imagenes/LogoCecyte.jpg" type="image/png">
+</head>
+<body class="fondo_crema">
+    <header class="header-superior">
+        <div class="seccion-izquierda-controles">
+            <label for="check-menu" class="btn-menu"><h3> ☰ Menu</h3></label>
+            <button id="modoOscuro" class="btn_oscuro botones"> 🌙 | ☀️</button>
+        </div>
+        <h2 class="texmenu">CECyTE</h2>
+        <div class="seccion-auth-logo">
+            <a href="../templates/5_Login.html" class="botones-auth botones" title="Ingresar">
+                <button type="button">Ingresar</button>
+            </a>
+            <img src="../static/Imagenes/LogoCecyte.jpg" class="logo-circulo" title="Logo CECyTE"/>
+        </div>
         <script>
-            <!-- Modo oscuro -->
+            // Script de Modo Oscuro corregido
             const boton = document.getElementById("modoOscuro");
             boton.addEventListener("click", () => {
                 document.body.classList.toggle("dark");
-                if(document.body.classList.contains("dark")) {
-                    localStorage.setItem("modo", "oscuro");
-                } else {
-                    localStorage.setItem("modo", "claro");
-                }
+                localStorage.setItem("modo", document.body.classList.contains("dark") ? "oscuro" : "claro");
             });
             if(localStorage.getItem("modo") === "oscuro") {
                 document.body.classList.add("dark");
             }
         </script>
-        </div>
-        <h2 class="texmenu">CECyTE</h2>
-        <h1 class="titulo-h1">Fake News</h1>
-        <div class="seccion-derecha">
-        <a href="5-Login.html" class="botones-auth botones" title="Ingresar"><button type="button">Ingresar</button></a>
-        <img src="../Imagenes/LogoCecyte.jpg" class="logo-circulo" title="Logo CCEyTE"/>
-        </div>
     </header>
     <div class="diseño_principal">
-      <input type="checkbox" id="check-menu" style="display: none;">
+        <input type="checkbox" id="check-menu" style="display: none;">
         <aside class="barra-lateral">
-        <div class="grupo-menu">
-            <h2>Revista</h2>
-            <ul>
-            <li><a href="1_Anuncios.html" class="btn_revista">☆  Anuncios</a></li>
-            <li><a href="3-Calendario.html" class="btn_inscripciones">☆  Calendario</a></li>
-            <li><a href="2-Profesores.html" class="btn_profesores">☆  Profesores</a></li>
-            <li><a href="8_Eventos.html" class="btn_eventos">☆  Eventos</a></li>
-            <li><a href="9_AlumnosDesta.html" class="btn_alumnos_desta">☆  Alumnos destacados</a></li>
-            <li><a href="10_Convocatoria.html" class="btn_convocatorias">☆  Convocatorias</a></li>
-            </ul>
-        </div>
-        <div class="grupo-menu">
-            <ul>
-            <hr>
-            <li><a href="11_Mapa.html" class="btn_mapa">☆  Mapa</a></li>
-            <li><a href="4-Cafeteria.html" class="btn_menu_cafe">☆  Menu de cafeteria</a></li>
-            <li><a href="7_Chismografo.html" class="btn_chisme">☆  Chismografo</a></li>
-            <li><a href="12_Horario.html" class="btn_horario">☆  Horario</a></li>
-            </ul>
-        </div>
-        <div class="menu-usuario">
-            <div>
-              <a href="6-Perfil.html" class="btn_user">👤 User</a>
+            <div class="grupo-menu">
+                <h2>Revista</h2>
+                <ul>
+                    <li><a href="1_Anuncios.html" class="btn_revista">☆ Anuncios</a></li>
+                    <li><a href="3-Calendario.html" class="btn_inscripciones">☆ Calendario</a></li>
+                    <li><a href="2-Profesores.html" class="btn_profesores">☆ Profesores</a></li>
+                    <li><a href="8_Eventos.html" class="btn_eventos">☆ Eventos</a></li>
+                    <li><a href="9_AlumnosDesta.html" class="btn_alumnos_desta">☆ Alumnos destacados</a></li>
+                    <li><a href="10_Convocatoria.html" class="btn_convocatorias">☆ Convocatorias</a></li>
+                </ul>
             </div>
-            <div class="Exit-User"></div>
+            <div class="grupo-menu">
+                <hr>
+                <ul>
+                    <li><a href="11_Mapa.html" class="btn_mapa">☆ Mapa</a></li>
+                    <li><a href="4-Cafeteria.html" class="btn_menu_cafe">☆ Menu de cafeteria</a></li>
+                    <li><a href="7_Chismografo.html" class="btn_chisme">☆ Chismografo</a></li>
+                    <li><a href="12_Horario.html" class="btn_horario">☆ Horario</a></li>
+                </ul>
+            </div>
+            <div class="menu-usuario">
+                <a href="6-Perfil.html" class="btn_user">👤 User</a>
+            </div>
+        </aside>
+<main class="feed_anuncios">
+    <div class="contenedor-perfil">
+        <div class="tarjeta-usuario">
+            <div class="portada-perfil"></div>
+            <div class="foto-perfil-contenedor">
+                <img src="../static/Imagenes/usuario-ejemplo.jpg" alt="Foto de Perfil">
+            </div>
+            <h2 class="nombre-usuario">Juan Pérez García</h2>
+            <span class="especialidad-tag">Programación</span>
+            <div class="datos-estadisticos">
+                <div class="dato-item">
+                    <h4>4°</h4>
+                    <span>Semestre</span>
+                </div>
+                <div class="dato-item">
+                    <h4>"A"</h4>
+                    <span>Grupo</span>
+                </div>
+                <div class="dato-item">
+                    <h4>9.5</h4>
+                    <span>Promedio</span>
+                </div>
+            </div>
+          </div>
         </div>
-    </aside>
-    <p style="text-align: center;" class="subtitulos-seccion">Perfil</p>
-    <div class="">
-      
+      </main>
     </div>
-    <div>
-
-    </div>
-
   </body>
 </html>

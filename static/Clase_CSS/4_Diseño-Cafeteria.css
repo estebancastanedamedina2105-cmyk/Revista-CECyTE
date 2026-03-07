@@ -1,0 +1,115 @@
+:root{
+    --azul-cecyte:#1a4d8c;
+    --dorado-cecyte:#8d6e63;
+    --blanco:#ffffff;
+    --gris-fondo:#f4f7f6;
+    --sombra:0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.fondo_crema{
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+body.dark{
+    background: linear-gradient(135deg, #1e2024 0%, #121212 100%);
+}
+.header-superior{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 10px 20px;
+    background: #ffffff;
+    box-shadow:  0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.seccion-izquierda-controles{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.seccion-logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+.texmenu{
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'Poppins', sans-serif;
+    color: var(--azul-cecyte);
+    font-size: 24px;
+    font-weight: 800;
+}
+.caja-cafeteria{
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.subtitulos-seccion{
+    text-align: center;
+    color: var(--azul-cecyte);
+    font-size: 2rem;
+    margin-bottom: uppercase;
+    letter-spacing: 2px;
+}
+.ecabezado-tarjeta{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+    justify-content: center;
+}
+.caja-menu1, .caja-menu2{
+    background: var(--blanco);
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+    border: 1px solid #e0e0e0;
+    flex: 1;
+    min-width: 300px;
+    padding: 30px;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    border-top: 8px solid var(--azul-cecyte);
+    box-shadow: var(--sombra);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: rgba(255, 255, 255, 0.9);
+    
+}
+.caja-menu1:hover, .caja-menu2:hover{
+    transform: translateY(-10px);
+    transform: scale(1.02);
+    box-shadow: 0 15px 30px rgba(26, 77, 140, 0.2);
+    border-color: var(--azul-cecyte);
+}
+h3{
+    color: var(--dorado-cecyte);
+    text-align: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+ol{
+    list-style: none;
+    padding: 0;
+}
+ol li{
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed #ddd;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    color: #444;
+}
+ol li{
+    border-bottom: none;
+}
+ol li::after{
+    content: "Precio";
+    font-weight: bold;
+    color: var(--azul-cecyte);
+    background: #eef2f7;
+    padding: 4px 10px;
+    border: 8px;
+}

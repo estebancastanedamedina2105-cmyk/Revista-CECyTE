@@ -1,4 +1,91 @@
-.subtitulos-seccion{
-    font-size: 35px;
-    color: #626262
+:root {
+    --azul-cecyte: #1a4d8c;
+    --azul-oscuro: #0d2a4f;
+    --dorado: #d4af37;
+    --blanco-cristal: rgba(255, 255, 255, 0.8);
+    --sombra-premium: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+.contenedor-perfil {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+/* La caja principal que contiene el perfil */
+.tarjeta-usuario {
+    background: var(--blanco-cristal);
+    backdrop-filter: blur(10px); /* Efecto de cristal esmerilado */
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: var(--sombra-premium);
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+/* Imagen de portada */
+.portada-perfil {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(45deg, var(--azul-cecyte), var(--azul-oscuro));
+    position: relative;
+}
+
+/* Foto de perfil circular */
+.foto-perfil-contenedor {
+    width: 150px;
+    height: 150px;
+    margin: -75px auto 15px; /* Sube la foto para que tape la mitad de la portada */
+    position: relative;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    background-color: #eee;
+}
+
+.foto-perfil-contenedor img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.nombre-usuario {
+    font-size: 2rem;
+    color: var(--azul-cecyte);
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.especialidad-tag {
+    display: inline-block;
+    background: var(--azul-cecyte);
+    color: white;
+    padding: 5px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Grilla de datos (Semestre, Grupo, Promedio) */
+.datos-estadisticos {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+}
+
+.dato-item h4 {
+    font-size: 1.2rem;
+    color: var(--azul-oscuro);
+    margin: 0;
+}
+
+.dato-item span {
+    color: #777;
+    font-size: 0.8rem;
+    text-transform: uppercase;
 }
