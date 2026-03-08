@@ -10,10 +10,11 @@
     </head>
     <body class="fondo_crema">
         <header class="header-superior">
-            <div class="seccion-menuiz">
-                <label for="check-menu" class="btn-menu"><h3> ☰ Menu</h3></label>
-                <span>——</span>
-                <button id="modoOscuro" class="btn_oscuro botones"> 🌙 | ☀️</button>
+        <div class="seccion-menuiz">
+            <div class="seccion-izquierda-controles">
+            <button id="modoOscuro" class="btn_oscuro botones"> 🌙 | ☀️</button>
+            <label for="check-menu" class="btn-menu"><h3> ☰ Menu</h3></label>
+        </div>
         <script>
             <!-- Modo oscuro -->
             const boton = document.getElementById("modoOscuro");
@@ -30,11 +31,10 @@
             }
         </script>
         </div>
-        <h2 class="texmenu">Profesores CECyTE</h2>
-        <h1 class="titulo-h1">Fake News</h1>
+        <h2 class="texmenu">CECyTE</h2>
         <div class="seccion-derecha">
-        <a href="5-Login.html" class="botones-auth botones" title="Ingresar"><button type="button">Ingresar</button></a>
-        <img src="../Imagenes/LogoCecyte.jpg" class="logo-circulo" title="Logo CCEyTE"/>
+        <button href="5-Login.html" class="botones-auth botones" type="button">Ingresar</button>
+        <img src="../static/Imagenes/LogoCecyte.jpg" class="logo-circulo" title="Logo CCEyTE"/>
         </div>
     </header>
     <div class="diseño_principal">
@@ -48,24 +48,21 @@
             <li><a href="{{ url_for('profesores') }}">☆ Profesores</a></li>
             <li><a href="{{ url_for('eventos') }}">☆ Eventos</a></li>
             <li><a href="{{ url_for('alumnos_desta') }}">☆ Alumnos destacados</a></li>
-            <li><a href="{{ url_for('convocatorias') }}">☆ Convocatorias</a></li>
             </ul>
         </div>
         <div class="grupo-menu">
             <ul>
             <hr>
-            <li><a href="{{ url_for('mapa') }}">☆ Mapa</a></li>
             <li><a href="{{ url_for('cafeteria') }}" class="btn_menu_cafe">☆  Menu de cafeteria</a></li>
             <li><a href="{{ url_for('chismografo') }}" class="btn_chisme">☆  Chismografo</a></li>
-            <li><a href="{{ url_for('horario') }}" class="btn_horario">☆  Horario</a></li>
             </ul>
         </div>
         <div class="menu-usuario">
-            <div>
-              <a href="6-Perfil.html" class="btn_user">👤 User</a>
+                <div>
+                    <a href="6-Perfil.html" class="btn_item">👤 User</a>
+                </div>
+                <div class="btn_item">Exit</div>
             </div>
-            <div class="Exit-User"></div>
-        </div>
     </aside>
     
     <h2 class="subtitulos_seccion">Profesores</h2>

@@ -6,8 +6,8 @@
     display:block;
     margin: auto;
     margin-bottom: 20px;
-    border: 1px solid #000000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0, 02);
+    border: 4px solid #3c2547;
+    box-shadow: 0 4px 6px 5px rgba(0, 0, 0, 0, 0.2);
 }
 .caja-informacion{
     background: var(--blanco);
@@ -17,8 +17,9 @@
     display:contents;
     margin: auto;
     margin-bottom: 20px;
-    border: 1px solid #000000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0, 02);
+    border: 10px solid #000000;
+    box-shadow: 0 4px 6px 5px rgba(5, 0, 0, 0, 0.2);
+    background: #142f3e;
     display: inline-block;
 }
 .subtitulos-seccion{
@@ -32,6 +33,7 @@
     margin: 20px auto;
     border: 1px solid #000000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    background: #307946;
     display: block;
     max-width: 500px;
     font-family: Arial, sans-serif;
@@ -39,22 +41,23 @@
 .linea.divisora {
     margin: 20px 0;
     border: 0;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #ff00b7;
 }
 table {
     width: 100%;
+    background: #86ff56;
     border-collapse: collapse;
     margin-top: 15px;
 }
 th { 
-    background-color: #333; color: white; padding: 10px;
+    background-color: #4b4b4b; color: white; padding: 10px;
 }
 td { 
-    border: 1px solid #ddd; padding: 8px; text-align: left;
+    border: 2px solid #000000; padding: 8px; text-align: left;
 }        
 /* Estilo para fines de semana */
 .fin-de-semana {
-    background-color: #fff0f0;
+    background-color: #ffa2a2;
     color: #c00;
     font-weight: bold;
 }

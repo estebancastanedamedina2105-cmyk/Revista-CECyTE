@@ -67,11 +67,15 @@ function imprimirTabla(total, mes, anio) {
             descripcion = "Dia de la constitución";
         } else if (fechaClave === "18-3") {
             descripcion = "Natalicio de Benito Juárez";
+        } else if (fechaClave === "1-7" || fechaClave === "2-7" || fechaClave === "3-7" || fechaClave === "4-7" || fechaClave === "5-7" || fechaClave === "6-7" || fechaClave === "7-7" || fechaClave === "8-7" || fechaClave === "9-7" || fechaClave === "10-7" || fechaClave === "11-7" || fechaClave === "12-7" || fechaClave === "13-7" || fechaClave === "14-7" || fechaClave === "15-7" || fechaClave === "16-7" || fechaClave === "17-7" || fechaClave === "18-7" || fechaClave === "19-7" || fechaClave === "20-7" || fechaClave === "21-7" || fechaClave === "22-7" || fechaClave === "23-7" || fechaClave === "24-7" || fechaClave === "25-7" || fechaClave === "26-7" || fechaClave === "27-7" || fechaClave === "28-7" || fechaClave === "29-7" || fechaClave === "30-7" || fechaClave === "31-7") {
+            descripcion = "Descanso";
+        } else if (fechaClave === "14-12" || fechaClave === "15-12" || fechaClave === "16-12" || fechaClave === "17-12" || fechaClave === "18-12" || fechaClave === "19-12" || fechaClave === "20-12" || fechaClave === "21-12" || fechaClave === "22-12" || fechaClave === "23-12" || fechaClave === "24-12" || fechaClave === "26-12" || fechaClave === "27-12" || fechaClave === "28-12" || fechaClave === "29-12" || fechaClave === "30-12" || fechaClave === "31-12") {
+            descripcion = "Descanso";
         } else if (esFinDeSemana) {
             descripcion = "Descanso";
         }
 
-        const colorGrisFuerte = "color: #444;";
+        const colorGrisFuerte = "color: #000000;";
         const colorfinde = esFinDeSemana ? 'class="fin-de-semana"' : '';
 
         html += `<tr ${colorfinde}>
