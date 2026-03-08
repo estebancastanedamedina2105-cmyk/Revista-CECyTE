@@ -13,6 +13,23 @@
     font-size: 24px;
     font-weight: 800;
 }
+:root{
+    --bg-principal: #fdfaf5;
+    --bg-tarjeta: #ffffff;
+    --texto: #1a3648;
+    --acento: #0056b3;
+    --acento-secundario: #dfff6c;
+    --sombra: rgba(0, 0, 0, 0.1);
+    --transicion: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+body.dark{
+    --bg-principal: #121212;
+    --bg-tarjeta: #1e1e1e;
+    --texto: #e0e0e0;
+    --acento: #4dabff;
+    --sombra: rgba(0, 0, 0, 0.5);
+}
+
 .contenedor {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
