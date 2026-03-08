@@ -1,18 +1,8 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Ingreso CECytE</title>
-      <link
-      rel="icon"
-      href="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}"
-      type="image/png"/>
-      <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='Clase_CSS/1_Diseño_Anuncios.css') }}"/>
-      <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='Clase_CSS/2_Diseño_Login.css') }}"/>
-  </head>
+<link rel="icon" href="../Imagenes/LogoCecyte.jpg" type="image/png">
+<link rel="stylesheet" href="../Clase_CSS/1_Diseño_Anuncios.css">
+<link rel="stylesheet" href="../Clase_CSS/2_Diseño_Login.css">
   <div>
     <span class="bg-aniDiseño_mate"></span>
     <span class="bg2-animate"></span>
@@ -31,11 +21,11 @@
             <input type="email" id="correo" class="cajaCorreo" placeholder="correo@cecytemorelos.edu.mx"/>
           </div>
           <div>
-          <button type="submit" class="login-button codigo generarCodigo">Mandar Codigo</button>
+            <button type="button" class="login-button" onclick="manejarLogin()">Mandar Codigo</button>
           </div>
           <div class="input-group">
             <input type="password" id="code" class="cajaCodigo" placeholder="Ingresa el codigo"/>
-            <button type="submit" class="entrarCode login-button">Verificar</button>
+            <button type="button" class="entrarCode login-button" onclick="verificarCodigo()">Verificar</button>
             <p id="mensaje"></p>
           </div>
           <a
@@ -46,6 +36,6 @@
         </form>
       </div>
     </div>
-    <script src="../Clase Js/login.js"></script>
+    <script src="login.js"></script>
   </body>
 </html>
