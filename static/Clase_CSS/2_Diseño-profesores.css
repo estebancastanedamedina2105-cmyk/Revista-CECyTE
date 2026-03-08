@@ -1,8 +1,40 @@
+:root{
+    --azul-cecyte:#1a4d8c;
+    --dorado-cecyte:#8d6e63;
+    --blanco:#ffffff;
+    --gris-fondo:#f4f7f6;
+    --sombra:0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.texmenu{
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'Poppins', sans-serif;
+    color: var(--azul-cecyte);
+    font-size: 24px;
+    font-weight: 800;
+}
+:root{
+    --bg-principal: #fdfaf5;
+    --bg-tarjeta: #ffffff;
+    --texto: #1a3648;
+    --acento: #0056b3;
+    --acento-secundario: #dfff6c;
+    --sombra: rgba(0, 0, 0, 0.1);
+    --transicion: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+body.dark{
+    --bg-principal: #121212;
+    --bg-tarjeta: #1e1e1e;
+    --texto: #e0e0e0;
+    --acento: #4dabff;
+    --sombra: rgba(0, 0, 0, 0.5);
+}
+
 .contenedor {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px; /* Espacio entre los cuadros */
-    padding: 20px;
+    gap: 2%; /* Espacio entre los cuadros */
+    padding: 2%;
 }
 .cuadro {
     background-color: #1a3648;
@@ -13,7 +45,7 @@
     justify-content: flex-end;
     font-family: Arial, sans-serif;
     font-size: 1.5rem;
-    border-radius: 8px;
+    border-radius: 8%;
     box-shadow: 0 4px 6px 20px rgba(0, 0, 0, 0.548);
 }
 .tarjeta{
@@ -21,43 +53,43 @@
     height: 40px auto;
     background: var(--blanco);
     border: 15px;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 5px solid #000000;
+    padding: 5%;
+    margin-bottom: 20%;
+    border: 5% solid #000000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
     flex: 1 1 200px; 
 }
 .informacion_tarjeta{
     background-color: #481a1a;
     color: rgb(167, 255, 108);
-    height: 200px;
+    height: 100% auto;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     font-family: Arial, sans-serif;
     font-size: 1.5rem;
-    border-radius: 20px;
+    border-radius: 10%;
     box-shadow: 0px 4px 6px 10px rgba(0, 0, 0, 0.548);
 }
 .linea {
     font-family: Arial, sans-serif;
     border: 10;
-    height: 5px;
+    height: 1%;
     background: #333;
     width: 100%;
 }
 .agradecimientos{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px; /* Espacio entre los cuadros */
-    padding: 20px;
+    gap: 100%; /* Espacio entre los cuadros */
+    padding: 100%;
     background-color: #1a3648;
     color: rgb(221, 255, 108);
-    height: 200px;
+    height: 100%;
     align-items: center;
     justify-content: center;
     font-family: Arial, sans-serif;
     font-size: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.548);
+    border-radius: 100%;
+    box-shadow: 0 4px 6px 10px rgba(0, 0, 0, 0.548);
 }
