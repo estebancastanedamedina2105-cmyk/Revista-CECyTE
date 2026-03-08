@@ -1,0 +1,166 @@
+:root{
+    --bg-principal: #fdfaf5;
+    --bg-tarjeta: #ffffff;
+    --texto: #1a3648;
+    --acento: #0056b3;
+    --acento-secundario: #dfff6c;
+    --sombra: rgba(0, 0, 0, 0.1);
+    --transicion: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+body.dark{
+    --bg-principal: #121212;
+    --bg-tarjeta: #1e1e1e;
+    --texto: #e0e0e0;
+    --acento: #4dabff;
+    --sombra: rgba(0, 0, 0, 0.5);
+}
+
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-color: var(--bg-principal);
+    color: var(--texto);
+    transition: var(--transicion);
+}
+.header-superior{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    background-color: var(--bg-tarjeta);
+    box-shadow: 0 4px 15px var(--sombra);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.seccion-izquierda{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.seccion-centro{
+    text-align: center;
+}
+.seccion-derecha-controles{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+.btn-ingresar{
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: none;
+    background: var(--acento);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+.btn-menu{
+    cursor: pointer;
+    color: var(--acento);
+}
+.barra-lateral{
+    position: fixed;
+    right: -300px; 
+    top: 0;
+    width: 280px;
+    height: 100%;
+    background: var(--bg-tarjeta);
+    padding: 20px;
+    transition: var(--transicion);
+    box-shadow: -5px 0 15px var(--sombra);
+    z-index: 1100;
+}
+.barra-lateral ul{
+    list-style: none;
+    padding: 20px;
+}
+#check-menu:checked ~ .barra-lateral{
+    right: 0;
+}
+/* Links del Menú como cajas animadas */
+.btn_item {
+    text-decoration: none;
+    color: var(--texto);
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 10px;
+    transition: var(--transicion);
+    border-left: 4px solid transparent;
+}
+.btn_item:hover{
+    background: var(--acento);
+    color: white;
+    transform: translateX(-10px);
+    border-left: 4px solid var(--acento-secundario);
+}
+.titulo-seccion{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 2rem;
+}
+.contenedor-tarjetas{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 40px 5%;
+}
+.tarjeta-evento{
+    background: var(--bg-tarjeta);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px var(--sombra);
+    transition: var(--transicion);
+    animation: fadeIn 0.8s ease-out;
+}
+.tarjeta-evento:hover{
+    transform: translateY(-10px);
+}
+.fecha{
+    background: var(--acento);
+    color: var(--acento-secundario);
+    padding: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+.info-evento{
+    padding: 20px;
+}
+.btn-detalles{
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    background: var(--acento);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px rgba(0, 0, 0, 0.1);
+}
+.btn-detalles:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.1);
+    letter-spacing: 0.5px;
+}
+.btn-detalles:active{
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+@keyframes fadeIn{
+    from{opacity: 0; transform: translateY(20px); }
+    to{opacity: 1; transform: translateY(0); }
+}
+.logo-circulo{
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--acento);
+}

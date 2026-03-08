@@ -1,0 +1,83 @@
+:root{
+    --bg-principal: #fdfaf5;
+    --bg-tarjeta: #ffffff;
+    --texto: #1a3648;
+    --acento: #0056b3;
+    --acento-secundario: #dfff6c;
+    --sombra: rgba(0, 0, 0, 0.1);
+    --transicion: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+body.dark{
+    --bg-principal: #121212;
+    --bg-tarjeta: #1e1e1e;
+    --texto: #e0e0e0;
+    --acento: #4dabff;
+    --sombra: rgba(0, 0, 0, 0.5);
+}
+.header-superior{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    background-color: var(--bg-tarjeta);
+    box-shadow: 0 4px 15px var(--sombra);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.seccion-logo{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    order: 1;
+}
+.texmenu{
+    position: absolute;
+    left: 50%;
+    transform: transLateY(-50%);
+    margin: 0;
+    font-size: 1.8rem;
+    order: 2;
+}
+.btn-menu{
+    cursor: pointer;
+    color: var(--acento);
+}
+.barra-lateral{
+    position: fixed;
+    right: -300px; 
+    top: 0;
+    width: 280px;
+    height: 100%;
+    background: var(--bg-tarjeta);
+    padding: 20px;
+    transition: var(--transicion);
+    box-shadow: -5px 0 15px var(--sombra);
+    z-index: 1100;
+    overflow-y: auto;
+}
+#check-menu:checked ~ .barra-lateral{
+    right: 0;
+}
+.barra-lateral ul{
+    list-style: none;
+    padding: 20px;
+}
+/* Links del Menú como cajas animadas */
+.btn_item {
+    text-decoration: none;
+    color: var(--texto);
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 10px;
+    transition: var(--transicion);
+    border-left: 4px solid transparent;
+}
+.btn_item:hover{
+    background: var(--acento);
+    color: white;
+    transform: translateX(-10px);
+    border-left: 4px solid var(--acento-secundario);
+}
