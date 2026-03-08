@@ -1,8 +1,9 @@
-#importo flask
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import sqlite3
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/verificar', methods=['POST'])
 def verificar():
@@ -15,10 +16,10 @@ def verificar():
         cursor = conexion.cursor()
         
         cursor.execute("SELECT nombre FROM Estudiantes WHERE correo = ?", (correo_usuario,))
-        resulado = cursor.fetchone() 
+        resultado = cursor.fetchone() 
         
-        if resulado:
-            nombre_alumno = resulado[0]
+        if resultado:
+            nombre_alumno = resultado[0]
             return jsonify({
                 "status": "success",
                 "mensaje": f"Correo verificado para el alumno: {nombre_alumno}"
@@ -35,4 +36,5 @@ def verificar():
     finally:
         if 'conexion' in locals():
             conexion.close()
-    
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)

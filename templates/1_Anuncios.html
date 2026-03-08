@@ -27,37 +27,49 @@
         <label for="check-menu" class="btn-menu"><h3>☰ Menu</h3></label>
         <span>——</span>
         <button id="modoOscuro" class="btn_oscuro botones">🌙 | ☀️</button>
+
         <script>
           //Modo oscuro
           const boton = document.getElementById("modoOscuro");
           boton.addEventListener("click", () => {
             document.body.classList.toggle("dark");
+
             if (document.body.classList.contains("dark")) {
               localStorage.setItem("modo", "oscuro");
             } else {
               localStorage.setItem("modo", "claro");
             }
           });
+
           if (localStorage.getItem("modo") === "oscuro") {
             document.body.classList.add("dark");
           }
         </script>
       </div>
+
       <h2 class="texmenu">CECyTE</h2>
       <h1 class="titulo-h1">Fake News</h1>
+
       <div class="seccion-derecha">
-        <a href="5-Login.html" class="botones-auth botones" title="Ingresar"
-          ><button type="button">Ingresar</button></a
+        <a
+          href="{{ url_for('login') }}"
+          class="botones-auth botones"
+          title="Ingresar"
         >
+          <button type="button">Ingresar</button>
+        </a>
+
         <img
-          src="../static/Imagenes/LogoCecyte.jpg"
+          src="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}"
           class="logo-circulo"
           title="Logo CCEyTE"
         />
       </div>
     </header>
+
     <div class="diseño_principal">
       <input type="checkbox" id="check-menu" style="display: none" />
+
       <aside class="barra-lateral">
         <div class="grupo-menu">
           <h2>Revista</h2>
@@ -66,42 +78,71 @@
             <li><a href="{{ url_for('calendario') }}">☆ Calendario</a></li>
             <li><a href="{{ url_for('profesores') }}">☆ Profesores</a></li>
             <li><a href="{{ url_for('eventos') }}">☆ Eventos</a></li>
-            <li><a href="{{ url_for('alumnos_desta') }}">☆ Alumnos destacados</a></li>
-            <li><a href="{{ url_for('convocatorias') }}">☆ Convocatorias</a></li>
+            <li>
+              <a href="{{ url_for('alumnos_destacados') }}"
+                >☆ Alumnos destacados</a
+              >
+            </li>
+            <li>
+              <a href="{{ url_for('convocatorias') }}">☆ Convocatorias</a>
+            </li>
           </ul>
         </div>
+
         <div class="grupo-menu">
           <ul>
             <li><a href="{{ url_for('mapa') }}">☆ Mapa</a></li>
-            <li><a href="{{ url_for('cafeteria') }}" class="btn_menu_cafe">☆  Menu de cafeteria</a></li>
-            <li><a href="{{ url_for('chismografo') }}" class="btn_chisme">☆  Chismografo</a></li>
-            <li><a href="{{ url_for('horario') }}" class="btn_horario">☆  Horario</a></li>
+            <li>
+              <a href="{{ url_for('cafeteria') }}" class="btn_menu_cafe">
+                ☆ Menu de cafeteria
+              </a>
+            </li>
+            <li>
+              <a href="{{ url_for('chismografo') }}" class="btn_chisme">
+                ☆ Chismografo
+              </a>
+            </li>
+            <li>
+              <a href="{{ url_for('horario') }}" class="btn_horario">
+                ☆ Horario
+              </a>
+            </li>
           </ul>
         </div>
+
         <div class="menu-usuario">
           <div>
-            <a href="6-Perfil.html" class="btn_user">👤 User</a>
+            <a href="{{ url_for('perfil') }}" class="btn_user">👤 User</a>
           </div>
           <div class="Exit-User"></div>
         </div>
       </aside>
+
       <main class="feed_anuncios">
         <div class="barra_busqueda_contenedor">
-          <input type="search" class="input-busqueda" placeholder="Busca la publicacion o perfil" autofocus/>
-          </div>
+          <input
+            type="search"
+            class="input-busqueda"
+            placeholder="Busca la publicacion o perfil"
+            autofocus
+          />
         </div>
 
         <h2 class="subtitulos_seccion">Anuncios</h2>
+
         <div class="tarjeta">
           <div class="encabezado_tarjeta">
             <p><strong>Anucio!! De: Esteban</strong></p>
+
             <hr class="lienea divisora" />
+
             <p class="cuerpo_anuncio">
-              <strong>ME QUIERO PEGAR DOS TIROS EN LA CABEZA</strong><br />ooh
-              baby,you touch yourself so much that you cant t feel anything
+              <strong>ME QUIERO PEGAR DOS TIROS EN LA CABEZA</strong><br />
+              ooh baby,you touch yourself so much that you cant t feel anything
               anymore
             </p>
           </div>
+
           <div class="acciones_tarjerta">
             <button class="btn_opc_tarjeta">⋮</button>
             <button class="btn_cora_tarjeta">♡</button>
