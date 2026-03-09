@@ -3,11 +3,11 @@
     <head>
         <meta charset="UFT-8">
         <title>Chismografo CECyTE</title>
-        <link rel="stylesheet" href="../static/Clase_CSS/7_Chismografo.css" />
-    <link rel="stylesheet" href="../static/Clase_CSS/1_Diseño_Anuncios.css" />
-    <link rel="stylesheet" href="../static/Clase_CSS/0_Diseño_Menu.css" /> 
-    <link rel="icon" href="../static/Imagenes/LogoCecyte.jpg" type="image/png">
-        <link rel="stylesheet" href="../../all css/Diseño-Chatbot.css" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/7_Chismografo.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/1_Diseño_Anuncios.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/0_Diseño_Menu.css') }}" /> 
+    <link rel="icon" href="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}" type="image/png">
+        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/Diseño-Chatbot.css') }}" />
     </head>
     <body class="fondo_crema">
         <header class="header-superior">
@@ -34,8 +34,8 @@
         </div>
         <h1 class="texmenu">Fake News</h1>
         <div class="seccion-derecha">
-        <button href="5-Login.html" class="botones-auth botones" type="button">Ingresar</button>
-        <img src="../static/Imagenes/LogoCecyte.jpg" class="logo-circulo" title="Logo CCEyTE"/>
+        <button href="{{ url_for('login') }}" class="botones-auth botones" type="button">Ingresar</button>
+        <img src="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}" class="logo-circulo" title="Logo CCEyTE"/>
         </div>
     </header>
     <div class="diseño_principal">
@@ -116,7 +116,7 @@
 
 
     </div>
-    <script src="../static/Clase_JS/chismografo.js"></script>
+    <script src="{{ url_for('static', filename='Clase_JS/chismografo.js') }}"></script>
   </body>
 </html>
 

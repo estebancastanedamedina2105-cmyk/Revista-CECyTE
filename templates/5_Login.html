@@ -1,7 +1,14 @@
 <!doctype html>
 <html>
-  <link rel="icon" href="../static/Imagenes/LogoCecyte.jpg" type="image/png">
-  <link rel="stylesheet" href="../static/Clase_CSS/5_Diseño_login.css" />  
+  <link
+    rel="icon"
+    href="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}"
+    type="image/png"
+  />
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='Clase_CSS/5_Diseño_login.css') }}"
+  />
   <div>
     <span class="bg-aniDiseño_mate"></span>
     <span class="bg2-animate"></span>
@@ -10,31 +17,36 @@
     <div class="login-container">
       <div class="login-box">
         <img
-          src="../static/Imagenes/LogoCecyte.jpg"
+          src="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}"
           alt="Logo CECyTE"
           class="login-logo"
         />
         <h2>Iniciar Sesion</h2>
         <form class="login-from">
           <div class="input-group">
-            <input type="email" id="correo" class="cajaCorreo" placeholder="correo@cecytemorelos.edu.mx"/>
+            <input
+              type="email"
+              id="correo"
+              class="cajaCorreo"
+              placeholder="correo@cecytemorelos.edu.mx"
+            />
           </div>
           <div>
-            <button type="button" class="login-button" onclick="manejarLogin()">Mandar Codigo</button>
+            <button type="button" class="login-button" onclick="manejarLogin()">
+              Mandar Codigo
+            </button>
           </div>
           <div class="input-group">
-            <input type="password" id="code" placeholder="Ingresa el codigo">
+            <input type="password" id="code" placeholder="Ingresa el codigo" />
             <button type="button" onclick="verificarCodigo()">Verificar</button>
             <p id="mensaje"></p>
           </div>
-          <a
-            href="javascript:history.back()"
-            class="btn-login btn-salir"
+          <a href="javascript:history.back()" class="btn-login btn-salir"
             ><button type="button">Regresar</button></a
           >
         </form>
       </div>
     </div>
-    <script src="../static/Clase_JS/login.js"></script>
+    <script src="{{ url_for('static', filename='Clase_JS/login.js') }}"></script>
   </body>
 </html>

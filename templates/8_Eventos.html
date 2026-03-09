@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eventos CECyTE</title>
-    <link rel="stylesheet" href="../static/Clase_CSS/8_Diseño_Eventos.css" />
-        <link rel="stylesheet" href="../static/Clase_CSS/1_Diseño_Anuncios.css" /> 
-    <link rel="icon" href="../static/Imagenes/LogoCecyte.jpg" type="image/png">
-    <link rel="stylesheet" href="../static/Clase_CSS/Diseño_Chatbot.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/8_Diseño_Eventos.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/1_Diseño_Anuncios.css') }}" /> 
+    <link rel="icon" href="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/Diseño_Chatbot.css') }}" />
 </head>
 <body class="fondo_crema">
     <header class="header-superior">
@@ -29,8 +29,8 @@
         </div>
         <h2 class="texmenu">CECyTE</h2>
         <div class="seccion-derecha">
-        <button href="5-Login.html" class="botones-auth botones" type="button">Ingresar</button>
-        <img src="../static/Imagenes/LogoCecyte.jpg" class="logo-circulo" title="Logo CCEyTE"/>
+        <button href="{{ url_for('login') }}" class="botones-auth botones" type="button">Ingresar</button>
+        <img src="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}" class="logo-circulo" title="Logo CCEyTE"/>
         </div>
     </header>
     <div class="diseño_principal">
