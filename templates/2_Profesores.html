@@ -886,15 +886,27 @@
         <span onclick="cerrarChat()">✖</span>
       </div>
 
-      <div id="chatbot-mensajes"></div>
+      <div id="chatbot-boton">💬 CoyoBot</div>
+
+    <div id="chatbot-ventana">
+      <div id="chatbot-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="status-online"></div>
+            <span>🤖 CoyoBot CECyTE</span>
+        </div>
+        <span id="cerrar" style="cursor: pointer;">✖</span>
+      </div>
+
+      <div id="chatbot-mensajes">
+          <div class="mensaje-bot">¡Hola! Soy el asistente virtual del CECyTE. ¿Qué necesitas buscar en el portal?</div>
+      </div>
 
       <div id="chatbot-input">
-        <input type="text" id="mensaje" placeholder="Escribe tu pregunta..." />
-        <button onclick="enviarMensaje()">Enviar</button>
+        <input type="text" id="mensaje" placeholder="Escribe tu pregunta..." autocomplete="off" />
+        <button id="enviar">➤</button>
       </div>
     </div>
 
-    <script src="{{ url_for('static', filename='Clase_JS/Sscrip.js') }}"></script>
     <script src="{{ url_for('static', filename='Clase_JS/chatbot.js') }}"></script>
 
   </body>
