@@ -2,42 +2,43 @@ from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 
-# ---------------- LÓGICA DEL CHATBOT ----------------
 
-
+# --- LÓGICA DEL CHATBOT ---
 def responder(mensaje):
-    # Limpiamos el mensaje: minúsculas y quitar espacios extra
     msg = mensaje.lower().strip()
 
-    # Diccionario de respuestas rápidas (más fácil de mantener que muchos elif)
     respuestas = {
-        "hola": "¡Hola! 👋 Soy el asistente virtual de CECyTE. ¿En qué puedo apoyarte hoy?",
-        "anuncio": "Puedes revisar los comunicados oficiales en la sección de Anuncios. 📢",
-        "calendario": "El calendario escolar vigente lo encuentras en la sección de Calendario. 📅",
-        "cafeteria": "¡Qué hambre! 🍕 El menú y los precios están en la sección de Cafetería.",
-        "menu": "El menú de hoy ya está disponible en la sección de Cafetería. 🥤",
-        "evento": "Hay actividades interesantes próximamente. Revísalas en la sección de Eventos. 🎈",
-        "horario": "Tu horario de clases está disponible en la sección de Horarios. 🕒",
-        "profesor": "La lista de docentes y sus perfiles está en la sección de Profesores. 👨‍🏫",
-        "mapa": "Si estás perdido, el mapa del plantel está en la sección Mapa. 📍",
+        "hola": "¡Hola! 🤖 Soy CoyoBot, el asistente futurista de CECyTE. ¿En qué dimensión puedo ayudarte hoy?",
+        "anuncio": "Los comunicados intergalácticos (y oficiales) están en la sección de Anuncios. 📢",
+        "calendario": "El continuo espacio-tiempo escolar está en la sección de Calendario. 📅",
+        "cafeteria": "¡Energía necesaria! 🍕 El menú de la estación de combustible está en Cafetería.",
+        "menu": "El combustible de hoy ya está listado en la sección de Cafetería. 🥤",
+        "evento": "Hay anomalías divertidas próximamente. Revísalas en Eventos. 🎈",
+        "horario": "Tu cronograma de actividades está en la sección de Horarios. 🕒",
+        "profesor": "Los maestros Jedi de la institución están en la sección de Profesores. 👨‍🏫",
+        "mapa": "Si te perdiste en el cuadrante, el mapa del plantel está en la sección Mapa. 📍",
     }
 
-    # Buscamos si alguna palabra clave está en el mensaje del usuario
-    for clave in respuestas:
+    for clave, respuesta in respuestas.items():
         if clave in msg:
-            return respuestas[clave]
+            return respuesta
 
-    # --- AQUÍ TU AMIGO DE LA BASE DE DATOS PUEDE AGREGAR ALGO COMO: ---
-    # resultado = buscar_en_bd(msg)
-    # if resultado: return resultado
-
-    return "Lo siento, no tengo información sobre eso. 😕 Intenta preguntando por 'cafetería', 'eventos' o 'horarios'."
+    return "Lo siento, mi base de datos no reconoce esa consulta. 😕 Intenta con 'cafetería', 'eventos' o 'horario'."
 
 
-# ---------------- RUTAS DE LA REVISTA ----------------
-# (Mantenemos tus rutas pero organizadas)
+# --- RUTA DE LA API DEL CHATBOT ---
+@app.route("/chatbot", methods=["POST"])
+def chatbot():
+    try:
+        datos = request.get_json()
+        mensaje_usuario = datos.get("mensaje", "")
+        respuesta_bot = responder(mensaje_usuario)
+        return jsonify({"respuesta": respuesta_bot})
+    except Exception as e:
+        return jsonify({"respuesta": "Error en mi núcleo de procesamiento."}), 500
 
 
+# --- RUTAS DE LA REVISTA (VISTAS) ---
 @app.route("/")
 @app.route("/anuncios")
 def anuncios():
@@ -98,29 +99,6 @@ def mapa():
 def horario():
     return render_template("12_Horario.html")
 
-
-# ---------------- API DEL CHATBOT (CONEXIÓN JS) ----------------
-
-
-@app.route("/chatbot", methods=["POST"])
-def chatbot():
-    try:
-        datos = request.get_json()
-        if not datos or "mensaje" not in datos:
-            return jsonify(
-                {"respuesta": "Error: No se recibió un mensaje válido."}
-            ), 400
-
-        mensaje_usuario = datos["mensaje"]
-        respuesta_bot = responder(mensaje_usuario)
-
-        return jsonify({"respuesta": respuesta_bot})
-
-    except Exception as e:
-        return jsonify({"respuesta": "Ups, mi cerebro de robot tuvo un error."}), 500
-
-
-# ---------------- EJECUCIÓN ----------------
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
