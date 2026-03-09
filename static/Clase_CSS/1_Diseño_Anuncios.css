@@ -18,7 +18,7 @@ body.dark{
     --texto: #e0e0e0;
     --acento: #4dabff;
     --sombra: rgba(0, 0, 0, 0.5);
-} 
+}
 *{
     margin: 0; padding: 0;
     box-sizing: border-box;
@@ -46,7 +46,7 @@ body.dark{
 }
 .btn-menu{
     background-color: #1876f200;
-    color: white;
+    color: rgb(4, 92, 255);
     border: none;
     padding: 8px 15px;
     border-radius: 6px;
