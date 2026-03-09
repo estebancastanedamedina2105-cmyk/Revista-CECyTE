@@ -131,3 +131,10 @@ textarea {
     border-radius: 50%;
     border: 2px solid var(--acento);
 }
+.linea {
+    font-family: Arial, sans-serif;
+    border: 10;
+    height: 1%;
+    background: #333;
+    width: 100%;
+}

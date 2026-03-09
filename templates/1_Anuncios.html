@@ -24,9 +24,8 @@
   <body class="fondo_crema">
     <header class="hader-superior">
       <div class="seccion-menuiz">
-        <label for="check-menu" class="btn-menu"><h3>☰ Menu</h3></label>
-        <span>——</span>
         <button id="modoOscuro" class="btn_oscuro botones">🌙 | ☀️</button>
+        <label for="check-menu" class="btn-menu"><h3>☰ Menu</h3></label>
 
         <script>
           //Modo oscuro
@@ -48,7 +47,6 @@
       </div>
 
       <h2 class="texmenu">CECyTE</h2>
-      <h1 class="titulo-h1">Fake News</h1>
 
       <div class="seccion-derecha">
         <a
@@ -72,50 +70,27 @@
 
       <aside class="barra-lateral">
         <div class="grupo-menu">
-          <h2>Revista</h2>
-          <ul>
-            <li><a href="{{ url_for('anuncios') }}" class="btn_item">☆ Anuncios</a></li>
-            <li><a href="{{ url_for('calendario') }}" class="btn_item">☆ Calendario</a></li>
-            <li><a href="{{ url_for('profesores') }}" class="btn_item">☆ Profesores</a></li>
-            <li><a href="{{ url_for('eventos') }}" class="btn_item">☆ Eventos</a></li>
-            <li>
-              <a href="{{ url_for('alumnos_destacados') }}"
-                >☆ Alumnos destacados</a
-              >
-            </li>
-            <li>
-              <a href="{{ url_for('convocatorias') }}" class="btn_item">☆ Convocatorias</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="grupo-menu">
-          <ul>
-            <li><a href="{{ url_for('mapa') }}" class="btn_item">☆ Mapa</a></li>
-            <li>
-              <a href="{{ url_for('cafeteria') }}" class="btn_item">
-                ☆ Menu de cafeteria
-              </a>
-            </li>
-            <li>
-              <a href="{{ url_for('chismografo') }}" class="btn_item">
-                ☆ Chismografo
-              </a>
-            </li>
-            <li>
-              <a href="{{ url_for('horario') }}" class="btn_item">
-                ☆ Horario
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="menu-usuario">
-          <div>
-            <a href="{{ url_for('perfil') }}" class="btn_item">👤 User</a>
-          </div>
-          <div class="Exit-User"></div>
-        </div>
+                <h2>Revista</h2>
+                <ul>
+                    <li><a href="{{ url_for('anuncios') }}" class="btn_item">☆ Anuncios</a></li>
+                    <li><a href="{{ url_for('calendario') }}" class="btn_item">☆ Calendario</a></li>
+                    <li><a href="{{ url_for('profesores') }}" class="btn_item">☆ Profesores</a></li>
+                    <li><a href="{{ url_for('eventos') }}" class="btn_item">☆ Eventos</a></li>
+                    <li><a href="{{ url_for('alumnos_destacados') }}" class="btn_item">☆ Alumnos destacados</a></li>
+                </ul>
+            </div>
+            <div class="grupo-menu">
+                <ul><hr>    
+                    <li><a href="{{ url_for('cafeteria') }}" class="btn_item">☆ Menu de cafeteria</a></li>
+                    <li><a href="{{ url_for('chismografo') }}" class="btn_item">☆ Chismografo</a></li>
+                </hr></ul>
+            </div>
+            <div class="menu-usuario">
+                <div>
+                    <a href="{{ url_for('perfil') }}" class="btn_item">👤 User</a>
+                </div>
+                <div class="btn_item">Exit</div>
+            </div>
       </aside>
 
       <main class="feed_anuncios">
