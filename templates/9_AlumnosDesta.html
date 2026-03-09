@@ -18,20 +18,15 @@
             <label for="check-menu" class="btn-menu"><h3> ☰ Menu</h3></label>
         </div>
         <script>
-            <!-- Modo oscuro -->
-            const boton = document.getElementById("modoOscuro");
-            boton.addEventListener("click", () => {
-                document.body.classList.toggle("dark");
-                if(document.body.classList.contains("dark")) {
-                    localStorage.setItem("modo", "oscuro");
-                } else {
-                    localStorage.setItem("modo", "claro");
-                }
-            });
-            if(localStorage.getItem("modo") === "oscuro") {
-                document.body.classList.add("dark");
-            }
-        </script>
+        const boton = document.getElementById("modoOscuro");
+        boton.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+            localStorage.setItem("modo", document.body.classList.contains("dark") ? "oscuro" : "claro");
+        });
+        if(localStorage.getItem("modo") === "oscuro") {
+            document.body.classList.add("dark");
+        }
+    </script>
         </div>
         <h2 class="texmenu">CECyTE</h2>
         <div class="seccion-derecha">
@@ -68,7 +63,7 @@
         </aside>
     
 
-    <h2 class="subtitulos_seccion">Alumnos destacados</h2>
+    <h2 class="titulo_seccion">Alumnos destacados</h2>
 
         <div class="linea"> 
             <h3> Segundos semestres</h3>

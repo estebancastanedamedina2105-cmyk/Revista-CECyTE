@@ -61,3 +61,55 @@ td {
     color: #c00;
     font-weight: bold;
 }
+
+.barra-lateral{
+    position: fixed;
+    right: -300px; 
+    top: 0;
+    width: 280px;
+    height: 100%;
+    background: var(--bg-tarjeta);
+    padding: 20px;
+    transition: var(--transicion);
+    box-shadow: -5px 0 15px var(--sombra);
+    z-index: 1100;
+}
+.barra-lateral ul{
+    list-style: none;
+    padding: 20px;
+}
+#check-menu:checked ~ .barra-lateral{
+    right: 0;
+}
+
+.btn_item {
+    text-decoration: none;
+    color: var(--texto);
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 10px;
+    transition: var(--transicion);
+    border-left: 4px solid transparent;
+}
+.btn_item:hover{
+    background: var(--acento);
+    color: white;
+    transform: translateX(-10px);
+    border-left: 4px solid var(--acento-secundario);
+}
+.titulo-seccion{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 2rem;
+}
+@keyframes fadeIn{
+    from{opacity: 0; transform: translateY(20px); }
+    to{opacity: 1; transform: translateY(0); }
+}
+.logo-circulo{
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--acento);
+}
