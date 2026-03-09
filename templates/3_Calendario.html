@@ -13,7 +13,7 @@
       <div class="seccion-menuiz">
             <div class="seccion-izquierda-controles">
             <button id="modoOscuro" class="btn_oscuro botones"> 🌙 | ☀️</button>
-            <label for="check-menu" class="btn-menu"><h3> ☰ Menu</h3></label>
+            <button popovertarget="miMenu" for="check-menu" class="btn-menu"><h3>☰ Menu</h3></button>
         </div>
         <script>
             <!-- Modo oscuro -->
@@ -39,7 +39,7 @@
     </header>
     <div class="diseño_principal">
       <input type="checkbox" id="check-menu" style="display: none;">
-      <aside class="barra-lateral">
+      <div class="barra-lateral" id="miMenu" popover>
         <div class="grupo-menu">
                 <h2>Revista</h2>
                 <ul>
@@ -62,7 +62,7 @@
                 </div>
                 <div class="btn_item">Exit</div>
             </div>
-      </aside>
+      </div>
 
     <p style="text-align: center;" class ="titulo_seccion">Calendario</p>
     <div class="caja-inscripciones">

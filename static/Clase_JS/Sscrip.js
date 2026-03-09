@@ -12,3 +12,13 @@ function sednMensaje() {
 function btn_revista(){
     location.href=("1_Anuncios.html");
 }
+// Cierra el menú al hacer clic fuera de él
+document.addEventListener('click', function(event) {
+  var menu = document.getElementById('miMenu');
+  var boton = document.getElementById('miBoton');
+
+  // Si el clic no fue en el menú ni en el botón, ocultar
+  if (!menu.contains(event.target) && !boton.contains(event.target)) {
+    menu.style.display = 'none';
+  }
+});

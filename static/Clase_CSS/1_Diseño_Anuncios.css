@@ -44,6 +44,15 @@ body.dark{
 .botones-auth:hover{
     background-color: #43331f;
 }
+.btn-menu{
+    background-color: #1876f200;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
 .btn-menu:active{
     transform: scale(0.9);
     color: #21ff59;

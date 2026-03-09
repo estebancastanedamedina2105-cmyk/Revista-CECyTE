@@ -25,7 +25,7 @@
     <header class="hader-superior">
       <div class="seccion-menuiz">
         <button id="modoOscuro" class="btn_oscuro botones">🌙 | ☀️</button>
-        <label for="check-menu" class="btn-menu"><h3>☰ Menu</h3></label>
+        <button popovertarget="miMenu" for="check-menu" class="btn-menu"><h3>☰ Menu</h3></button>
 
         <script>
           //Modo oscuro
@@ -68,7 +68,7 @@
     <div class="diseño_principal">
       <input type="checkbox" id="check-menu" style="display: none" />
 
-      <aside class="barra-lateral">
+      <div class="barra-lateral" id="miMenu" popover>
         <div class="grupo-menu">
                 <h2>Revista</h2>
                 <ul>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="btn_item">Exit</div>
             </div>
-      </aside>
+      </div>
 
       <main class="feed_anuncios">
         <div class="barra_busqueda_contenedor">
