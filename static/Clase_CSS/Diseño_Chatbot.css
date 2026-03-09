@@ -39,6 +39,7 @@ justify-content:space-between;
 flex:1;
 padding:10px;
 overflow-y:auto;
+color: #1d2c4d
 }
 
 .mensaje-usuario{
