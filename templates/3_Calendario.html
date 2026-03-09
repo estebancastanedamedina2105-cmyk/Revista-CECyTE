@@ -85,5 +85,25 @@
 <script src="{{ url_for('static', filename='Clase_JS/fecha.js') }}"></script>
       </div>
     </div>
+
+      <div id="chatbot-boton">💬</div>
+
+    <div id="chatbot-ventana">
+      <div id="chatbot-header">
+        Asistente CECyTE
+        <span onclick="cerrarChat()">✖</span>
+      </div>
+
+      <div id="chatbot-mensajes"></div>
+
+      <div id="chatbot-input">
+        <input type="text" id="mensaje" placeholder="Escribe tu pregunta..." />
+        <button onclick="enviarMensaje()">Enviar</button>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='Clase_JS/Sscrip.js') }}"></script>
+    <script src="{{ url_for('static', filename='Clase_JS/chatbot.js') }}"></script>
+
   </body>
 </html>
