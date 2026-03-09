@@ -3,37 +3,41 @@
     <head>
         <title>Professores CECyTE</title>
         <link rel="stylesheet" href="../static/Clase_CSS/2_Diseño-profesores.css" />
-        <link rel="stylesheet" href="../static/Clase_CSS/1_Diseño_Anuncios.css" />
         <link rel="stylesheet" href="../static/Clase_CSS/0_Diseño_Menu.css" />   
         <link rel="icon" href="../static/Imagenes/LogoCecyte.jpg" type="image/png">
         <link rel="stylesheet" href="../static/Clase_CSS/Diseño_Chatbot.css" />
     </head>
     <body class="fondo_crema">
-        <header class="header-superior">
-        <div class="seccion-menuiz">
-            <div class="seccion-izquierda-controles">
-            <button id="modoOscuro" class="btn_oscuro botones"> 🌙 | ☀️</button>
-            <label for="check-menu" class="btn-menu"><h3> ☰ Menu</h3></label>
-        </div>
-        <script>
-            const boton = document.getElementById("modoOscuro");
-            boton.addEventListener("click", () => {
-                document.body.classList.toggle("dark");
-                localStorage.setItem("modo", document.body.classList.contains("dark") ? "oscuro" : "claro");
-            });
-            if(localStorage.getItem("modo") === "oscuro") {
-                document.body.classList.add("dark");
-            }
-        </script>
-        </div>
-        <h2 class="texmenu">CECyTE</h2>
-        <div class="seccion-derecha">
-        <button href="5-Login.html" class="botones-auth botones" type="button">Ingresar</button>
-        <img src="../static/Imagenes/LogoCecyte.jpg" class="logo-circulo" title="Logo CCEyTE"/>
-        </div>
-    </header>
+       <header class="main-header">
+    <div class="header-left">
+        <button id="modoOscuro" class="btn-theme">🌙 | ☀️</button>
+        <label for="check-menu" class="btn-menu">
+            <span>☰</span> Menu
+        </label>
+    </div>
+
+    <div class="header-center">
+        <h2 class="main-title">CECyTE <span>Morelos</span></h2>
+    </div>
+
+    <div class="header-right">
+        <button onclick="location.href='5-Login.html'" class="btn-ingresar" type="button">Ingresar</button>
+        <img src="../static/Imagenes/LogoCecyte.jpg" class="site-logo" title="CECyTE Morelos"/>
+    </div>
+
+    <script>
+        const boton = document.getElementById("modoOscuro");
+        if(localStorage.getItem("modo") === "oscuro") {
+            document.body.classList.add("dark");
+        }
+        boton.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+            localStorage.setItem("modo", document.body.classList.contains("dark") ? "oscuro" : "claro");
+        });
+    </script>
+</header>
     <div class="diseño_principal">
-      <input type="checkbox" id="check-menu" style="display: none;">
+        <input type="checkbox" id="check-menu" style="display: none;">
         <aside class="barra-lateral">
         <div class="grupo-menu">
             <h2>Revista</h2>
@@ -868,16 +872,13 @@
                 </div>
             </div>
         </div>
-
-        <div class=" linea Agradecimientos">
-            <h2>Agradecimientos</h2>
-            <p>
-                Agradecemos a todos los profesores que han contribuido a la educación de nuestros estudiantes, brindando su conocimiento y dedicación para formar a las futuras generaciones. Su compromiso y pasión por la enseñanza son fundamentales para el crecimiento académico y personal de nuestros alumnos. ¡Gracias por su invaluable labor!
-            </p>
-            <p>
-                .
-            </p>
-        </div>
-
-  </body>
-</html>
+<section class="agradecimientos-section">
+    <h2>Agradecimientos</h2>
+    <p>
+        Agradecemos a todos los profesores que han contribuido a la educación de nuestros estudiantes, 
+        brindando su conocimiento y dedicación para formar a las futuras generaciones. 
+        Su compromiso y pasión son fundamentales para el crecimiento académico. ¡Gracias por su invaluable labor!
+    </p>
+</section>
+</body>
+</html> 

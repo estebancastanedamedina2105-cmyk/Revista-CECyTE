@@ -1,148 +1,224 @@
-:root{
-    --azul-cecyte:#1a4d8c;
-    --dorado-cecyte:#8d6e63;
-    --blanco:#ffffff;
-    --gris-fondo:#f4f7f6;
-    --sombra:0 4px 15px rgba(0, 0, 0, 0.1);
+/* =========================================
+   1. VARIABLES Y BASE (Sustituye lo que tengas al inicio)
+   ========================================= */
+:root {
+    --bg-main: #ffffff;
+    --bg-body: #f4f7f6;
+    --text-primary: #004a8c; /* Azul Institucional */
+    --text-secondary: #444444;
+    --card-bg: #ffffff;
+    --card-border: #e0e0e0;
+    --shadow: rgba(0, 0, 0, 0.1);
 }
-.texmenu{
+
+body.dark {
+    --bg-main: #1a1a1a;
+    --bg-body: #121212;
+    --text-primary: #5dade2; /* Azul claro para lectura */
+    --text-secondary: #cccccc;
+    --card-bg: #2d2d2d;
+    --card-border: #444444;
+}
+
+body {
+    background-color: var(--bg-body);
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    transition: background 0.3s ease;
+}
+
+/* =========================================
+   2. HEADER DEFINITIVO (Sustituye .main-superior)
+   ========================================= */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    background-color: var(--bg-main);
+    box-shadow: 0 2px 10px var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.header-center {
+    flex: 2;
     text-align: center;
-    white-space: nowrap;
-    font-family: 'Poppins', sans-serif;
-    color: var(--azul-cecyte);
-    font-size: 24px;
+}
+
+.header-right { justify-content: flex-end; }
+
+/* Título y Logo */
+.main-title {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin: 0;
     font-weight: 800;
 }
-:root{
-    --bg-principal: #fdfaf5;
-    --bg-tarjeta: #ffffff;
-    --texto: #1a3648;
-    --acento: #0056b3;
-    --acento-secundario: #dfff6c;
-    --sombra: rgba(0, 0, 0, 0.1);
-    --transicion: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-body.dark{
-    --bg-principal: #121212;
-    --bg-tarjeta: #1e1e1e;
-    --texto: #e0e0e0;
-    --acento: #4dabff;
-    --sombra: rgba(0, 0, 0, 0.5);
+
+.main-title span { color: #800000; font-size: 1rem; }
+
+.site-logo {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--text-primary);
 }
 
+/* Botones del Header */
+.btn-theme, .btn-menu {
+    background: var(--card-border);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.btn-ingresar {
+    background-color: var(--text-primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* =========================================
+   3. TARJETAS DE PROFESORES (Sustituye .cuadro y .contenedor)
+   ========================================= */
+.diseño_principal {
+    padding: 30px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+/* --- Título Profesores Centrado y Adaptable --- */
+.diseño_principal h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: 'Poppins', 'Segoe UI', sans-serif; /* Tipografía más moderna */
+    color: var(--text-primary);
+    margin: 40px 0;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Cambio de color en Modo Oscuro */
+body.dark .diseño_principal h2 {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
 .contenedor {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2%; /* Espacio entre los cuadros */
-    padding: 2%;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
 }
+
 .cuadro {
-    background-color: #1a3648;
-    color: rgb(221, 255, 108);
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    font-family: Arial, sans-serif;
-    font-size: 1.5rem;
-    border-radius: 8%;
-    box-shadow: 0 4px 6px 20px rgba(0, 0, 0, 0.548);
-}
-.tarjeta{
-    width: 20%;
-    height: 40px auto;
-    background: var(--blanco);
-    border: 15px;
-    padding: 5%;
-    margin-bottom: 20%;
-    border: 5% solid #000000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-    flex: 1 1 200px; 
-}
-.informacion_tarjeta{
-    background-color: #481a1a;
-    color: rgb(167, 255, 108);
-    height: 100% auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    font-family: Arial, sans-serif;
-    font-size: 1.5rem;
-    border-radius: 10%;
-    box-shadow: 0px 4px 6px 10px rgba(0, 0, 0, 0.548);
-}
-.linea {
-    font-family: Arial, sans-serif;
-    border: 10;
-    height: 1%;
-    background: #333;
-    width: 100%;
-}
-.agradecimientos{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 100%; /* Espacio entre los cuadros */
-    padding: 100%;
-    background-color: #1a3648;
-    color: rgb(221, 255, 108);
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-    font-size: 1.5rem;
-    border-radius: 100%;
-    box-shadow: 0 4px 6px 10px rgba(0, 0, 0, 0.548);
-}
-
-
-.barra-lateral{
-    position: fixed;
-    right: -300px; 
-    top: 0;
-    width: 280px;
-    height: 100%;
-    background: var(--bg-tarjeta);
+    background: var(--card-bg);
+    border-radius: 15px;
     padding: 20px;
-    transition: var(--transicion);
-    box-shadow: -5px 0 15px var(--sombra);
-    z-index: 1100;
-}
-.barra-lateral ul{
-    list-style: none;
-    padding: 20px;
-}
-#check-menu:checked ~ .barra-lateral{
-    right: 0;
-}
-
-.btn_item {
-    text-decoration: none;
-    color: var(--texto);
-    display: block;
-    padding: 12px 15px;
-    margin-bottom: 10px;
-    background: rgba(0,0,0,0.05);
-    border-radius: 10px;
-    transition: var(--transicion);
-    border-left: 4px solid transparent;
-}
-.btn_item:hover{
-    background: var(--acento);
-    color: white;
-    transform: translateX(-10px);
-    border-left: 4px solid var(--acento-secundario);
-}
-.titulo-seccion{
+    border: 1px solid var(--card-border);
     text-align: center;
-    margin-top: 30px;
-    font-size: 2rem;
+    box-shadow: 0 4px 6px var(--shadow);
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
-@keyframes fadeIn{
-    from{opacity: 0; transform: translateY(20px); }
-    to{opacity: 1; transform: translateY(0); }
+
+/* Efecto hover Azul CECyTE (Sin rojo) */
+.cuadro:hover {
+    transform: translateY(-10px);
+    border-color: var(--text-primary);
+    box-shadow: 0 10px 20px rgba(0, 74, 140, 0.1);
 }
-.logo-circulo{
-    width: 60px; height: 60px;
+
+.foto_perfil_tarjeta {
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    border: 2px solid var(--acento);
+    border: 3px solid var(--bg-body);
+    transition: border-color 0.3s ease;
+}
+
+.cuadro:hover .foto_perfil_tarjeta {
+    border-color: var(--text-primary);
+}
+
+/* Títulos de Áreas (Cultura Digital, etc.) */
+.linea h3 {
+    background: var(--text-primary);
+    color: white !important;
+    padding: 10px 25px;
+    border-radius: 50px;
+    display: inline-block;
+}
+/* --- Arreglo de visibilidad de textos en Modo Oscuro --- */
+
+/* Cambia el nombre del profesor a blanco */
+body.dark .cuadro h3, 
+body.dark .cuadro .nombre_maestro {
+    color: #ffffff !important;
+}
+
+/* Cambia el texto de los grupos a un gris muy claro */
+body.dark .cuadro p, 
+body.dark .cuadro .grupo_tarjeta {
+    color: #e0e0e0 !important;
+}
+
+/* Si el texto de "Tutor de..." sigue siendo difícil de leer, esto lo aclara */
+body.dark .cuadro .tutor-label {
+    color: #5dade2 !important; /* Un azul claro que resalta en negro */
+}
+
+/* Asegurar que el título de la sección (ej. Español) sea legible */
+body.dark .linea h3 {
+    color: #ffffff !important;
+    background-color: #004a8c; /* Mantiene el azul institucional */
+}
+/* --- Sección de Agradecimientos Estilizada --- */
+.agradecimientos-section {
+    margin-top: 60px;
+    padding: 40px;
+    background: var(--card-bg);
+    border-radius: 20px;
+    border-left: 8px solid var(--text-primary); /* Detalle institucional */
+    box-shadow: 0 10px 30px var(--shadow);
+    text-align: center;
+}
+
+.agradecimientos-section h2 {
+    font-size: 1.8rem;
+    color: #800000; /* Color vino elegante */
+    margin-bottom: 20px;
+}
+
+.agradecimientos-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Ajuste de agradecimientos en Modo Oscuro */
+body.dark .agradecimientos-section {
+    background: #242424;
+    border-left-color: #5dade2; /* Azul claro en modo oscuro */
+}
+
+body.dark .agradecimientos-section h2 {
+    color: #5dade2;
 }
