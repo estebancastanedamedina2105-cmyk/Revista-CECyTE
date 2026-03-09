@@ -1,3 +1,51 @@
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+def enviar_gmail(correo_destino, codigo_secreto):
+    mi_correo = "codigorevistacecyte@gmail.com" 
+    mi_llave = "kpvncfnhbzupioqc" 
+    # --- CREAR EL MENSAJE ---
+    mensaje = MIMEMultipart()
+    mensaje['From'] = mi_correo
+    mensaje['To'] = correo_destino
+    mensaje['Subject'] = "🔐 Código de Acceso - CECYTE"
+
+    cuerpo_html = f"""
+    <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border: 1px solid #e0e0e0; padding: 40px; border-radius: 8px; max-width: 600px; margin: auto; background-color: #ffffff;">
+        <div style="text-align: center; border-bottom: 2px solid #800020; padding-bottom: 20px; margin-bottom: 20px;">
+            <h2 style="color: #800020; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Sistema de Gestión Escolar - CECyTE</h2>
+        </div>
+        
+        <p style="color: #333; font-size: 16px; line-height: 1.6;">Estimado(a) estudiante,</p>
+        
+        <p style="color: #333; font-size: 16px; line-height: 1.6;">Se ha solicitado un acceso para el portal institucional. Para completar su ingreso, por favor utilice el siguiente código de verificación:</p>
+        
+        <div style="background-color: #f4f4f4; padding: 25px; text-align: center; border-radius: 6px; margin: 30px 0; border: 1px dashed #800020;">
+            <span style="font-size: 36px; font-weight: bold; color: #800020; letter-spacing: 8px;">{codigo_secreto}</span>
+        </div>
+        
+        <p style="color: #555; font-size: 14px; font-style: italic;">Nota: Este código es personal e intransferible. Si usted no solicitó este acceso, por favor ignore este mensaje o repórtelo al departamento de soporte técnico.</p>
+        
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; color: #777; font-size: 12px;">
+            <p>© 2026 CECyTE - Dirección General<br>Excelencia Educativa para el Desarrollo Tecnológico</p>
+        </div>
+    </div>
+    """
+    mensaje.attach(MIMEText(cuerpo_html, 'html'))
+
+    try:
+        # --- CONEXIÓN AL SERVIDOR DE GOOGLE ---
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls() # Encriptación necesaria
+        server.login(mi_correo, mi_llave)
+        server.send_message(mensaje)
+        server.quit()
+        print(f"✅ Correo enviado con éxito a {correo_destino}")
+        return True
+    except Exception as e:
+        print(f"❌ Error al enviar el correo: {e}")
+        return False
 import random
 
 # Diccionario temporal para guardar los códigos (Clave: correo, Valor: código)
@@ -13,34 +61,35 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 @app.route('/verificar', methods=['POST'])
 def verificar():
     datos = request.get_json()
-    correo_usuario = datos.get('correo')
+    correo_usuario = datos.get('correo') # Asegúrate que tu JS mande 'correo'
 
     try:
-
         conexion = sqlite3.connect(r"C:\sqlite\bd proyects\Rev_Cecyte.db")
         cursor = conexion.cursor()
-        
+
         cursor.execute("SELECT nombre FROM Estudiantes WHERE correo = ?", (correo_usuario,))
-        resultado = cursor.fetchone() 
-        
+        resultado = cursor.fetchone()
+
         if resultado:
-            # 1. Generar código de 4 dígitos
+            # 1. Generar código
             codigo = str(random.randint(1000, 9999))
-            # 2. Guardarlo en la memoria del servidor
+
             codigos_temporales[correo_usuario] = codigo
             
-            print(f"Código para {correo_usuario}: {codigo}") # Lo verás en tu terminal
+            # 2. MANDAR EL CORREO (Adiós terminal, hola Gmail)
+            enviar_gmail(correo_usuario, codigo)
 
-            nombre_alumno = resultado[0]
             return jsonify({
-                "mensaje": f"Correo verificado. Te enviamos un codigo, espera un momento {resultado[0]}",
-                "codigo_enviado": True 
+                "mensaje": f"Qué onda {resultado[0]}, revisa tu correo.",
+                "codigo_enviado": True
             }), 200
         else:
-            return jsonify({"mensaje": "Correo no encontrado"}), 404
+            return jsonify({"mensaje": "Ese correo no está en el CECyTE"}), 404
+        
 
     except Exception as ex:
         print(f"Error: {ex}")
+        
         return jsonify({"status": "error", "mensaje": "Error de servidor"}), 500
     finally:
         if 'conexion' in locals():
@@ -107,7 +156,7 @@ def obtener_comentarios():
         return jsonify([]), 500
     finally:
         conexion.close()
-        
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
