@@ -22,3 +22,16 @@ document.addEventListener('click', function(event) {
     menu.style.display = 'none';
   }
 });
+const header = document.querySelector(".main-header");
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+  if (lastScrollY < window.scrollY) {
+    // Si bajamos, añadimos la clase para ocultar
+    header.classList.add("header--hidden");
+  } else {
+    // Si subimos, removemos la clase para mostrar
+    header.classList.remove("header--hidden");
+  }
+  lastScrollY = window.scrollY;
+});

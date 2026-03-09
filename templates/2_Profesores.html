@@ -1,15 +1,7 @@
 <!doctype html>
 <html lang="es">
-    <head>
-        <title>Professores CECyTE</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/2_Diseño-profesores.css') }}" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/1_Diseño_Anuncios.css') }}" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/0_Diseño_Menu.css') }}" />   
-        <link rel="icon" href="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}" type="image/png">
-        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/Diseño_Chatbot.css') }}" />
-    </head>
-    <body class="fondo_crema">
-        <header class="header-superior">
+    <head class="main-header">
+        <header class="header-superior main-header">
         <div class="seccion-menuiz">
             <div class="seccion-izquierda-controles">
             <button id="modoOscuro" class="btn_oscuro botones"> 🌙 | ☀️</button>
@@ -32,6 +24,15 @@
         <img src="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}" class="logo-circulo" title="Logo CCEyTE"/>
         </div>
     </header>
+        <title>Professores CECyTE</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/2_Diseño-profesores.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/1_Diseño_Anuncios.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/0_Diseño_Menu.css') }}" />   
+        <link rel="icon" href="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}" type="image/png">
+        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/Diseño_Chatbot.css') }}" />
+    </head>
+    <body class="fondo_crema">
+    
     <div class="diseño_principal">
       <input type="checkbox" id="check-menu" style="display: none;">
         <div class="barra-lateral" id="miMenu" popover>

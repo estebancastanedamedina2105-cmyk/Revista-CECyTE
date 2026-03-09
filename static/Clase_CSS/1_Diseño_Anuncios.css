@@ -145,6 +145,16 @@ body.dark{
     max-width: 800px;
     margin: 0 auto;
 }
+.encabezado_tarjeta{
+    font-size: 16px;
+    line-height: 1.5;
+    color:#1d1d1d;
+}
+.cuerpo_anuncio{
+    font-size: 16px;
+    line-height: 1.5;
+    color:#1d1d1d;
+}
 .tarjeta{
     background: var(--blanco);
     border-radius: 15px;
@@ -226,4 +236,16 @@ body.dark{
     width: 60px; height: 60px;
     border-radius: 50%;
     border: 2px solid var(--acento);
+}
+.main-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: transform 0.3s ease; /* Suaviza la desaparición */
+  z-index: 1000;
+}
+
+/* Clase que aplicaremos con JS para ocultarlo */
+.header--hidden {
+  transform: translateY(-100%); /* Lo desplaza hacia arriba fuera de la vista */
 }
