@@ -1,50 +1,41 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // elementos del chatbot
-  let boton = document.getElementById("chatbot-boton");
-  let ventana = document.getElementById("chatbot-ventana");
-  let mensajes = document.getElementById("chatbot-mensajes");
-  let input = document.getElementById("mensaje");
+// Usamos nombres únicos para no chocar con el botón del modo oscuro
+const chatAbrir = document.getElementById("chatbot-boton");
+const chatVentana = document.getElementById("chatbot-ventana");
+const chatCerrar = document.getElementById("cerrar");
 
-  // abrir chatbot
-  boton.addEventListener("click", function () {
-    ventana.style.display = "flex";
-  });
+const chatEnviar = document.getElementById("enviar");
+const chatInput = document.getElementById("mensaje");
+const chatContenedor = document.getElementById("chatbot-mensajes");
 
-  // enviar mensaje con ENTER
-  input.addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-      enviarMensaje();
-    }
-  });
+// Abrir y cerrar la ventana
+chatAbrir.addEventListener("click", () => {
+  chatVentana.style.display = "flex";
 });
 
-// cerrar chatbot
-function cerrarChat() {
-  document.getElementById("chatbot-ventana").style.display = "none";
+chatCerrar.addEventListener("click", () => {
+  chatVentana.style.display = "none";
+});
+
+// Crear y mostrar los mensajes en la interfaz
+function agregarMensaje(texto, tipo) {
+  const div = document.createElement("div");
+  div.classList.add(tipo);
+  div.textContent = texto;
+
+  chatContenedor.appendChild(div);
+  chatContenedor.scrollTop = chatContenedor.scrollHeight; // Auto-scroll
 }
 
-// enviar mensaje
+// Enviar la petición al backend de Flask
 function enviarMensaje() {
-  let input = document.getElementById("mensaje");
-  let mensajes = document.getElementById("chatbot-mensajes");
+  const texto = chatInput.value.trim();
 
-  let texto = input.value;
+  if (texto === "") return;
 
-  if (texto.trim() === "") {
-    return;
-  }
+  agregarMensaje(texto, "mensaje-user");
+  chatInput.value = ""; // Limpiar el input
 
-  // mensaje usuario
-  let mensajeUsuario = document.createElement("div");
-  mensajeUsuario.className = "mensaje usuario";
-  mensajeUsuario.innerText = texto;
-
-  mensajes.appendChild(mensajeUsuario);
-
-  // limpiar input
-  input.value = "";
-
-  // enviar al servidor Flask
+  // Mandar los datos al servidor
   fetch("/chatbot", {
     method: "POST",
     headers: {
@@ -54,13 +45,25 @@ function enviarMensaje() {
   })
     .then((res) => res.json())
     .then((data) => {
-      let mensajeBot = document.createElement("div");
-      mensajeBot.className = "mensaje bot";
-      mensajeBot.innerText = data.respuesta;
-
-      mensajes.appendChild(mensajeBot);
-
-      // bajar scroll
-      mensajes.scrollTop = mensajes.scrollHeight;
+      // Simular un pequeño retraso de lectura
+      setTimeout(() => {
+        agregarMensaje(data.respuesta, "mensaje-bot");
+      }, 300);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      agregarMensaje(
+        "Ups, perdí conexión con el servidor principal.",
+        "mensaje-bot",
+      );
     });
 }
+
+// Escuchar clicks y la tecla Enter
+chatEnviar.addEventListener("click", enviarMensaje);
+
+chatInput.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    enviarMensaje();
+  }
+});

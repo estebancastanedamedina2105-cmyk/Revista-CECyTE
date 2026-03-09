@@ -4,18 +4,18 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Alumnos Destacados CECyTE</title>
-        <link rel="stylesheet" href="../static/Clase_CSS/9_Diseño_AlumnosDesta.css" />
-        <link rel="stylesheet" href="../static/Clase_CSS/1_Diseño_Anuncios.css" /> 
-        <link rel="stylesheet" href="../static/Clase_CSS/0_Diseño_Menu.css" />  
-    <link rel="icon" href="../static/Imagenes/LogoCecyte.jpg" type="image/png">
-    <link rel="stylesheet" href="../static/Clase_CSS/Diseño_Chatbot.css" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/9_Diseño_AlumnosDesta.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/1_Diseño_Anuncios.css') }}" /> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/0_Diseño_Menu.css') }}" />  
+    <link rel="icon" href="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/Diseño_Chatbot.css') }}" />
 </head>
 <body class="fondo_crema">
     <header class="header-superior">
         <div class="seccion-menuiz">
             <div class="seccion-izquierda-controles">
             <button id="modoOscuro" class="btn_oscuro botones"> 🌙 | ☀️</button>
-            <label for="check-menu" class="btn-menu"><h3> ☰ Menu</h3></label>
+            <button popovertarget="miMenu" for="check-menu" class="btn-menu"><h3>☰ Menu</h3></button>
         </div>
         <script>
         const boton = document.getElementById("modoOscuro");
@@ -30,37 +30,36 @@
         </div>
         <h2 class="texmenu">CECyTE</h2>
         <div class="seccion-derecha">
-        <button href="5-Login.html" class="botones-auth botones" type="button">Ingresar</button>
-        <img src="../static/Imagenes/LogoCecyte.jpg" class="logo-circulo" title="Logo CCEyTE"/>
+        <button href="{{ url_for('login') }}" class="botones-auth botones" type="button">Ingresar</button>
+        <img src="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}" class="logo-circulo" title="Logo CCEyTE"/>
         </div>
     </header>
     <div class="diseño_principal">
         <input type="checkbox" id="check-menu" style="display: none;">
-        <aside class="barra-lateral">
+        <div class="barra-lateral" id="miMenu" popover>
             <div class="grupo-menu">
                 <h2>Revista</h2>
                 <ul>
-                    <li><a href="1_Anuncios.html" class="btn_item">☆  Anuncios</a></li>
-                    <li><a href="3-Calendario.html" class="btn_item">☆  Calendario</a></li>
-                    <li><a href="2-Profesores.html" class="btn_item">☆  Profesores</a></li>
-                    <li><a href="8_Eventos.html" class="btn_item">☆  Eventos</a></li>
-                    <li><a href="9_AlumnosDesta.html" class="btn_item">☆  Alumnos destacados</a></li>
+                    <li><a href="{{ url_for('anuncios') }}" class="btn_item">☆ Anuncios</a></li>
+                    <li><a href="{{ url_for('calendario') }}" class="btn_item">☆ Calendario</a></li>
+                    <li><a href="{{ url_for('profesores') }}" class="btn_item">☆ Profesores</a></li>
+                    <li><a href="{{ url_for('eventos') }}" class="btn_item">☆ Eventos</a></li>
+                    <li><a href="{{ url_for('alumnos_destacados') }}" class="btn_item">☆ Alumnos destacados</a></li>
                 </ul>
             </div>
             <div class="grupo-menu">
-                <ul>
-                    <hr>
-                    <li><a href="4-Cafeteria.html" class="btn_item">☆  Menu de cafeteria</a></li>
-                    <li><a href="7_Chismografo.html" class="btn_item">☆  Chismografo</a></li>
-                </ul>
+                <ul><hr>    
+                    <li><a href="{{ url_for('cafeteria') }}" class="btn_item">☆ Menu de cafeteria</a></li>
+                    <li><a href="{{ url_for('chismografo') }}" class="btn_item">☆ Chismografo</a></li>
+                </hr></ul>
             </div>
             <div class="menu-usuario">
                 <div>
-                    <a href="6-Perfil.html" class="btn_item">👤 User</a>
+                    <a href="{{ url_for('perfil') }}" class="btn_item">👤 User</a>
                 </div>
                 <div class="btn_item">Exit</div>
             </div>
-        </aside>
+        </div>
     
 
     <h2 class="titulo_seccion">Alumnos destacados</h2>
@@ -75,7 +74,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -97,7 +96,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -119,7 +118,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -141,7 +140,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -163,7 +162,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -185,7 +184,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -207,7 +206,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -229,7 +228,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -251,7 +250,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -277,7 +276,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -298,7 +297,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -319,7 +318,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -340,7 +339,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -361,7 +360,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -382,7 +381,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -403,7 +402,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -424,7 +423,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -445,7 +444,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -466,7 +465,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -487,7 +486,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -513,7 +512,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -535,7 +534,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -557,7 +556,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -579,7 +578,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -601,7 +600,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -623,7 +622,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -645,7 +644,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -667,7 +666,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -689,7 +688,7 @@
                     <div class="encabezado_tarjeta">
                         <div>
                             <img
-                                src="../static/Imagenes/Perfil.jpg"
+                                src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                                 class="foto_perfil_tarjeta"
                                 title="Foto de perfil del alumno destacado"
                             />
@@ -717,5 +716,29 @@
             </p>
         </div>
         </div>
+
+        <div id="chatbot-boton">💬 CoyoBot</div>
+
+    <div id="chatbot-ventana">
+      <div id="chatbot-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="status-online"></div>
+            <span>🤖 CoyoBot CECyTE</span>
+        </div>
+        <span id="cerrar" style="cursor: pointer;">✖</span>
+      </div>
+
+      <div id="chatbot-mensajes">
+          <div class="mensaje-bot">¡Hola! Soy el asistente virtual del CECyTE. ¿Qué necesitas buscar en el portal?</div>
+      </div>
+
+      <div id="chatbot-input">
+        <input type="text" id="mensaje" placeholder="Escribe tu pregunta..." autocomplete="off" />
+        <button id="enviar">➤</button>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='Clase_JS/chatbot.js') }}"></script>
+
     </body>
 </html>

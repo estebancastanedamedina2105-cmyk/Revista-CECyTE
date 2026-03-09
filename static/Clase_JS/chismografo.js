@@ -1,18 +1,17 @@
 // 1. Función para dibujar cada comentario
-function agregarPostAlMuro(c, yaTieneLike) {
+function agregarPostAlMuro(c) {
+    const feed = document.getElementById("feed");
     if (!feed) return;
 
     const postDiv = document.createElement("div");
     postDiv.className = "feed-post";
 
-
+    // Insertamos el contenido y el botón con su propio contador interno
     postDiv.innerHTML = `
         <div class="post-header"><strong>@Usuario</strong></div>
         <p>${c.contenido}</p>
         <div class="post-actions">
-           <button class="like-btn" ${yaTieneLike ? 'disabled style="opacity:0.5"' : ''}>
-    ${yaTieneLike ? '❤️ Enviado' : '❤️ Like'}
-            </button>
+            <button class="like-btn">❤️ Like</button>
             <span class="like-count">${c.likes || 0}</span>
         </div>
     `;
@@ -29,20 +28,11 @@ function agregarPostAlMuro(c, yaTieneLike) {
                 body: JSON.stringify({ id: c.id })
             });
             if (res.ok) {
-                // GUARDAR EN MEMORIA
-                let likesDados = JSON.parse(localStorage.getItem("misLikes")) || [];
-                likesDados.push(c.id);
-                localStorage.setItem("misLikes", JSON.stringify(likesDados));
-
-                // Actualizar visualmente (esto ya lo tenías)
                 span.innerText = parseInt(span.innerText) + 1;
                 btn.disabled = true;
-                btn.innerText = "❤️ Enviado";
-                btn.style.opacity = "0.5";
+                btn.innerText = "❤️";
             }
-        } catch (error) {
-            console.error("Error al dar like:", error);
-        }
+        } catch (err) { console.error("Error en like:", err); }
     });
 
     feed.appendChild(postDiv);
@@ -50,20 +40,15 @@ function agregarPostAlMuro(c, yaTieneLike) {
 
 // 2. Cargar comentarios al iniciar
 window.addEventListener("DOMContentLoaded", async () => {
-    let likesDados = JSON.parse(localStorage.getItem("misLikes")) || []; // <--- IMPORTANTE
     try {
         const res = await fetch('http://127.0.0.1:5000/obtener_comentarios');
         if (!res.ok) throw new Error("Error en el servidor");
         
         const comentarios = await res.json();
         const feed = document.getElementById("feed");
-        
         if (feed) {
-            feed.innerHTML = ""; 
-            comentarios.forEach(c => {
-                // Le pasamos el comentario Y si su ID está en nuestra lista de likes
-                agregarPostAlMuro(c, likesDados.includes(c.id));
-            });
+            feed.innerHTML = ""; // Limpiar
+            comentarios.forEach(c => agregarPostAlMuro(c));
         }
     } catch (error) {
         console.error("Error al cargar:", error);

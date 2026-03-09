@@ -1,68 +1,63 @@
-<!doctype html>
-<html lang="es">
-    <head>
+
+    <head class="main-header">
+        <header class="header-superior main-header">
+        <div class="seccion-menuiz">
+            <div class="seccion-izquierda-controles">
+            <button id="modoOscuro" class="btn_oscuro botones"> 🌙 | ☀️</button>
+            <button popovertarget="miMenu" for="check-menu" class="btn-menu"><h3>☰ Menu</h3></button>
+        </div>
+        <script>
+            const boton = document.getElementById("modoOscuro");
+            boton.addEventListener("click", () => {
+                document.body.classList.toggle("dark");
+                localStorage.setItem("modo", document.body.classList.contains("dark") ? "oscuro" : "claro");
+            });
+            if(localStorage.getItem("modo") === "oscuro") {
+                document.body.classList.add("dark");
+            }
+        </script>
+        </div>
+        <h2 class="texmenu">CECyTE</h2>
+        <div class="seccion-derecha">
+        <button href="{{ url_for('login') }}" class="botones-auth botones" type="button">Ingresar</button>
+        <img src="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}" class="logo-circulo" title="Logo CCEyTE"/>
+        </div>
+    </header>
         <title>Professores CECyTE</title>
-        <link rel="stylesheet" href="../static/Clase_CSS/2_Diseño-profesores.css" />
-        <link rel="stylesheet" href="../static/Clase_CSS/0_Diseño_Menu.css" />   
-        <link rel="icon" href="../static/Imagenes/LogoCecyte.jpg" type="image/png">
-        <link rel="stylesheet" href="../static/Clase_CSS/Diseño_Chatbot.css" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/2_Diseño-profesores.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/1_Diseño_Anuncios.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/0_Diseño_Menu.css') }}" />   
+        <link rel="icon" href="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}" type="image/png">
+        <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/Diseño_Chatbot.css') }}" />
     </head>
     <body class="fondo_crema">
-       <header class="main-header">
-    <div class="header-left">
-        <button id="modoOscuro" class="btn-theme">🌙 | ☀️</button>
-        <label for="check-menu" class="btn-menu">
-            <span>☰</span> Menu
-        </label>
-    </div>
-
-    <div class="header-center">
-        <h2 class="main-title">CECyTE <span>Morelos</span></h2>
-    </div>
-
-    <div class="header-right">
-        <button onclick="location.href='5-Login.html'" class="btn-ingresar" type="button">Ingresar</button>
-        <img src="../static/Imagenes/LogoCecyte.jpg" class="site-logo" title="CECyTE Morelos"/>
-    </div>
-
-    <script>
-        const boton = document.getElementById("modoOscuro");
-        if(localStorage.getItem("modo") === "oscuro") {
-            document.body.classList.add("dark");
-        }
-        boton.addEventListener("click", () => {
-            document.body.classList.toggle("dark");
-            localStorage.setItem("modo", document.body.classList.contains("dark") ? "oscuro" : "claro");
-        });
-    </script>
-</header>
+    
     <div class="diseño_principal">
-        <input type="checkbox" id="check-menu" style="display: none;">
-        <aside class="barra-lateral">
-        <div class="grupo-menu">
-            <h2>Revista</h2>
-            <ul>
-            <li><a href="{{ url_for('anuncios') }}" class="btn_item">☆ Anuncios</a></li>
-            <li><a href="{{ url_for('calendario') }}" class="btn_item">☆ Calendario</a></li>
-            <li><a href="{{ url_for('profesores') }}" class="btn_item">☆ Profesores</a></li>
-            <li><a href="{{ url_for('eventos') }}" class="btn_item">☆ Eventos</a></li>
-            <li><a href="{{ url_for('alumnos_desta') }}" class="btn_item">☆ Alumnos destacados</a></li>
-            </ul>
-        </div>
-        <div class="grupo-menu">
-            <ul>
-            <hr>
-            <li><a href="{{ url_for('cafeteria') }}" class="btn_item">☆  Menu de cafeteria</a></li>
-            <li><a href="{{ url_for('chismografo') }}" class="btn_item">☆  Chismografo</a></li>
-            </ul>
-        </div>
-        <div class="menu-usuario">
+      <input type="checkbox" id="check-menu" style="display: none;">
+        <div class="barra-lateral" id="miMenu" popover>
+            <div class="grupo-menu">
+                <h2>Revista</h2>
+                <ul>
+                    <li><a href="{{ url_for('anuncios') }}" class="btn_item">☆ Anuncios</a></li>
+                    <li><a href="{{ url_for('calendario') }}" class="btn_item">☆ Calendario</a></li>
+                    <li><a href="{{ url_for('profesores') }}" class="btn_item">☆ Profesores</a></li>
+                    <li><a href="{{ url_for('eventos') }}" class="btn_item">☆ Eventos</a></li>
+                    <li><a href="{{ url_for('alumnos_destacados') }}" class="btn_item">☆ Alumnos destacados</a></li>
+                </ul>
+            </div>
+            <div class="grupo-menu">
+                <ul><hr>    
+                    <li><a href="{{ url_for('cafeteria') }}" class="btn_item">☆ Menu de cafeteria</a></li>
+                    <li><a href="{{ url_for('chismografo') }}" class="btn_item">☆ Chismografo</a></li>
+                </hr></ul>
+            </div>
+            <div class="menu-usuario">
                 <div>
-                    <a href="6-Perfil.html" class="btn_item">👤 User</a>
+                    <a href="{{ url_for('perfil') }}" class="btn_item">👤 User</a>
                 </div>
                 <div class="btn_item">Exit</div>
             </div>
-    </aside>
+        </div>
     
     <h2 class="titulo_seccion">Profesores</h2>
 
@@ -76,7 +71,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -91,7 +86,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -114,7 +109,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -129,7 +124,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -152,7 +147,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -167,7 +162,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -184,7 +179,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -199,7 +194,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -222,7 +217,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -237,7 +232,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -254,7 +249,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -269,7 +264,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -292,7 +287,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -307,7 +302,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -330,7 +325,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -345,7 +340,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -368,7 +363,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -383,7 +378,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -406,7 +401,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -423,7 +418,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -438,7 +433,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -461,7 +456,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -476,7 +471,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -493,7 +488,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -508,7 +503,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -531,7 +526,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -546,7 +541,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -563,7 +558,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -578,7 +573,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -601,7 +596,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -616,7 +611,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -639,7 +634,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -654,7 +649,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -671,7 +666,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -686,7 +681,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -703,7 +698,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -718,7 +713,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -741,7 +736,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -756,7 +751,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -773,7 +768,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -788,7 +783,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -805,7 +800,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -828,7 +823,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -845,7 +840,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -860,7 +855,7 @@
                 <div class="encabezado_tarjeta">
                     <div>
                         <img
-                            src="../static/Imagenes/Perfil.jpg"
+                            src="{{ url_for('static', filename='Imagenes/Perfil.jpg') }}"
                             class="foto_perfil_tarjeta"
                             title="Foto del profesor"
                         />
@@ -872,13 +867,46 @@
                 </div>
             </div>
         </div>
-<section class="agradecimientos-section">
-    <h2>Agradecimientos</h2>
-    <p>
-        Agradecemos a todos los profesores que han contribuido a la educación de nuestros estudiantes, 
-        brindando su conocimiento y dedicación para formar a las futuras generaciones. 
-        Su compromiso y pasión son fundamentales para el crecimiento académico. ¡Gracias por su invaluable labor!
-    </p>
-</section>
-</body>
-</html> 
+
+        <div class=" linea Agradecimientos">
+            <h2>Agradecimientos</h2>
+            <p>
+                Agradecemos a todos los profesores que han contribuido a la educación de nuestros estudiantes, brindando su conocimiento y dedicación para formar a las futuras generaciones. Su compromiso y pasión por la enseñanza son fundamentales para el crecimiento académico y personal de nuestros alumnos. ¡Gracias por su invaluable labor!
+            </p>
+            <p>
+                .
+            </p>
+        </div>
+        <div id="chatbot-boton">💬</div>
+
+    <div id="chatbot-ventana">
+      <div id="chatbot-header">
+        Asistente CECyTE
+        <span onclick="cerrarChat()">✖</span>
+      </div>
+
+      <div id="chatbot-boton">💬 CoyoBot</div>
+
+    <div id="chatbot-ventana">
+      <div id="chatbot-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="status-online"></div>
+            <span>🤖 CoyoBot CECyTE</span>
+        </div>
+        <span id="cerrar" style="cursor: pointer;">✖</span>
+      </div>
+
+      <div id="chatbot-mensajes">
+          <div class="mensaje-bot">¡Hola! Soy el asistente virtual del CECyTE. ¿Qué necesitas buscar en el portal?</div>
+      </div>
+
+      <div id="chatbot-input">
+        <input type="text" id="mensaje" placeholder="Escribe tu pregunta..." autocomplete="off" />
+        <button id="enviar">➤</button>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='Clase_JS/chatbot.js') }}"></script>
+
+  </body>
+</html>

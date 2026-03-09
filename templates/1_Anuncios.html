@@ -1,32 +1,24 @@
 <!doctype html>
 <html lang="es">
-  <head>
+  <head class="main-header">
     <meta charset="UTF-8" />
     <title>Revista CECyTE</title>
 
-    <link
-      rel="icon"
-      href="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}"
-      type="image/png"
+    <link rel="icon" href="{{ url_for('static', filename='Imagenes/LogoCecyte.jpg') }}" type="image/png"
     />
 
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='Clase_CSS/1_Diseño_Anuncios.css') }}"
+    <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/1_Diseño_Anuncios.css') }}"
     />
 
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='Clase_CSS/Diseño_Chatbot.css') }}"
+    <link rel="stylesheet" href="{{ url_for('static', filename='Clase_CSS/Diseño_Chatbot.css') }}"
     />
   </head>
 
   <body class="fondo_crema">
     <header class="hader-superior">
       <div class="seccion-menuiz">
-        <label for="check-menu" class="btn-menu"><h3>☰ Menu</h3></label>
-        <span>——</span>
         <button id="modoOscuro" class="btn_oscuro botones">🌙 | ☀️</button>
+        <button popovertarget="miMenu" for="check-menu" class="btn-menu"><h3>☰ Menu</h3></button>
 
         <script>
           //Modo oscuro
@@ -48,7 +40,6 @@
       </div>
 
       <h2 class="texmenu">CECyTE</h2>
-      <h1 class="titulo-h1">Fake News</h1>
 
       <div class="seccion-derecha">
         <a
@@ -70,53 +61,30 @@
     <div class="diseño_principal">
       <input type="checkbox" id="check-menu" style="display: none" />
 
-      <aside class="barra-lateral">
+      <div class="barra-lateral" id="miMenu" popover>
         <div class="grupo-menu">
-          <h2>Revista</h2>
-          <ul>
-            <li><a href="{{ url_for('anuncios') }}" class="btn_item">☆ Anuncios</a></li>
-            <li><a href="{{ url_for('calendario') }}" class="btn_item">☆ Calendario</a></li>
-            <li><a href="{{ url_for('profesores') }}" class="btn_item">☆ Profesores</a></li>
-            <li><a href="{{ url_for('eventos') }}" class="btn_item">☆ Eventos</a></li>
-            <li>
-              <a href="{{ url_for('alumnos_destacados') }}"
-                >☆ Alumnos destacados</a
-              >
-            </li>
-            <li>
-              <a href="{{ url_for('convocatorias') }}" class="btn_item">☆ Convocatorias</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="grupo-menu">
-          <ul>
-            <li><a href="{{ url_for('mapa') }}" class="btn_item">☆ Mapa</a></li>
-            <li>
-              <a href="{{ url_for('cafeteria') }}" class="btn_item">
-                ☆ Menu de cafeteria
-              </a>
-            </li>
-            <li>
-              <a href="{{ url_for('chismografo') }}" class="btn_item">
-                ☆ Chismografo
-              </a>
-            </li>
-            <li>
-              <a href="{{ url_for('horario') }}" class="btn_item">
-                ☆ Horario
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="menu-usuario">
-          <div>
-            <a href="{{ url_for('perfil') }}" class="btn_item">👤 User</a>
-          </div>
-          <div class="Exit-User"></div>
-        </div>
-      </aside>
+                <h2>Revista</h2>
+                <ul>
+                    <li><a href="{{ url_for('anuncios') }}" class="btn_item">☆ Anuncios</a></li>
+                    <li><a href="{{ url_for('calendario') }}" class="btn_item">☆ Calendario</a></li>
+                    <li><a href="{{ url_for('profesores') }}" class="btn_item">☆ Profesores</a></li>
+                    <li><a href="{{ url_for('eventos') }}" class="btn_item">☆ Eventos</a></li>
+                    <li><a href="{{ url_for('alumnos_destacados') }}" class="btn_item">☆ Alumnos destacados</a></li>
+                </ul>
+            </div>
+            <div class="grupo-menu">
+                <ul><hr>    
+                    <li><a href="{{ url_for('cafeteria') }}" class="btn_item">☆ Menu de cafeteria</a></li>
+                    <li><a href="{{ url_for('chismografo') }}" class="btn_item">☆ Chismografo</a></li>
+                </hr></ul>
+            </div>
+            <div class="menu-usuario">
+                <div>
+                    <a href="{{ url_for('perfil') }}" class="btn_item">👤 User</a>
+                </div>
+                <div class="btn_item">Exit</div>
+            </div>
+      </div>
 
       <main class="feed_anuncios">
         <div class="barra_busqueda_contenedor">
@@ -132,14 +100,20 @@
 
         <div class="tarjeta">
           <div class="encabezado_tarjeta">
-            <p><strong>Anucio!! De: Esteban</strong></p>
+            <p><strong>Anucio De: CECyTE</strong></p>
 
             <hr class="lienea divisora" />
 
             <p class="cuerpo_anuncio">
-              <strong>ME QUIERO PEGAR DOS TIROS EN LA CABEZA</strong><br />
-              ooh baby,you touch yourself so much that you cant t feel anything
-              anymore
+              <strong>¡Atencion a aspirantes 2026!</strong><br />
+              El canje de fichas de admision para Produccion de prendasera de vestir sera el viernes 6 y lunes 9 de marzo,
+              las de Mantenimiento industrial el miercoles 11 y viernes 13 de marzo, y las de Programacion el martes 17 y miercoles 18 de marzo. 
+              <hr class="lienea divisora" />
+              Requisitos: 
+              <p> 
+                Baucher del banco (Original y copia), Constancia de secundaria con calificaciones (Original), Copia del CURP, Hoja del Pre Registro, Cargar previamente la fotografia del alumno en Plataforma de Pre Registro.;
+              </p>
+              <br />
             </p>
           </div>
 
@@ -153,23 +127,29 @@
 
     <!-- No tocar Chatbot (Saul no tocar gracias :) -->
 
-    <div id="chatbot-boton">💬</div>
+    <div id="chatbot-boton">💬 CoyoBot</div>
 
     <div id="chatbot-ventana">
       <div id="chatbot-header">
-        Asistente CECyTE
-        <span onclick="cerrarChat()">✖</span>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="status-online"></div>
+            <span>🤖 CoyoBot CECyTE</span>
+        </div>
+        <span id="cerrar" style="cursor: pointer;">✖</span>
       </div>
 
-      <div id="chatbot-mensajes"></div>
+      <div id="chatbot-mensajes">
+          <div class="mensaje-bot">¡Hola! Soy el asistente virtual del CECyTE. ¿Qué necesitas buscar en el portal?</div>
+      </div>
 
       <div id="chatbot-input">
-        <input type="text" id="mensaje" placeholder="Escribe tu pregunta..." />
-        <button onclick="enviarMensaje()">Enviar</button>
+        <input type="text" id="mensaje" placeholder="Escribe tu pregunta..." autocomplete="off" />
+        <button id="enviar">➤</button>
       </div>
     </div>
 
-    <script src="{{ url_for('static', filename='Clase_JS/Sscrip.js') }}"></script>
     <script src="{{ url_for('static', filename='Clase_JS/chatbot.js') }}"></script>
+
+
   </body>
 </html>
