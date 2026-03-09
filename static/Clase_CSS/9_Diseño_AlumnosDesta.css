@@ -1,78 +1,129 @@
-:root{
-    --azul-cecyte:#1a4d8c;
-    --dorado-cecyte:#8d6e63;
-    --blanco:#ffffff;
-    --gris-fondo:#f4f7f6;
-    --sombra:0 4px 15px rgba(0, 0, 0, 0.1);
+/* 1. ESTRUCTURA GENERAL */
+.fondo_crema {
+    background-color: #FFFDD0;
+    margin: 0;
+    padding: 20px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
 }
-.texmenu{
-    text-align: center;
-    white-space: nowrap;
-    font-family: 'Poppins', sans-serif;
-    color: var(--azul-cecyte);
-    font-size: 24px;
-    font-weight: 800;
-}
-.contenedor {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2%; /* Espacio entre los cuadros */
-    padding: 2%;
-}
-.cuadro {
-    background-color: #1a3648;
-    color: rgb(221, 255, 108);
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    font-family: Arial, sans-serif;
-    font-size: 1.5rem;
-    border-radius: 8%;
-    box-shadow: 0 4px 6px 20px rgba(0, 0, 0, 0.548);
-}
-.tarjeta{
-    width: 20%;
-    height: 40px auto;
-    background: var(--blanco);
-    border: 15px;
-    padding: 5%;
-    margin-bottom: 20%;
-    border: 5% solid #000000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-    flex: 1 1 200px; 
-}
-.informacion_tarjeta{
-    background-color: #481a1a;
-    color: rgb(167, 255, 108);
-    height: 100% auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    font-family: Arial, sans-serif;
-    font-size: 1.5rem;
-    border-radius: 10%;
-    box-shadow: 0px 4px 6px 10px rgba(0, 0, 0, 0.548);
-}
-.linea {
-    font-family: Arial, sans-serif;
-    border: 10;
-    height: 1%;
-    background: #333;
+
+.diseño_principal {
     width: 100%;
-}
-.agradecimientos{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 100%; /* Espacio entre los cuadros */
-    padding: 100%;
-    background-color: #1a3648;
-    color: rgb(221, 255, 108);
-    height: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-    font-size: 1.5rem;
-    border-radius: 100%;
-    box-shadow: 0 4px 6px 10px rgba(0, 0, 0, 0.548);
+    overflow-x: hidden;
+}
+
+/* 2. SEPARACIONES DE SEMESTRE (LÍNEAS) */
+.linea {
+    width: 85%;
+    max-width: 1100px;
+    border-bottom: 3px solid #1a4d8c;
+    text-align: center;
+    margin: 80px 0 50px; /* Gran espacio entre semestres */
+    height: 15px;
+}
+
+.linea h3 {
+    background: #FFFDD0; /* Color exacto del fondo para tapar la línea */
+    display: inline-block;
+    padding: 0 30px;
+    color: #1a4d8c;
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    position: relative;
+    top: -15px; /* Ajuste para centrar sobre la línea */
+}
+
+/* 3. CONTENEDOR DE TARJETAS (EL ACOMODO) */
+.contenedor {
+    display: flex;
+    flex-direction: row; /* Pone las cajas en fila */
+    flex-wrap: wrap;    /* Si no caben, bajan a la siguiente línea */
+    justify-content: center; /* Centra las cajas en la fila */
+    gap: 40px;          /* Espacio entre cada tarjeta */
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    color: transparent; /* Oculta cualquier texto suelto/fantasma */
+}
+
+/* 4. LA TARJETA (CUADRO) */
+.cuadro {
+    background: #ffffff;
+    width: 300px; /* Tamaño fijo para que quepan varias por fila */
+    border-radius: 20px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    padding-bottom: 25px;
+    transition: transform 0.3s ease;
+    color: initial; /* Devuelve el color al texto real dentro de la caja */
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.cuadro:hover {
+    transform: translateY(-10px);
+}
+
+/* 5. ENCABEZADO Y FOTO CENTRADA */
+.encabezado_tarjeta {
+    background: #1a4d8c;
+    width: 100%;
+    height: 90px;
+    position: relative;
+    margin-bottom: 55px; /* Espacio para que la foto no pise el nombre */
+}
+
+.foto_perfil_tarjeta {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid white;
+    background: #eee;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Centrado matemático perfecto */
+    bottom: -50px;
+    object-fit: cover;
+}
+
+/* 6. TEXTOS DENTRO DE LA TARJETA */
+.titulo_tarjeta {
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.titulo_tarjeta h2 {
+    font-size: 1.3rem;
+    color: #333;
+    margin: 10px 0 5px;
+    font-weight: 700;
+}
+
+.promedio {
+    color: #28a745;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+.grupo_tarjeta {
+    color: #777;
+    font-size: 0.95rem;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* 7. LIMPIEZA DE INFORMACIÓN DUPLICADA Y BASURA */
+.informacion_tarjeta, 
+.contenedor > p, 
+.contenedor > span, 
+.contenedor br {
+    display: none !important; /* Elimina la caja gris y textos sueltos */
 }
