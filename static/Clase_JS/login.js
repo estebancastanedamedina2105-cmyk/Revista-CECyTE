@@ -1,5 +1,5 @@
 let correoActual = "";
-console.log("Bienvenido a ingresar");
+console.log("Tilin");
 
 
   //Para mandar correos   /^[a-zA-Z0-9._%+-]+@[cecytemorelos]+\.[edu]+\.[mx]$/
@@ -16,7 +16,7 @@ async function manejarLogin() {
 
     try {
 
-        const respuesta = await fetch('http://127.0.0.1:5000/verificar', {
+        const respuesta = await fetch('http://127.0.0.1:5000/verificar_correo', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ correo: correoInput })
@@ -33,38 +33,32 @@ async function manejarLogin() {
         }
     } 
     catch (error) {
-        // Este alert SOLO saldrá si de verdad el servidor está apagado
+
         console.error("Error de conexión:", error);
         alert("Asegúrate de que tilin.py esté corriendo en la terminal.");
     }
 }
-async function verificarCodigo() {
-    const codigoIngresado = document.getElementById("code").value; // ID de tu input de código
-
-    if (!correoActual) {
-        alert("Primero debes ingresar tu correo.");
-        return;
-    }
+async function verificar_Codigo() {
+    const codigoIngresado = document.getElementById("code").value;
+    const correo = document.getElementById("correo").value;
 
     try {
-        const respuesta = await fetch('http://127.0.0.1:5000/verificar_codigo', {
+        const respuesta = await fetch('http://127.0.0.1:5000/comprobar_codigo', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                correo: correoActual, 
-                codigo: codigoIngresado 
-            })
+            body: JSON.stringify({ correo: correo, codigo: codigoIngresado })
         });
 
-        const datos = await respuesta.json();
+        const resultado = await respuesta.json();
 
         if (respuesta.ok) {
-            alert(datos.mensaje);
-            window.location.href = "1_Anuncios.html"; 
+            alert("¡Código correcto! Bienvenida/o.");
+            // ESTA LÍNEA HACE LA MAGIA:
+            window.location.href = "/"; 
         } else {
-            alert(datos.mensaje);
+            alert(resultado.mensaje);
         }
     } catch (error) {
-        alert("Error al verificar el código.");
+        console.error("Error:", error);
     }
 }
