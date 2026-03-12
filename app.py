@@ -1,3 +1,8 @@
+# .\bastixs\Scripts\Activate.ps1
+# cd Clase_db
+# Python tilin.py
+# deactivate
+
 from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
