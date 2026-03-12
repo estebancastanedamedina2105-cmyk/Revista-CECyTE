@@ -3,11 +3,12 @@ import os
 import smtplib
 from email.message import EmailMessage
 from flask import Flask, render_template, request, jsonify
-from flask_cors import CORS
 import sqlite3
 
 # Diccionario temporal para guardar los códigos (Clave: correo, Valor: código)
 codigos_temporales = {}
+
+
 # --- LÓGICA DEL CHATBOT ---
 def responder(mensaje):
     msg = mensaje.lower().strip()
@@ -27,34 +28,38 @@ def responder(mensaje):
 base_dir = os.path.abspath(os.path.dirname(__file__))
 
 # Esto apunta a las carpetas que están UN NIVEL ARRIBA de Clase_db
-template_dir = os.path.join(base_dir, '..', 'templates')
-static_dir = os.path.join(base_dir, '..', 'static')
+template_dir = os.path.join(base_dir, "..", "templates")
+static_dir = os.path.join(base_dir, "..", "static")
 
-app = Flask(__name__, 
-            template_folder=template_dir, 
-            static_folder=static_dir)
+app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
+
+
 @app.route("/")
 def anuncios():
     return render_template("1_Anuncios.html")
 
-@app.route('/login.html')
+
+@app.route("/login.html")
 def index():
-    return render_template('5_Login.html')
-   
-@app.route('/verificar_correo', methods=['POST'])
+    return render_template("5_Login.html")
+
+
+@app.route("/verificar_correo", methods=["POST"])
 def verificar_correo():
     datos = request.get_json()
-    correo_usuario = datos.get('correo')
-    
-    MI_CORREO = "codigorevistacecyte@gmail.com" 
+    correo_usuario = datos.get("correo")
+
+    MI_CORREO = "codigorevistacecyte@gmail.com"
     MI_PASSWORD = "kpvncfnhbzupioqc"
     try:
         # Conexión a la base de datos
         conexion = sqlite3.connect(r"C:\sqlite\bd proyects\Rev_Cecyte.db")
         cursor = conexion.cursor()
-        
+
         # Buscar el nombre del alumno
-        cursor.execute("SELECT nombre FROM Estudiantes WHERE correo = ?", (correo_usuario,))
+        cursor.execute(
+            "SELECT nombre FROM Estudiantes WHERE correo = ?", (correo_usuario,)
+        )
         resultado = cursor.fetchone()
 
         if resultado:
@@ -64,25 +69,25 @@ def verificar_correo():
 
             # --- PREPARAR EL CORREO ---
             msg = EmailMessage()
-            msg['Subject'] = f"Tu Código: {codigo} - Revista CECyTE"
-            msg['From'] = MI_CORREO
-            msg['To'] = correo_usuario
-            
+            msg["Subject"] = f"Tu Código: {codigo} - Revista CECyTE"
+            msg["From"] = MI_CORREO
+            msg["To"] = correo_usuario
+
             # Texto plano (por si el correo no carga el HTML)
             msg.set_content(f"Hola {nombre_alumno}, tu código es: {codigo}")
 
             # Insertar el diseño HTML
             cuerpo_final = HTML_DISENO.format(nombre=nombre_alumno, codigo=codigo)
-            msg.add_alternative(cuerpo_final, subtype='html')
+            msg.add_alternative(cuerpo_final, subtype="html")
 
             # --- ENVÍO POR SMTP ---
-            with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+            with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
                 smtp.login(MI_CORREO, MI_PASSWORD)
                 smtp.send_message(msg)
 
             print(f"Correo enviado a {correo_usuario} exitosamente.")
             return jsonify({"mensaje": "Código enviado", "codigo_enviado": True}), 200
-            
+
         else:
             return jsonify({"mensaje": "El correo no está registrado"}), 404
 
@@ -90,7 +95,7 @@ def verificar_correo():
         print(f"Error detectado: {ex}")
         return jsonify({"mensaje": "Error al procesar la solicitud"}), 500
     finally:
-        if 'conexion' in locals():
+        if "conexion" in locals():
             conexion.close()
 
 
@@ -116,25 +121,27 @@ HTML_DISENO = """
 </html>
 """
 
-@app.route('/comprobar_codigo', methods=['POST'])
+
+@app.route("/comprobar_codigo", methods=["POST"])
 def comprobar_codigo():
     datos = request.get_json()
-    correo = datos.get('correo')
-    codigo_usuario = datos.get('codigo')
+    correo = datos.get("correo")
+    codigo_usuario = datos.get("codigo")
 
     # Verificamos si el código coincide con el que guardamos antes
     if correo in codigos_temporales and codigos_temporales[correo] == codigo_usuario:
         # Si es correcto, lo borramos para que no se use de nuevo
-        del codigos_temporales[correo] 
+        del codigos_temporales[correo]
         return jsonify({"mensaje": "Acceso concedido"}), 200
     else:
         return jsonify({"mensaje": "Código incorrecto o expirado"}), 400
 
-@app.route('/publicar_comentario', methods=['POST'])
+
+@app.route("/publicar_comentario", methods=["POST"])
 def publicar_comentario():
     datos = request.json
-    texto = datos.get('contenido')
-    
+    texto = datos.get("contenido")
+
     conexion = sqlite3.connect(r"C:\sqlite\bd proyects\Rev_Cecyte.db")
     cursor = conexion.cursor()
     cursor.execute("INSERT INTO Comentarios (contenido) VALUES (?)", (texto,))
@@ -142,16 +149,19 @@ def publicar_comentario():
     conexion.close()
     return jsonify({"status": "success"}), 200
 
-@app.route('/dar_like', methods=['POST'])
+
+@app.route("/dar_like", methods=["POST"])
 def dar_like():
     datos = request.get_json()
-    id_comentario = datos.get('id') # Necesitamos el ID del comentario
-    
+    id_comentario = datos.get("id")  # Necesitamos el ID del comentario
+
     try:
         conexion = sqlite3.connect(r"C:\sqlite\bd proyects\Rev_Cecyte.db")
         cursor = conexion.cursor()
         # Aquí sumamos 1 al contador de esa fila específica
-        cursor.execute("UPDATE Comentarios SET likes = likes + 1 WHERE id = ?", (id_comentario,))
+        cursor.execute(
+            "UPDATE Comentarios SET likes = likes + 1 WHERE id = ?", (id_comentario,)
+        )
         conexion.commit()
         return jsonify({"status": "success"}), 200
     except Exception as e:
@@ -159,7 +169,8 @@ def dar_like():
     finally:
         conexion.close()
 
-@app.route('/obtener_comentarios', methods=['GET'])
+
+@app.route("/obtener_comentarios", methods=["GET"])
 def obtener_comentarios():
     try:
         conexion = sqlite3.connect(r"C:\sqlite\bd proyects\Rev_Cecyte.db")
@@ -167,11 +178,10 @@ def obtener_comentarios():
         # Seleccionamos id, contenido y likes (importante para el contador)
         cursor.execute("SELECT id, contenido, likes FROM Comentarios ORDER BY id DESC")
         filas = cursor.fetchall()
-        
+
         # Convertimos a una lista de diccionarios
         comentarios = [
-            {"id": f[0], "contenido": f[1], "likes": f[2] if f[2] else 0} 
-            for f in filas
+            {"id": f[0], "contenido": f[1], "likes": f[2] if f[2] else 0} for f in filas
         ]
         return jsonify(comentarios), 200
     except Exception as e:
@@ -181,6 +191,8 @@ def obtener_comentarios():
         conexion.close()
 
         # --- RUTA DEL CHATBOT ---
+
+
 @app.route("/chatbot", methods=["POST"])
 def chatbot():
     try:
@@ -188,8 +200,9 @@ def chatbot():
         mensaje_usuario = datos.get("mensaje", "")
         respuesta_bot = responder(mensaje_usuario)
         return jsonify({"respuesta": respuesta_bot})
-    except Exception as e:
+    except Exception:
         return jsonify({"respuesta": "Error en mi núcleo."}), 500
+
 
 # --- RUTAS DE LA REVISTA ---
 
@@ -197,6 +210,7 @@ def chatbot():
 @app.route("/profesores")
 def profesores():
     return render_template("2_Profesores.html")
+
 
 @app.route("/calendario")
 def calendario():
@@ -245,9 +259,8 @@ def mapa():
 
 @app.route("/horario")
 def horario():
-    return render_template("12_Horario.html")        
+    return render_template("12_Horario.html")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     app.run(debug=True, port=5000)
-
-    
