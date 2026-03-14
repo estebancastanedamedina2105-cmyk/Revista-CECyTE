@@ -1,0 +1,10 @@
+# Ignorar mi entorno virtual específico
+zxz/
+
+# Por si algún compañero crea uno con nombre estándar
+venv/
+env/
+
+# Archivos temporales de Python
+__pycache__/
+*.pyc

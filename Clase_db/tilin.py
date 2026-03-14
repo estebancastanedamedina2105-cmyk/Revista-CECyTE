@@ -4,10 +4,27 @@ import smtplib
 from email.message import EmailMessage
 from flask import Flask, render_template, request, jsonify
 import sqlite3
+from flask_sqlalchemy import SQLAlchemy
 
-# Diccionario temporal para guardar los códigos (Clave: correo, Valor: código)
+def obtener_cursor():
+    connection = db.engine.raw_connection()
+    return connection.cursor()
+
+base_dir = os.path.abspath(os.path.dirname(__file__))
+
+template_dir = os.path.join(base_dir, "..", "templates")
+static_dir = os.path.join(base_dir, "..", "static")
+
+app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
+
+base_dir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(base_dir, 'Rev_Cecyte.db')
+
+
+db = SQLAlchemy(app)
+
+
 codigos_temporales = {}
-
 
 # --- LÓGICA DEL CHATBOT ---
 def responder(mensaje):
@@ -22,16 +39,6 @@ def responder(mensaje):
         if clave in msg:
             return respuesta
     return "Lo siento, mi base de datos no reconoce esa consulta. 😟"
-
-
-# Esto detecta la carpeta "Clase_db"
-base_dir = os.path.abspath(os.path.dirname(__file__))
-
-# Esto apunta a las carpetas que están UN NIVEL ARRIBA de Clase_db
-template_dir = os.path.join(base_dir, "..", "templates")
-static_dir = os.path.join(base_dir, "..", "static")
-
-app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 
 
 @app.route("/")
@@ -52,11 +59,9 @@ def verificar_correo():
     MI_CORREO = "codigorevistacecyte@gmail.com"
     MI_PASSWORD = "kpvncfnhbzupioqc"
     try:
-        # Conexión a la base de datos
-        conexion = sqlite3.connect(r"C:\sqlite\bd proyects\Rev_Cecyte.db")
-        cursor = conexion.cursor()
 
-        # Buscar el nombre del alumno
+        conexion = db.engine.raw_connection()
+        cursor = conexion.cursor()
         cursor.execute(
             "SELECT nombre FROM Estudiantes WHERE correo = ?", (correo_usuario,)
         )
@@ -142,7 +147,7 @@ def publicar_comentario():
     datos = request.json
     texto = datos.get("contenido")
 
-    conexion = sqlite3.connect(r"C:\sqlite\bd proyects\Rev_Cecyte.db")
+    conexion = db.engine.raw_connection()
     cursor = conexion.cursor()
     cursor.execute("INSERT INTO Comentarios (contenido) VALUES (?)", (texto,))
     conexion.commit()
@@ -156,7 +161,7 @@ def dar_like():
     id_comentario = datos.get("id")  # Necesitamos el ID del comentario
 
     try:
-        conexion = sqlite3.connect(r"C:\sqlite\bd proyects\Rev_Cecyte.db")
+        conexion = db.engine.raw_connection()
         cursor = conexion.cursor()
         # Aquí sumamos 1 al contador de esa fila específica
         cursor.execute(
@@ -173,7 +178,7 @@ def dar_like():
 @app.route("/obtener_comentarios", methods=["GET"])
 def obtener_comentarios():
     try:
-        conexion = sqlite3.connect(r"C:\sqlite\bd proyects\Rev_Cecyte.db")
+        conexion = db.engine.raw_connection()
         cursor = conexion.cursor()
         # Seleccionamos id, contenido y likes (importante para el contador)
         cursor.execute("SELECT id, contenido, likes FROM Comentarios ORDER BY id DESC")
