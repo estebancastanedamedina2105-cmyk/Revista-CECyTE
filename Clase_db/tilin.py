@@ -142,62 +142,6 @@ def comprobar_codigo():
         return jsonify({"mensaje": "Código incorrecto o expirado"}), 400
 
 
-@app.route("/publicar_comentario", methods=["POST"])
-def publicar_comentario():
-    datos = request.json
-    texto = datos.get("contenido")
-
-    conexion = db.engine.raw_connection()
-    cursor = conexion.cursor()
-    cursor.execute("INSERT INTO Comentarios (contenido) VALUES (?)", (texto,))
-    conexion.commit()
-    conexion.close()
-    return jsonify({"status": "success"}), 200
-
-
-@app.route("/dar_like", methods=["POST"])
-def dar_like():
-    datos = request.get_json()
-    id_comentario = datos.get("id")  # Necesitamos el ID del comentario
-
-    try:
-        conexion = db.engine.raw_connection()
-        cursor = conexion.cursor()
-        # Aquí sumamos 1 al contador de esa fila específica
-        cursor.execute(
-            "UPDATE Comentarios SET likes = likes + 1 WHERE id = ?", (id_comentario,)
-        )
-        conexion.commit()
-        return jsonify({"status": "success"}), 200
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-    finally:
-        conexion.close()
-
-
-@app.route("/obtener_comentarios", methods=["GET"])
-def obtener_comentarios():
-    try:
-        conexion = db.engine.raw_connection()
-        cursor = conexion.cursor()
-        # Seleccionamos id, contenido y likes (importante para el contador)
-        cursor.execute("SELECT id, contenido, likes FROM Comentarios ORDER BY id DESC")
-        filas = cursor.fetchall()
-
-        # Convertimos a una lista de diccionarios
-        comentarios = [
-            {"id": f[0], "contenido": f[1], "likes": f[2] if f[2] else 0} for f in filas
-        ]
-        return jsonify(comentarios), 200
-    except Exception as e:
-        print(f"Error en Python: {e}")
-        return jsonify([]), 500
-    finally:
-        conexion.close()
-
-        # --- RUTA DEL CHATBOT ---
-
-
 @app.route("/chatbot", methods=["POST"])
 def chatbot():
     try:
@@ -265,6 +209,76 @@ def mapa():
 @app.route("/horario")
 def horario():
     return render_template("12_Horario.html")
+
+
+# --- CODIGO PARA CREAR LA TABLA SI NO EXISTE ---
+with app.app_context():
+    try:
+        conexion = db.engine.raw_connection()
+        cursor = conexion.cursor()
+        # Creamos la tabla exactamente como la necesita tu código
+        
+        conexion.commit()
+        print("✅ Tabla 'chismes' verificada/creada correctamente.")
+        conexion.close()
+    except Exception as e:
+        print(f"❌ Error al crear la tabla: {e}")
+
+# RUTA 1: Guardar un nuevo chisme
+@app.route("/guardar_chisme", methods=["POST"])
+def guardar_chisme():
+    datos = request.get_json()
+    contenido = datos.get("contenido")
+    
+    if not contenido:
+        return jsonify({"error": "El chisme está vacío"}), 400
+
+    conexion = db.engine.raw_connection()
+    cursor = conexion.cursor()
+    try:
+        cursor.execute("INSERT INTO chismes (contenido, likes) VALUES (?, 0)", (contenido,))
+        conexion.commit()
+        return jsonify({"mensaje": "Chisme guardado con éxito"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    finally:
+        conexion.close()
+
+# RUTA 2: Obtener todos los chismes para mostrarlos
+@app.route("/obtener_chismes", methods=["GET"])
+def obtener_chismes():
+    conexion = db.engine.raw_connection()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT id, contenido, likes FROM chismes ORDER BY id DESC")
+    filas = cursor.fetchall()
+    
+    chismes = []
+    for fila in filas:
+        chismes.append({
+            "id": fila[0],
+            "contenido": fila[1],
+            "likes": fila[2]
+        })
+    conexion.close()
+    return jsonify(chismes)
+
+@app.route("/dar_like", methods=["POST"])
+def dar_like():
+    datos = request.get_json()
+    id_chisme = datos.get("id")
+    
+    conexion = db.engine.raw_connection()
+    cursor = conexion.cursor()
+    try:
+        # Asegúrate de que el ID coincida
+        cursor.execute("UPDATE chismes SET likes = likes + 1 WHERE id = ?", (id_chisme,))
+        conexion.commit() # ¡Esto es lo que guarda el cambio para siempre!
+        return jsonify({"mensaje": "Like guardado"}), 200
+    except Exception as e:
+        print(f"Error en like: {e}")
+        return jsonify({"mensaje": "Error"}), 500
+    finally:
+        conexion.close()
 
 
 if __name__ == "__main__":

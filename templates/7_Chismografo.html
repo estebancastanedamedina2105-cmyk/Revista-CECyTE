@@ -70,18 +70,16 @@
         </div>
 
         
-        <h2 class="titulo_seccion">Chismografo</h2>
-        <div class="linea"><h1 class="linea"></h1></div>
-        <h1 class="linea"></h1>
-        <div>
-            <div class="post-container">
-                <div class="post-header">
-                    <textarea id="postText" placeholder="¿Qué vas a contar?"></textarea>
-                </div>
-            <div class="post-actions">
-                <button id="postBtn" class="botones">Publicar</button>
-            </div>
-        </div>
+        <div class="post-container">
+    <div class="post-header">
+        <textarea id="postText" placeholder="¿Qué vas a contar?"></textarea>
+    </div>
+    <div class="post-actions">
+        <button id="postBtn" class="botones">Publicar</button>
+    </div>
+</div>
+
+<div id="feed"></div>
 
 <!-- Contenedor donde aparecerán las publicaciones -->
 <div for="feed" id="feed"></div>
@@ -142,7 +140,9 @@
       </div>
     </div>
 
+
     <script src="{{ url_for('static', filename='Clase_JS/chatbot.js') }}"></script>
+    <script src="{{ url_for('static', filename='Clase_JS/chismografo.js') }}"></script>
 
   </body>
 </html>
