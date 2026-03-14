@@ -6,9 +6,11 @@ from flask import Flask, render_template, request, jsonify
 import sqlite3
 from flask_sqlalchemy import SQLAlchemy
 
+
 def obtener_cursor():
     connection = db.engine.raw_connection()
     return connection.cursor()
+
 
 base_dir = os.path.abspath(os.path.dirname(__file__))
 
@@ -18,13 +20,16 @@ static_dir = os.path.join(base_dir, "..", "static")
 app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 
 base_dir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(base_dir, 'Rev_Cecyte.db')
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(
+    base_dir, "Rev_Cecyte.db"
+)
 
 
 db = SQLAlchemy(app)
 
 
 codigos_temporales = {}
+
 
 # --- LÓGICA DEL CHATBOT ---
 def responder(mensaje):
@@ -59,7 +64,6 @@ def verificar_correo():
     MI_CORREO = "codigorevistacecyte@gmail.com"
     MI_PASSWORD = "kpvncfnhbzupioqc"
     try:
-
         conexion = db.engine.raw_connection()
         cursor = conexion.cursor()
         cursor.execute(
