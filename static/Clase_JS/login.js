@@ -52,6 +52,7 @@ async function verificar_Codigo() {
         const resultado = await respuesta.json();
 
         if (respuesta.ok) {
+            localStorage.setItem('usuario_email', correo);
             alert("¡Código correcto! Bienvenida/o.");
             // ESTA LÍNEA HACE LA MAGIA:
             window.location.href = "/"; 

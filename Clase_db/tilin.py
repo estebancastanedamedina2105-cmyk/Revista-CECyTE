@@ -6,11 +6,9 @@ from flask import Flask, render_template, request, jsonify
 import sqlite3
 from flask_sqlalchemy import SQLAlchemy
 
-
 def obtener_cursor():
     connection = db.engine.raw_connection()
     return connection.cursor()
-
 
 base_dir = os.path.abspath(os.path.dirname(__file__))
 
@@ -20,16 +18,13 @@ static_dir = os.path.join(base_dir, "..", "static")
 app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 
 base_dir = os.path.abspath(os.path.dirname(__file__))
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(
-    base_dir, "Rev_Cecyte.db"
-)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(base_dir, 'Rev_Cecyte.db')
 
 
 db = SQLAlchemy(app)
 
 
 codigos_temporales = {}
-
 
 # --- LÓGICA DEL CHATBOT ---
 def responder(mensaje):
@@ -64,6 +59,7 @@ def verificar_correo():
     MI_CORREO = "codigorevistacecyte@gmail.com"
     MI_PASSWORD = "kpvncfnhbzupioqc"
     try:
+
         conexion = db.engine.raw_connection()
         cursor = conexion.cursor()
         cursor.execute(
@@ -215,24 +211,16 @@ def horario():
     return render_template("12_Horario.html")
 
 
-# --- CODIGO PARA CREAR LA TABLA SI NO EXISTE ---
 with app.app_context():
-    try:
-        conexion = db.engine.raw_connection()
-        cursor = conexion.cursor()
-        # Creamos la tabla exactamente como la necesita tu código
-        
-        conexion.commit()
-        print("✅ Tabla 'chismes' verificada/creada correctamente.")
-        conexion.close()
-    except Exception as e:
-        print(f"❌ Error al crear la tabla: {e}")
+    conexion = db.engine.raw_connection()
+    cursor = conexion.cursor()
 
 # RUTA 1: Guardar un nuevo chisme
 @app.route("/guardar_chisme", methods=["POST"])
 def guardar_chisme():
     datos = request.get_json()
     contenido = datos.get("contenido")
+    autor = datos.get("autor")
     
     if not contenido:
         return jsonify({"error": "El chisme está vacío"}), 400
@@ -240,29 +228,31 @@ def guardar_chisme():
     conexion = db.engine.raw_connection()
     cursor = conexion.cursor()
     try:
-        cursor.execute("INSERT INTO chismes (contenido, likes) VALUES (?, 0)", (contenido,))
+        cursor.execute("INSERT INTO chismes (contenido, autor, likes) VALUES (?, ?, 0)", (contenido, datos.get("autor")))
         conexion.commit()
         return jsonify({"mensaje": "Chisme guardado con éxito"}), 200
+    
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     finally:
         conexion.close()
 
-# RUTA 2: Obtener todos los chismes para mostrarlos
-@app.route("/obtener_chismes", methods=["GET"])
+@app.route("/obtener_chismes")
 def obtener_chismes():
     conexion = db.engine.raw_connection()
     cursor = conexion.cursor()
-    cursor.execute("SELECT id, contenido, likes FROM chismes ORDER BY id DESC")
+    cursor.execute("SELECT id, contenido, likes, autor FROM chismes ORDER BY id DESC")
     filas = cursor.fetchall()
     
     chismes = []
-    for fila in filas:
+    for f in filas:
         chismes.append({
-            "id": fila[0],
-            "contenido": fila[1],
-            "likes": fila[2]
+            "id": f[0],
+            "contenido": f[1],
+            "likes": f[2],
+            "autor": f[3]
         })
+    
     conexion.close()
     return jsonify(chismes)
 

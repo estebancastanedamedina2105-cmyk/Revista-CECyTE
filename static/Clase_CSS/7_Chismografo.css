@@ -195,3 +195,59 @@ body.dark .post-actions {
 body.dark #likeCount {
     color: #ffffff;
 }
+/* La tarjeta que envuelve cada chisme */
+.chisme-card {
+    background: rgba(30, 30, 30, 0.9); /* Fondo oscuro como tus otras secciones */
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.chisme-card:hover {
+    border-color: #ff4757; /* Resalta en rojo al pasar el mouse */
+    transform: scale(1.01);
+}
+
+/* El nombre del autor arriba */
+.chisme-autor {
+    color: #ff4757; /* El rojo de tu logo */
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* El texto del chisme */
+.chisme-content p {
+    color: #ffffff;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+/* Botón de Like con tu estilo de 'botones' */
+.btn-like-estilo {
+    background: transparent;
+    border: 1px solid #ff4757;
+    color: #ff4757;
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn-like-estilo:hover {
+    background: #ff4757;
+    color: white;
+}
+
+/* Estado bloqueado del botón */
+.btn-like-estilo:disabled {
+    border-color: #666;
+    color: #666;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
