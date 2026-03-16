@@ -60,32 +60,43 @@
 
     <div class="diseño_principal">
       <input type="checkbox" id="check-menu" style="display: none" />
+<div class="barra-lateral" id="miMenu" popover>
+    <div class="grupo-menu">
+        <h2>Revista</h2>
+        <ul>
+            <li><a href="{{ url_for('anuncios') }}" class="btn_item">☆ Anuncios</a></li>
+            <li><a href="{{ url_for('calendario') }}" class="btn_item">☆ Calendario</a></li>
 
-      <div class="barra-lateral" id="miMenu" popover>
-        <div class="grupo-menu">
-                <h2>Revista</h2>
-                <ul>
-                    <li><a href="{{ url_for('anuncios') }}" class="btn_item">☆ Anuncios</a></li>
-                    <li><a href="{{ url_for('calendario') }}" class="btn_item">☆ Calendario</a></li>
-                    <li><a href="{{ url_for('profesores') }}" class="btn_item">☆ Profesores</a></li>
-                    <li><a href="{{ url_for('eventos') }}" class="btn_item">☆ Eventos</a></li>
-                    <li><a href="{{ url_for('alumnos_destacados') }}" class="btn_item">☆ Alumnos destacados</a></li>
-                </ul>
-            </div>
-            <div class="grupo-menu">
-                <ul><hr>    
-                    <li><a href="{{ url_for('cafeteria') }}" class="btn_item">☆ Menu de cafeteria</a></li>
-                    <li><a href="{{ url_for('mapa') }}" class="btn_item">☆ Mapa</a></li>
-                    <li><a href="{{ url_for('chismografo') }}" class="btn_item">☆ Chismografo</a></li>
-                </hr></ul>
-            </div>
-            <div class="menu-usuario">
-                <div>
-                    <a href="{{ url_for('perfil') }}" class="btn_item">👤 User</a>
-                </div>
-                <div class="btn_item">Exit</div>
-            </div>
-      </div>
+            {% if session.get('usuario_logueado') %}
+                <li><a href="{{ url_for('profesores') }}" class="btn_item">☆ Profesores</a></li>
+                <li><a href="{{ url_for('eventos') }}" class="btn_item">☆ Eventos</a></li>
+                <li><a href="{{ url_for('alumnos_destacados') }}" class="btn_item">☆ Alumnos destacados</a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <div class="grupo-menu">
+        <ul><hr>
+            {% if session.get('usuario_logueado') %}
+                <li><a href="{{ url_for('cafeteria') }}" class="btn_item">☆ Menu de cafeteria</a></li>
+                <li><a href="{{ url_for('mapa') }}" class="btn_item">☆ Mapa</a></li>
+                <li><a href="{{ url_for('chismografo') }}" class="btn_item">☆ Chismografo</a></li>
+            {% endif %}
+        <hr></ul>
+    </div>
+
+    <div class="menu-usuario">
+        <div>
+            {% if session.get('usuario_logueado') %}
+                <a href="{{ url_for('perfil') }}" class="btn_item">👤 {{ session['usuario_logueado'] }}</a>
+            {% else %}
+                <a href="/login.html" class="btn_item">👤 Ingresar</a>
+            {% endif %}
+        </div>
+        
+        <a href="{{ url_for('logout') }}" class="btn_item">Exit</a>
+    </div>
+</div>
 
       <main class="feed_anuncios">
         <div class="barra_busqueda_contenedor">

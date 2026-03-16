@@ -2,7 +2,7 @@ import random
 import os
 import smtplib
 from email.message import EmailMessage
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 import sqlite3
 from flask_sqlalchemy import SQLAlchemy
 
@@ -16,6 +16,7 @@ template_dir = os.path.join(base_dir, "..", "templates")
 static_dir = os.path.join(base_dir, "..", "static")
 
 app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
+app.secret_key = 'tilin1234567'
 
 base_dir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(base_dir, 'Rev_Cecyte.db')
@@ -135,6 +136,7 @@ def comprobar_codigo():
 
     # Verificamos si el código coincide con el que guardamos antes
     if correo in codigos_temporales and codigos_temporales[correo] == codigo_usuario:
+        session['usuario_logueado'] = correo
         # Si es correcto, lo borramos para que no se use de nuevo
         del codigos_temporales[correo]
         return jsonify({"mensaje": "Acceso concedido"}), 200
@@ -158,6 +160,8 @@ def chatbot():
 
 @app.route("/profesores")
 def profesores():
+    if not session.get('usuario_logueado'):
+        return redirect("/login.html")
     return render_template("2_Profesores.html")
 
 
@@ -168,46 +172,64 @@ def calendario():
 
 @app.route("/cafeteria")
 def cafeteria():
+    if not session.get('usuario_logueado'):
+        return redirect("/login.html")
     return render_template("4_Cafeteria.html")
 
 
 @app.route("/login")
 def login():
+    if not session.get('usuario_logueado'):
+        return redirect("/login.html")
     return render_template("5_Login.html")
 
 
 @app.route("/perfil")
 def perfil():
+    if not session.get('usuario_logueado'):
+        return redirect("/login.html")
     return render_template("6_Perfil.html")
 
 
 @app.route("/chismografo")
 def chismografo():
+    if not session.get('usuario_logueado'):
+        return redirect("/login.html")
     return render_template("7_Chismografo.html")
 
 
 @app.route("/eventos")
 def eventos():
+    if not session.get('usuario_logueado'):
+        return redirect("/login.html")
     return render_template("8_Eventos.html")
 
 
 @app.route("/alumnos_destacados")
 def alumnos_destacados():
+    if not session.get('usuario_logueado'):
+        return redirect("/login.html")
     return render_template("9_AlumnosDesta.html")
 
 
 @app.route("/convocatorias")
 def convocatorias():
+    if not session.get('usuario_logueado'):
+        return redirect("/login.html")
     return render_template("10_Convocatoria.html")
 
 
 @app.route("/mapa")
 def mapa():
+    if not session.get('usuario_logueado'):
+        return redirect("/login.html")
     return render_template("11_Mapa.html")
 
 
 @app.route("/horario")
 def horario():
+    if not session.get('usuario_logueado'):
+        return redirect("/login.html")
     return render_template("12_Horario.html")
 
 
@@ -273,6 +295,11 @@ def dar_like():
         return jsonify({"mensaje": "Error"}), 500
     finally:
         conexion.close()
+
+@app.route("/logout")
+def logout():
+    session.clear()  # Esto borra el correo guardado y "cierra" la sesión
+    return redirect(url_for('index')) # Te manda de vuelta al inicio (o a la función que tengas para el login/inicio)
 
 
 if __name__ == "__main__":
